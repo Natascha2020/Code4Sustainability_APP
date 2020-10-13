@@ -1,0 +1,13 @@
+.worksWrapper {
+  margin-top: 10em;
+}
+
+.howWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.howMatch {
+  text-align: center;
+  margin-top: 3em;
+}

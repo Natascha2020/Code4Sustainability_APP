@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import SignIn from "./Components/SignIn";
+import LogIn from "./Components/LogIn";
+import About from "./Components/About";
+import HowItWorks from "./Components/HowItWorks";
+import ProjectOverview from "./Components/ProjectOverview";
+import ProfileDev from "./Components/ProfileDev";
+import ProfileProject from "./Components/ProfileProject";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route exact path="/">
+        <LogIn />
+      </Route>
+      <Route exact path="/howItWorks">
+        <HowItWorks />
+      </Route>
+      <Route exact path="/profileDev">
+        <ProfileDev />
+      </Route>
+
+      <Navbar />
+      <Route exact path="/about">
+        <About />
+      </Route>
+
+      <Route exact path="/projects">
+        <ProjectOverview />
+      </Route>
+      <Route exact path="/signIn">
+        <SignIn />
+      </Route>
+
+      <Route exact path="/profileProject">
+        <ProfileProject />
+      </Route>
+    </Router>
   );
-}
+};
 
 export default App;

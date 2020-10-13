@@ -1,0 +1,37 @@
+nav {
+  background-color: #001235;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 1.5em;
+  padding: 0;
+}
+
+li {
+  font-size: 1em;
+}
+
+.link:link {
+  text-decoration: none;
+  color: white;
+}
+
+.link:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #eeff41;
+}
