@@ -1,0 +1,14 @@
+.cardPWrapper {
+    display:inline-block;
+    text-align:center;
+  }
+  
+  .cardP {
+    max-width:400px;
+    margin:0px; 
+    padding:0px; 
+    border:0px solid transparent; 
+    border-radius:8px; 
+    overflow:hidden;
+    box-shadow:3px 3px 6px rgba(0,0,0,0.5);
+  }
