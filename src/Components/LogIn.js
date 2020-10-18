@@ -1,17 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import { Box, Button, Card, Form, FormField, TextInput } from "grommet";
 import "../Styles/LogIn.css";
 
 const LogIn = () => {
+  const [value, setValue] = useState({});
+
   return (
     <div>
-      <h1>HELLO WORLD!</h1>
-      <div className="signInWrapper">
-        <form className="signInForm">
-          <input placeholder="Email"></input>
-          <input placeholder="Password"></input>
-          <button>Log In</button>
-        </form>
+      <div className="titleWrapper">
+        <h1>HELLO WORLD!</h1>
+        <br />
+        <div>Matching developers with social changemakers</div>
+        <br />
       </div>
+
+      <div className="loginWrapper">
+        <div className="introWrapper">
+          <div>You are a developer</div>
+          <div> and you love to code for good? </div>
+          <br />
+          <div>Awesome </div>
+          <br />
+          <div>We need you! </div>
+        </div>
+
+        <img alt="globe" src="../Assets/globeComic.jpg" />
+
+        <div className="introWrapper">
+          <div>You are a sustainable project </div>
+          <div>and you have a tech problem? </div>
+          <br />
+          <div>No worries </div>
+          <br />
+          <div>We help you! </div>
+        </div>
+      </div>
+      <Card className="loginCard" height="medium" width="medium" background="light-4">
+        <Form
+          className="loginForm"
+          value={value}
+          onChange={(nextValue) => setValue(nextValue)}
+          onReset={() => setValue({})}
+          onSubmit={({ value }) => {}}>
+          <h3 className="cardTitle">&lt; Ready to connect? &gt;</h3>
+          <FormField name="email" htmlfor="text-input-id" label="Email">
+            <TextInput id="text-input-id" name="email" />
+          </FormField>
+          <FormField name="password" htmlfor="password" label="Password">
+            <TextInput id="password" name="Password" />
+          </FormField>
+
+          <Box direction="row" gap="medium">
+            <Button type="submit" primary label="Developer" />
+            <Button type="submit" label="Project" />
+          </Box>
+        </Form>
+      </Card>
     </div>
   );
 };

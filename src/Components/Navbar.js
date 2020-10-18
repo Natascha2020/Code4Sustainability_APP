@@ -1,50 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Nav } from "grommet";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeartbeat, faAnchor, faGlobeAmericas, faRocket } from "@fortawesome/free-solid-svg-icons";
+
 import "../Styles/Navbar.css";
 
 const Navbar = () => {
   return (
     <div>
-      <nav>
+      <Nav direction="row" pad="medium">
         <ul>
-          <li className="logo">Code4Sustainability</li>
-          <li>
-            <Link className="link" to="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className="link" to="/howItWorks">
-              How it works
-            </Link>
-          </li>
-          <li>
-            <Link className="link" to="/projects">
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link className="link" to="/about">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link className="link" to="/signIn">
-              SignIn
-            </Link>
-          </li>
-          <li>
-            <Link className="link" to="/profileDev">
-              ProfileDev
-            </Link>
-          </li>
-          <li>
-            <Link className="link" to="/profileProject">
-              ProfileProject
-            </Link>
-          </li>
+          <li className="logo">Code 4 Sustainability</li>
+
+          <div className="navLinkWrapper">
+            <li>
+              <Link className="link" to="/">
+                LogIn
+                <FontAwesomeIcon icon={faAnchor} size="lg" />
+              </Link>
+            </li>
+            <li>
+              <Link className="link" to="/howItWorks">
+                How
+                <FontAwesomeIcon icon={faRocket} size="lg" />
+              </Link>
+            </li>
+
+            <li>
+              <Link className="link" to="/about">
+                Why
+                <FontAwesomeIcon icon={faGlobeAmericas} size="lg" />
+              </Link>
+            </li>
+
+            <li>
+              <Link className="link" to="/projects">
+                Projects
+                <FontAwesomeIcon icon={faHeartbeat} size="lg" />
+              </Link>
+            </li>
+          </div>
         </ul>
-      </nav>
+      </Nav>
     </div>
   );
 };

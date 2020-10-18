@@ -1,6 +1,4 @@
 nav {
-  background-color: #001235;
-  color: white;
   position: fixed;
   top: 0;
   width: 100%;
@@ -19,19 +17,31 @@ ul {
 
 li {
   font-size: 1em;
+  margin: 0 2em;
+}
+
+.navLinkWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5em;
+}
+
+.logo {
+  font-size: 1.2em;
+  font-family: "ONEDAY";
 }
 
 .link:link {
   text-decoration: none;
-  color: white;
+  color: #fff;
 }
 
 .link:visited {
   text-decoration: none;
-  color: white;
+  color: #fff;
 }
 
 .link:hover {
   text-decoration: none;
-  color: #eeff41;
+  color: #daa520;
 }
