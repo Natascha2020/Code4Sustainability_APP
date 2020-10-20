@@ -31,6 +31,15 @@ li {
   font-family: "ONEDAY";
 }
 
+.logoWrapper {
+  display: flex;
+}
+
+.logoText {
+  font-size: 0.8em;
+  font-family: "ONEDAY";
+}
+
 .link:link {
   text-decoration: none;
   color: #fff;

@@ -11,7 +11,13 @@ const Navbar = () => {
     <div>
       <Nav direction="row" pad="medium">
         <ul>
-          <li className="logo">Code 4 Sustainability</li>
+          <li>
+            <div className="logoWrapper">
+              <div className="logo">CoSy</div>
+              <div className="logoSep">||</div>
+              <div className="logoText">Code 4 Sustainability</div>
+            </div>
+          </li>
 
           <div className="navLinkWrapper">
             <li>
