@@ -42,6 +42,7 @@ const App = () => {
           <ProfileProject />
         </Route>
         <Navbar />
+
         <NavFooter />
       </Grommet>
     </Router>

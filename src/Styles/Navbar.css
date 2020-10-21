@@ -2,7 +2,6 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 3;
   font-family: sans-serif;
 }
 
@@ -26,18 +25,43 @@ li {
   margin-left: 5em;
 }
 
+.navIcon {
+  margin-left: 0.5em;
+}
+
 .logo {
-  font-size: 1.2em;
+  font-size: 2.1em;
   font-family: "ONEDAY";
+  color: #008b8b;
+  font-weight: bold;
+  margin-top: 0.2em;
+  letter-spacing: 2px;
 }
 
 .logoWrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logoText {
   font-size: 0.8em;
   font-family: "ONEDAY";
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #daa520;
+  margin-left: 0.3em;
+}
+
+.textWrapper {
+  justify-content: center;
+  align-items: center;
+}
+
+.logoSep {
+  font-size: 1.9em;
+  font-weight: 200;
+  margin: 0 0.1em 0.2em;
 }
 
 .link:link {

@@ -5,6 +5,7 @@ const Theme = {
       nav: "#fff",
       navIcon: "#aaa",
       login: "rgba(255,228,196, 0.3)",
+      navLogo: "#008b8b",
     },
     font: {
       family: "Roboto",

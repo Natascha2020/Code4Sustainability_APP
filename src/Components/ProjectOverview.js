@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "./axios";
 import { Box, WorldMap } from "grommet";
 import ProjectOverviewCard from "./ProjectOverviewCard";
-import { urlUsersProjects } from "./Settings";
+import * as settings from "./Settings";
 import ErrorHandler from "./ErrorHandler";
 
 const ProjectOverview = () => {
@@ -16,7 +16,7 @@ const ProjectOverview = () => {
 
   const handleFetch = async () => {
     try {
-      const { data } = await axios.get(urlUsersProjects);
+      const { data } = await axios.get(settings.urlUsers + "/projects");
       setAllProjects(data);
       setUpdateProjects(false);
       console.log(data);

@@ -1,9 +1,20 @@
 import React, { useState } from "react";
+import axios from "axios";
+import * as settings from "./Settings";
 import { Box, Button, Card, Form, FormField, TextInput } from "grommet";
+
 import "../Styles/LogIn.css";
 
 const LogIn = () => {
   const [value, setValue] = useState({});
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    axios.post(settings.urlAuth, { email, password }, { withCredentials: true }).catch((error) => console.log(error));
+  };
 
   return (
     <div>
@@ -36,23 +47,17 @@ const LogIn = () => {
         </div>
       </div>
       <Card className="loginCard" height="medium" width="medium" background="light-4">
-        <Form
-          className="loginForm"
-          value={value}
-          onChange={(nextValue) => setValue(nextValue)}
-          onReset={() => setValue({})}
-          onSubmit={({ value }) => {}}>
+        <Form className="loginForm" value="loginData" onReset={(e) => {}} onSubmit={(e) => handleLogIn(e)}>
           <h3 className="cardTitle">&lt; Ready to connect? &gt;</h3>
           <FormField name="email" htmlfor="text-input-id" label="Email">
-            <TextInput id="text-input-id" name="email" />
+            <TextInput id="text-input-id" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </FormField>
           <FormField name="password" htmlfor="password" label="Password">
-            <TextInput id="password" name="Password" />
+            <TextInput id="password" name="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </FormField>
 
           <Box direction="row" gap="medium">
-            <Button type="submit" primary label="Developer" />
-            <Button type="submit" label="Project" />
+            <Button type="submit" primary label="LogIn" />
           </Box>
         </Form>
       </Card>

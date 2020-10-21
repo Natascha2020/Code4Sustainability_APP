@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Nav } from "grommet";
+import { Nav, Menu } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartbeat, faAnchor, faGlobeAmericas, faRocket } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,36 +15,49 @@ const Navbar = () => {
             <div className="logoWrapper">
               <div className="logo">CoSy</div>
               <div className="logoSep">||</div>
-              <div className="logoText">Code 4 Sustainability</div>
+              <div classname="textWrapper">
+                <div className="logoText">Code 4</div>
+                <div className="logoText">Sustainability</div>
+              </div>
             </div>
           </li>
 
           <div className="navLinkWrapper">
             <li>
               <Link className="link" to="/">
+                <FontAwesomeIcon className="navIcon" icon={faAnchor} size="lg" />
                 LogIn
-                <FontAwesomeIcon icon={faAnchor} size="lg" />
               </Link>
             </li>
             <li>
               <Link className="link" to="/howItWorks">
+                <FontAwesomeIcon className="navIcon" icon={faRocket} size="lg" />
                 How
-                <FontAwesomeIcon icon={faRocket} size="lg" />
               </Link>
             </li>
 
             <li>
               <Link className="link" to="/about">
+                <FontAwesomeIcon className="navIcon" icon={faGlobeAmericas} size="lg" />
                 Why
-                <FontAwesomeIcon icon={faGlobeAmericas} size="lg" />
               </Link>
             </li>
 
             <li>
               <Link className="link" to="/projects">
+                <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="lg" />
                 Projects
-                <FontAwesomeIcon icon={faHeartbeat} size="lg" />
               </Link>
+            </li>
+            <li>
+              <Menu
+                label="My Profile"
+                items={[
+                  { label: "Settings", onClick: () => {} },
+                  { label: "Matches pending", onClick: () => {} },
+                  { label: "Matches accepted", onClick: () => {} },
+                ]}
+              />
             </li>
           </div>
         </ul>

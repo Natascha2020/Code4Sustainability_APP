@@ -13,22 +13,22 @@ const NavFooter = () => {
       <hr />
       <Footer pad="medium">
         <a className="link" href="http: ">
-          <FontAwesomeIcon icon={faUserSecret} size="lg" />
+          <FontAwesomeIcon className="navIcon" icon={faUserSecret} size="lg" />
           <span>Security</span>
         </a>
 
         <a className="link" href="https://github.com/Natascha2020/Code4Sustainability_APP.git">
-          <FontAwesomeIcon icon={faGithub} size="lg" />
+          <FontAwesomeIcon className="navIcon" icon={faGithub} size="lg" />
           <span>Source code</span>
         </a>
 
         <a className="link" href="http: ">
-          <FontAwesomeIcon icon={faShareAlt} size="lg" />
+          <FontAwesomeIcon className="navIcon" icon={faShareAlt} size="lg" />
           <span>Share</span>
         </a>
 
         <a className="link" href="http: ">
-          <FontAwesomeIcon icon={faGift} size="lg" />
+          <FontAwesomeIcon className="navIcon" icon={faGift} size="lg" />
           <span>Supporter</span>
         </a>
 
