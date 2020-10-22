@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/SignIn.css";
 
-const SignIn = () => {
+const SignUp = () => {
   return (
     <div>
       <h1>READY TO IMPACT!?</h1>
@@ -16,4 +16,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

@@ -53,9 +53,9 @@ const Navbar = () => {
               <Menu
                 label="My Profile"
                 items={[
-                  { label: "Settings", onClick: () => {} },
-                  { label: "Matches pending", onClick: () => {} },
-                  { label: "Matches accepted", onClick: () => {} },
+                  { label: "Personal data", href: "/personalData" },
+                  { label: "Matches pending", href: "/matchesPending" },
+                  { label: "Matches accepted", href: "/matchesPending" },
                 ]}
               />
             </li>

@@ -1,41 +1,54 @@
-import React, { useState } from "react";
-import axios from "axios";
-import VideoUpload from "./VideoUpload";
-import { Box, Button, Form, FormField, TextInput } from "grommet";
+import React from "react";
 import "../Styles/ProfileProject.css";
 
 const ProfileProject = () => {
-  const [value, setValue] = useState({});
   return (
     <div>
-      <Form
-        className="profileForm"
-        value={value}
-        onChange={(nextValue) => setValue(nextValue)}
-        onReset={() => setValue({})}
-        onSubmit={({ value }) => {}}>
-        <FormField name="name" htmlfor="name" label="Name">
-          <TextInput id="name" name="name" placeholder="(User)Name" />
-        </FormField>
-
-        <FormField name="email" htmlfor="email" label="Email">
-          <TextInput id="email" name="email" placeholder="Email" />
-        </FormField>
-
-        <FormField name="location" htmlfor="location" label="Location">
-          <TextInput id="location" name="location" placeholder="Location" />
-        </FormField>
-
-        <FormField name="webpage" htmlfor="webpage" label="Webpage">
-          <TextInput id="webpage" name="webpage" placeholder="Webpage" />
-        </FormField>
-
-        <VideoUpload />
-        <Box direction="row" gap="medium">
-          <Button type="submit" primary label="Submit" />
-          <Button type="reset" label="Reset" />
-        </Box>
-      </Form>
+      <div className="questionWrapper">
+        <label for="questionOne">Q & A: </label>
+        <select name="questionOne" id="questionOne">
+          <option selected value="never">
+            I have never...
+          </option>
+          <option value="coding">What I love about coding...</option>
+          <option value="sustainability">What I think is important about sustainability...</option>
+          <option value="travel">Sea or mountains...</option>
+          <option value="joke">Best joke I have ever heard...</option>
+          <option value="selfmade">...</option>
+        </select>
+        <br />
+        <textarea className="qTextArea" value="Answer One"></textarea>
+      </div>
+      <div className="questionWrapper">
+        <label for="questionTwo">Q & A: </label>
+        <select name="questionTwo" id="questionTwo">
+          <option selected value="wish">
+            I wish...
+          </option>
+          <option value="car">As a car I would be...</option>
+          <option value="friend">My best friend...</option>
+          <option value="pet">Car or dog...</option>
+          <option value="invention">I always wanted to invent...</option>
+          <option value="selfmade">...</option>
+        </select>
+        <br />
+        <textarea className="qTextArea" value="Answer One"></textarea>
+      </div>
+      <div className="questionWrapper">
+        <label for="questionTwo">Q & A: </label>
+        <select name="questionThree" id="questionThree">
+          <option selected value="important">
+            Important to know...
+          </option>
+          <option value="destination">The best travel destination...</option>
+          <option value="sustainability">Saturday night...</option>
+          <option value="pet">Everbody should...</option>
+          <option value="joke">The future...</option>
+          <option value="joke">...</option>
+        </select>
+        <br />
+        <textarea className="qTextArea" value="Answer One"></textarea>
+      </div>
     </div>
   );
 };

@@ -24,3 +24,18 @@
 .titleWrapper {
   text-align: center;
 }
+
+.linkSignUp:link {
+  text-decoration: none;
+  color: #000;
+}
+
+.linkSignUp:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.linkSignUp:hover {
+  text-decoration: none;
+  color: #daa520;
+}

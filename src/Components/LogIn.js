@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import * as settings from "./Settings";
 import { Box, Button, Card, Form, FormField, TextInput } from "grommet";
@@ -58,6 +59,11 @@ const LogIn = () => {
 
           <Box direction="row" gap="medium">
             <Button type="submit" primary label="LogIn" />
+          </Box>
+          <Box>
+            <Link className="linkSignUp" to="/signUp">
+              Sign up
+            </Link>
           </Box>
         </Form>
       </Card>
