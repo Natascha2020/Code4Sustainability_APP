@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import VideoUpload from "./VideoUpload";
 import { Box, Button, Form, FormField, TextInput } from "grommet";
-import { FileUpload } from "primereact/fileupload";
 import "../Styles/ProfileProject.css";
 
 const ProfileProject = () => {
