@@ -5,7 +5,7 @@ const ProfileProject = () => {
   return (
     <div>
       <div className="questionWrapper">
-        <label for="questionOne">Q & A: </label>
+        <label for="questionOne">Nice to know No 1: </label>
         <select name="questionOne" id="questionOne">
           <option selected value="never">
             I have never...
@@ -20,7 +20,7 @@ const ProfileProject = () => {
         <textarea className="qTextArea" value="Answer One"></textarea>
       </div>
       <div className="questionWrapper">
-        <label for="questionTwo">Q & A: </label>
+        <label for="questionTwo">Nice to know No 2: </label>
         <select name="questionTwo" id="questionTwo">
           <option selected value="wish">
             I wish...
@@ -35,7 +35,7 @@ const ProfileProject = () => {
         <textarea className="qTextArea" value="Answer One"></textarea>
       </div>
       <div className="questionWrapper">
-        <label for="questionTwo">Q & A: </label>
+        <label for="questionTwo">Nice to know No 3</label>
         <select name="questionThree" id="questionThree">
           <option selected value="important">
             Important to know...

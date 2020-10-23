@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
-import { Box, WorldMap } from "grommet";
 import ProjectOverviewCard from "./ProjectOverviewCard";
 import * as settings from "./Settings";
 import ErrorHandler from "./ErrorHandler";
-import ProjectDetails from "./ProjectDetails";
 import SearchBar from "./SearchBar";
 
 const ProjectOverview = () => {
   const [allProjects, setAllProjects] = useState([]);
   const [updateProjects, setUpdateProjects] = useState(false);
-  const [error, setError] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [currentSearch, setCurrentSearch] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     handleFetch();
@@ -31,10 +29,27 @@ const ProjectOverview = () => {
     }
   };
 
+  // Search bar functionality I: Grabbing input value of search field
+  const handleSearch = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  // Search bar functionality II: Filtering pokemon-data in terms of input value and storing in currentSearch
+  useEffect(() => {
+    const results = allProjects.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
+    setCurrentSearch(results);
+    console.log(results);
+  }, [allProjects, inputValue]);
+
   return (
     <div>
-      {allProjects && allProjects.length ? <SearchBar projectData={allProjects} /> : null}
-      {allProjects && allProjects.length
+      {allProjects && allProjects.length ? (
+        <div id="searchWrapper">
+          <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Find project" autoComplete="off" />
+        </div>
+      ) : null}
+
+      {currentSearch && currentSearch.length
         ? allProjects.map((project, index) => {
             let id = project._id;
             return <ProjectOverviewCard key={id} projectData={project} onClick={(id) => {}} />;

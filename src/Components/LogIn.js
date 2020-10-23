@@ -1,20 +1,32 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import jwt from "jsonwebtoken";
+import ErrorHandler from "./ErrorHandler";
 import * as settings from "./Settings";
 import { Box, Button, Card, Form, FormField, TextInput } from "grommet";
 
 import "../Styles/LogIn.css";
 
 const LogIn = () => {
-  const [value, setValue] = useState({});
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [userId, setUserId] = useState("");
 
-  const handleLogIn = (e) => {
+  const handleLogIn = async (e) => {
     e.preventDefault();
-    axios.post(settings.urlAuth, { email, password }, { withCredentials: true }).catch((error) => console.log(error));
+    try {
+      const response = await axios.post(settings.urlAuth, { email, password }, { withCredentials: true });
+      const loggedUser = jwt.decode(response.data);
+      const loggedUserId = loggedUser.idUser;
+      console.log(loggedUserId);
+      setUserId(loggedUserId);
+    } catch (err) {
+      let errorMsg = `Error: ${error}`;
+      setError(errorMsg);
+      console.error(error);
+    }
   };
 
   return (
@@ -67,6 +79,7 @@ const LogIn = () => {
           </Box>
         </Form>
       </Card>
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import VideoUpload from "./VideoUpload";
+import ErrorHandler from "./ErrorHandler";
+import * as settings from "./Settings";
 import ProfileDev from "./ProfileDev";
 import ProfileProject from "./ProfileProject";
 import { Box, Button, Form, FormField, TextInput } from "grommet";
@@ -8,6 +10,27 @@ import "../Styles/ProfileProject.css";
 
 const PersonalData = () => {
   const [value, setValue] = useState({});
+  const [personalData, setPersonalData] = useState({});
+  const [updateData, setUpdateData] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    handleFetch();
+  }, [updateData]);
+
+  const handleFetch = async () => {
+    try {
+      const { data } = await axios.get(settings.urlUsers, { withCredentials: true });
+      setPersonalData(data);
+      setUpdateData(false);
+      console.log(data);
+    } catch (error) {
+      let errorMsg = `Error: ${error}`;
+      setError(errorMsg);
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <Form
@@ -32,8 +55,7 @@ const PersonalData = () => {
           <TextInput id="webpage" name="webpage" placeholder="Webpage" />
         </FormField>
 
-        {/*  {typeofUser==="project"?
-        <ProfileProject/>:<ProfileDev/>} */}
+        {personalData && !personalData.isEmpty ? personalData.typeofUser === "Project" ? <ProfileProject /> : <ProfileDev /> : null}
 
         <VideoUpload />
         <Box direction="row" gap="medium">
@@ -41,6 +63,7 @@ const PersonalData = () => {
           <Button type="reset" label="Reset" />
         </Box>
       </Form>
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };
