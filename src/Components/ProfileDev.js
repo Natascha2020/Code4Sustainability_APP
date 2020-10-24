@@ -1,54 +1,49 @@
 import React from "react";
+import { FormField, Select, TextArea } from "grommet";
 import "../Styles/ProfileDev.css";
 
-const ProfileDev = () => {
+const ProfileDev = (props) => {
+  const { data } = props;
   return (
     <div>
-      <div className="questionWrapper">
-        <label for="questionOne">Nice to know No 1: </label>
-        <select name="questionOne" id="questionOne">
-          <option selected value="never">
-            I have never...
-          </option>
-          <option value="coding">What I love about coding...</option>
-          <option value="sustainability">What I think is important about sustainability...</option>
-          <option value="travel">Sea or mountains...</option>
-          <option value="joke">Best joke I have ever heard...</option>
-          <option value="selfmade">...</option>
-        </select>
-        <br />
-        <textarea className="qTextArea" value="Answer One"></textarea>
-      </div>
-      <div className="questionWrapper">
-        <label for="questionTwo">Nice to know No 2: </label>
-        <select name="questionTwo" id="questionTwo">
-          <option selected value="wish">
-            I wish...
-          </option>
-          <option value="car">As a car I would be...</option>
-          <option value="friend">My best friend...</option>
-          <option value="pet">Car or dog...</option>
-          <option value="invention">I always wanted to invent...</option>
-          <option value="selfmade">...</option>
-        </select>
-        <br />
-        <textarea className="qTextArea" value="Answer One"></textarea>
-      </div>
-      <div className="questionWrapper">
-        <label for="questionTwo">Nice to know No 3: </label>
-        <select name="questionThree" id="questionThree">
-          <option selected value="important">
-            Important to know...
-          </option>
-          <option value="destination">The best travel destination...</option>
-          <option value="sustainability">Saturday night...</option>
-          <option value="pet">Everbody should...</option>
-          <option value="joke">The future...</option>
-          <option value="joke">...</option>
-        </select>
-        <br />
-        <textarea className="qTextArea" value="Answer One"></textarea>
-      </div>
+      <h4>Nice to know about me:</h4>
+      <div>Question 1: {data.question1}</div>
+      <div>Answer 2: {data.answer1}</div>
+      <FormField name="question1" htmlfor="question1">
+        <Select id="question1" name="question1" placeholder="Question" options={["Coding...", "Important to me...", "This year...", "..."]}></Select>
+      </FormField>
+
+      <FormField name="answer1" htmlfor="answer1">
+        <TextArea id="answer1" name="answer1" placeholder="Answer" />
+      </FormField>
+      <div>Question 1: {data.question2}</div>
+      <div>Answer 2: {data.answer2}</div>
+
+      <FormField name="question2" htmlfor="question2">
+        <Select
+          id="question2"
+          name="question2"
+          placeholder="Question"
+          options={["Sustainability..", "I always wanted...", "About me...", "..."]}></Select>
+      </FormField>
+
+      <FormField name="answer2" htmlfor="answer2">
+        <TextArea id="answer2" name="answer2" placeholder="Answer" />
+      </FormField>
+      <div>Question 1: {data.questio31}</div>
+      <div>Answer 2: {data.answer3}</div>
+
+      <FormField name="question3" htmlfor="question3">
+        <Select
+          id="question3"
+          name="question3"
+          placeholder="Question"
+          options={["Everybody should...", "My best friends...", "The future...", "..."]}></Select>
+      </FormField>
+
+      <FormField name="answer3" htmlfor="answer3">
+        <TextArea id="answer3" name="answer3" placeholder="Answer" />
+      </FormField>
     </div>
   );
 };

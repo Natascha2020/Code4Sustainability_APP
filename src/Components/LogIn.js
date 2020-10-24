@@ -65,7 +65,7 @@ const LogIn = () => {
           <FormField name="email" htmlfor="text-input-id" label="Email">
             <TextInput id="text-input-id" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </FormField>
-          <FormField name="password" htmlfor="password" label="Password">
+          <FormField name="password" htmlfor="password" label="Password" type="password">
             <TextInput id="password" name="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </FormField>
 

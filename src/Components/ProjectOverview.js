@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "./axios";
+import axiosInstance from "./axios";
 import ProjectOverviewCard from "./ProjectOverviewCard";
 import * as settings from "./Settings";
 import ErrorHandler from "./ErrorHandler";
@@ -18,7 +18,7 @@ const ProjectOverview = () => {
 
   const handleFetch = async () => {
     try {
-      const { data } = await axios.get(settings.urlUsers + "/projects");
+      const { data } = await axiosInstance.get(settings.urlUsers + "/projects");
       setAllProjects(data);
       setUpdateProjects(false);
       console.log(data);
