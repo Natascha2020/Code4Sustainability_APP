@@ -2,9 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import NavFooter from "./Components/NavFooter";
-import SignIn from "./Components/SignUp";
+import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
 import About from "./Components/About";
+import Home from "./Components/Home";
 import HowItWorks from "./Components/HowItWorks";
 import ProjectOverview from "./Components/ProjectOverview";
 import ProjectDetails from "./Components/ProjectDetails";
@@ -23,7 +24,7 @@ const App = () => {
       <Switch>
         <Grommet theme={Theme}>
           <Route exact path="/">
-            <LogIn />
+            <Home />
           </Route>
           <Route exact path="/howItWorks">
             <HowItWorks />
@@ -41,8 +42,12 @@ const App = () => {
             <ProjectDetails />
           </Route>
 
-          <Route exact path="/signIn">
-            <SignIn />
+          <Route exact path="/signUp">
+            <SignUp />
+          </Route>
+
+          <Route exact path="/logIn">
+            <LogIn />
           </Route>
 
           <Route exact path="/personalData">
@@ -64,7 +69,6 @@ const App = () => {
           <Route exact path="/matchesAccepted">
             <MatchesAccepted />
           </Route>
-
           <Navbar />
 
           <NavFooter />

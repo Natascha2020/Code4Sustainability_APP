@@ -1,0 +1,65 @@
+.titleWrapper {
+  text-align: left;
+
+  padding-top: 5em;
+  height: 550px;
+  /* background-image: url(../Assets/Heartbeat.jpg); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+.title {
+  color: white;
+  padding-top: 2em;
+  padding-left: 8em;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.subTitle {
+  color: white;
+  padding-left: 16em;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.landingGirl {
+  width: 90%;
+}
+
+.landingtree {
+  width: 90%;
+  float: right;
+}
+
+.sectionIntroWrapper {
+  display: flex;
+  background-color: black;
+  border-top: 4px solid black;
+}
+
+.sectionIntro {
+  width: 34%;
+}
+
+.introWrapperCode {
+  color: white;
+
+  height: 40%;
+}
+
+.introWrapperProject {
+  color: white;
+  background: black;
+  height: 40%;
+
+  text-align: end;
+}
+
+.typeOfUser {
+  color: #daa520;
+}
+
+.nice {
+  color: #008b8b;
+  font-weight: bold;
+}

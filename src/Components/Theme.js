@@ -1,11 +1,12 @@
 const Theme = {
   global: {
     colors: {
-      brand: "#001235",
+      brand: "#008b8b",
       nav: "#fff",
       navIcon: "#aaa",
       login: "rgba(255,228,196, 0.3)",
       navLogo: "#008b8b",
+      footer: "#000",
     },
     font: {
       family: "Roboto",

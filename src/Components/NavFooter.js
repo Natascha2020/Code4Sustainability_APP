@@ -9,9 +9,9 @@ import "../Styles/NavFooter.css";
 
 const NavFooter = () => {
   return (
-    <div>
+    <div classname="navFooter">
       <hr />
-      <Footer pad="medium">
+      <Footer pad="medium" background="footer">
         <a className="link" href="http: ">
           <FontAwesomeIcon className="navIcon" icon={faUserSecret} size="lg" />
           <span>Security</span>

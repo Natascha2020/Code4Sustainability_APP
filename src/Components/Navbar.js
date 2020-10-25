@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Nav, Menu } from "grommet";
+import { Button, Nav, Menu } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartbeat, faAnchor, faGlobeAmericas, faRocket } from "@fortawesome/free-solid-svg-icons";
 
@@ -26,7 +26,7 @@ const Navbar = () => {
             <li>
               <Link className="link" to="/">
                 <FontAwesomeIcon className="navIcon" icon={faAnchor} size="lg" />
-                LogIn
+                Home
               </Link>
             </li>
             <li>
@@ -48,6 +48,10 @@ const Navbar = () => {
                 <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="lg" />
                 Projects
               </Link>
+            </li>
+
+            <li>
+              <Button primary label="LogIn" href="/logIn" />
             </li>
             <li>
               <Menu
