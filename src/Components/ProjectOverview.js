@@ -38,7 +38,6 @@ const ProjectOverview = () => {
   useEffect(() => {
     const results = allProjects.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
     setCurrentSearch(results);
-    console.log(results);
   }, [allProjects, inputValue]);
 
   return (
@@ -52,7 +51,7 @@ const ProjectOverview = () => {
       {currentSearch && currentSearch.length
         ? allProjects.map((project, index) => {
             let id = project._id;
-            return <ProjectOverviewCard key={id} projectData={project} onClick={(id) => {}} />;
+            return <ProjectOverviewCard key={id} projectData={project} />;
           })
         : null}
 
