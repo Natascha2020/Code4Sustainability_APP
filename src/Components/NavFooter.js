@@ -17,7 +17,7 @@ const NavFooter = () => {
           <span>Security</span>
         </a>
 
-        <a className="link" href="https://github.com/Natascha2020/Code4Sustainability_APP.git">
+        <a className="link" href="/gitHub">
           <FontAwesomeIcon className="navIcon" icon={faGithub} size="lg" />
           <span>Source code</span>
         </a>

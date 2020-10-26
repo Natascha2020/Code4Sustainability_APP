@@ -10,6 +10,7 @@ const Home = () => {
         <h1 className="title">Connecting </h1>
         <h2 className="subTitle">developers with social changemakers</h2>
         <br />
+        <h3>Join for a problem, stay for the people!</h3>
       </div>
       <div className="titleImage"></div>
 

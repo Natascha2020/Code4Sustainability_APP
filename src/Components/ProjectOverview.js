@@ -32,9 +32,10 @@ const ProjectOverview = () => {
   // Search bar functionality I: Grabbing input value of search field
   const handleSearch = (e) => {
     setInputValue(e.target.value);
+    console.log(e.target.value);
   };
 
-  // Search bar functionality II: Filtering pokemon-data in terms of input value and storing in currentSearch
+  // Search bar functionality II: Filtering in terms of input value and storing in currentSearch
   useEffect(() => {
     const results = allProjects.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
     setCurrentSearch(results);

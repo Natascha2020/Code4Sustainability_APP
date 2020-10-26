@@ -27,25 +27,21 @@ const PersonalData = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    const handleFetch = async () => {
+      try {
+        const { data } = await axiosInstance.get(`${settings.urlUsers}?currentUser=true`);
+        setPersonalData(data);
+        setUpdateData(false);
+      } catch (error) {
+        let errorMsg = `Error: ${error}`;
+        setError(errorMsg);
+        console.error(error);
+      }
+    };
     handleFetch();
   }, [updateData]);
 
-  const handleFetch = async () => {
-    try {
-      const { data } = await axiosInstance.get(settings.urlUsers);
-      setPersonalData(data);
-      setUpdateData(false);
-      console.log(data);
-    } catch (error) {
-      let errorMsg = `Error: ${error}`;
-      setError(errorMsg);
-      console.error(error);
-    }
-  };
-
   const handleData = async (value) => {
-    console.log(value);
-    console.log("test");
     try {
       const { data } = await axiosInstance.put(settings.urlUsers, value);
       console.log(data);
@@ -98,6 +94,12 @@ const PersonalData = () => {
           ) : null}
 
           <VideoUpload />
+
+          <video width="320" height="240" controls>
+            <source src={`${settings.urlVideos}?currentUser=true`} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
           <Box direction="row" gap="medium">
             <Button type="submit" primary label="Update" />
             <Button type="reset" label="Reset" />

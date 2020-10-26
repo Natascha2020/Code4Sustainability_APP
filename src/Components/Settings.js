@@ -1,5 +1,5 @@
-export const urlUsers = "http://localhost:4000/users";
-export const urlProject = "http://localhost:4000/project";
-export const urlDeveloper = "http://localhost:4000/developer";
-export const urlAuth = "http://localhost:4001/generateAuth";
-/* export const urlVideos = "http://localhost:4002/videos"; */
+export const urlUsers = process.env.REACT_APP_API_URL + "/users";
+export const urlProject = process.env.REACT_APP_API_URL + "/project";
+export const urlDeveloper = process.env.REACT_APP_API_URL + "/developer";
+export const urlAuth = process.env.REACT_APP_AUTH_URL + "/generateAuth";
+export const urlVideos = process.env.REACT_APP_VIDEO_URL + "/videos";

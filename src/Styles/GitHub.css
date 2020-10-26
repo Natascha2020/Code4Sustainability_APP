@@ -1,0 +1,14 @@
+.linkGit:link {
+  text-decoration: none;
+  color: #000;
+}
+
+.linkGit:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.linkGit:hover {
+  text-decoration: none;
+  color: #008b8b;
+}

@@ -6,6 +6,8 @@ import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
 import About from "./Components/About";
 import Home from "./Components/Home";
+import Chat from "./Components/Chat";
+import GitHub from "./Components/GitHub";
 import HowItWorks from "./Components/HowItWorks";
 import ProjectOverview from "./Components/ProjectOverview";
 import ProjectDetails from "./Components/ProjectDetails";
@@ -44,6 +46,14 @@ const App = () => {
 
           <Route exact path="/signUp">
             <SignUp />
+          </Route>
+
+          <Route exact path="/gitHub">
+            <GitHub />
+          </Route>
+
+          <Route exact path="/chat">
+            <Chat />
           </Route>
 
           <Route exact path="/logIn">

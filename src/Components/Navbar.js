@@ -25,27 +25,27 @@ const Navbar = () => {
           <div className="navLinkWrapper">
             <li>
               <Link className="link" to="/">
-                <FontAwesomeIcon className="navIcon" icon={faAnchor} size="lg" />
+                {/* <FontAwesomeIcon className="navIcon" icon={faAnchor} size="lg" /> */}
                 Home
               </Link>
             </li>
             <li>
               <Link className="link" to="/howItWorks">
-                <FontAwesomeIcon className="navIcon" icon={faRocket} size="lg" />
+                {/* <FontAwesomeIcon className="navIcon" icon={faRocket} size="lg" /> */}
                 How
               </Link>
             </li>
 
             <li>
               <Link className="link" to="/about">
-                <FontAwesomeIcon className="navIcon" icon={faGlobeAmericas} size="lg" />
-                Why
+                {/* <FontAwesomeIcon className="navIcon" icon={faGlobeAmericas} size="lg" /> */}
+                About
               </Link>
             </li>
 
             <li>
               <Link className="link" to="/projects">
-                <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="lg" />
+                {/* <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="lg" /> */}
                 Projects
               </Link>
             </li>
