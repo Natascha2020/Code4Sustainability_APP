@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Authenticated from "./Authenticated";
+import NavMenu from "./NavMenu";
 import { Button, Nav, Menu } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartbeat, faAnchor, faGlobeAmericas, faRocket } from "@fortawesome/free-solid-svg-icons";
@@ -53,16 +55,8 @@ const Navbar = () => {
             <li>
               <Button primary label="LogIn" href="/logIn" />
             </li>
-            <li>
-              <Menu
-                label="My Profile"
-                items={[
-                  { label: "Personal data", href: "/personalData" },
-                  { label: "Matches pending", href: "/matchesPending" },
-                  { label: "Matches accepted", href: "/matchesPending" },
-                ]}
-              />
-            </li>
+
+            {Authenticated(<NavMenu />)}
           </div>
         </ul>
       </Nav>

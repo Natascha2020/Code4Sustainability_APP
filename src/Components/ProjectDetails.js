@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axiosInstance from "axios";
-import * as settings from "./Settings";
-import ErrorHandler from "./ErrorHandler";
+import axiosInstance from "../Helpers/axios";
+import * as settings from "../Helpers/Settings";
+import ErrorHandler from "../Helpers/ErrorHandler";
 import { Box, Button, CardBody, CardHeader, Carousel } from "grommet";
 import "../Styles/ProjectDetails.css";
 
@@ -57,7 +57,7 @@ const ProjectDetails = (props) => {
 
   return (
     <div>
-      <CardHeader className="cardHeader" pad="small" onClick={handleDisplay}>
+      <CardHeader className="cardHeader" pad="small" onClick={handleDisplay} hover="hoverLight">
         {projectData.name}{" "}
       </CardHeader>
       <CardBody pad="medium">
@@ -88,9 +88,9 @@ const ProjectDetails = (props) => {
         <Button
           className="btnCard"
           type="submit"
+          margin={{ bottom: "small", horizontal: "small" }}
           primary
           label="Delete interest"
-          margin="10"
           onClick={(e) => {
             handleDelete(e);
           }}
@@ -99,6 +99,7 @@ const ProjectDetails = (props) => {
       {pending && projectData.typeOfUser === "Developer" ? (
         <Button
           type="submit"
+          margin={{ bottom: "small", horizontal: "small" }}
           primary
           label="Accept interest"
           onClick={(e) => {
@@ -108,6 +109,7 @@ const ProjectDetails = (props) => {
       ) : (
         <Button
           type="submit"
+          margin={{ bottom: "small", horizontal: "small" }}
           primary
           label="Send interest"
           onClick={(e) => {

@@ -16,8 +16,9 @@ import ProfileDev from "./Components/ProfileDev";
 import ProfileProject from "./Components/ProfileProject";
 import MatchesPending from "./Components/MatchesPending";
 import MatchesAccepted from "./Components/MatchesAccepted";
+import Authenticated from "./Components/Authenticated";
 import { Grommet } from "grommet";
-import Theme from "./Components/Theme";
+import Theme from "./Helpers/Theme";
 import "./App.css";
 
 const App = () => {
@@ -41,7 +42,7 @@ const App = () => {
           </Route>
 
           <Route exact path="/projectDetails">
-            <ProjectDetails />
+            {Authenticated(<ProjectDetails />)}
           </Route>
 
           <Route exact path="/signUp">
@@ -61,23 +62,23 @@ const App = () => {
           </Route>
 
           <Route exact path="/personalData">
-            <PersonalData />
+            {Authenticated(<PersonalData />)}
           </Route>
 
           <Route exact path="/profileDev">
-            <ProfileDev />
+            {Authenticated(<ProfileDev />)}
           </Route>
 
           <Route exact path="/profileProject">
-            <ProfileProject />
+            {Authenticated(<ProfileProject />)}
           </Route>
 
           <Route exact path="/matchesPending">
-            <MatchesPending />
+            {Authenticated(<MatchesPending />)}
           </Route>
 
           <Route exact path="/matchesAccepted">
-            <MatchesAccepted />
+            {Authenticated(<MatchesAccepted />)}
           </Route>
           <Navbar />
 

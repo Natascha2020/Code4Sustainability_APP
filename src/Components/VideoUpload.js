@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axiosInstance from "./axios";
-import ErrorHandler from "./ErrorHandler";
-import * as settings from "./Settings";
+import axiosInstance from "../Helpers/axios";
+import ErrorHandler from "../Helpers/ErrorHandler";
+import * as settings from "../Helpers/Settings";
 
 const VideoUpload = () => {
   const [video, setVideo] = useState();

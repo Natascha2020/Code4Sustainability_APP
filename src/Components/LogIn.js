@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axiosInstance from "./axios";
+import axiosInstance from "../Helpers/axios";
 import jwt from "jsonwebtoken";
-import ErrorHandler from "./ErrorHandler";
-import * as settings from "./Settings";
+import ErrorHandler from "../Helpers/ErrorHandler";
+import * as settings from "../Helpers/Settings";
 import { Box, Button, Card, Form, FormField, TextInput } from "grommet";
 
 import "../Styles/LogIn.css";
@@ -17,7 +17,7 @@ const LogIn = () => {
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post(settings.urlAuth, { email, password });
+      const response = await axiosInstance.post(settings.urlAuth + "/generateAuth", { email, password });
       const loggedUser = jwt.decode(response.data);
       const loggedUserId = loggedUser.idUser;
       console.log(loggedUserId);
@@ -33,7 +33,7 @@ const LogIn = () => {
     <div>
       <Card className="loginCard" height="medium" width="medium" background="light-4">
         <Form className="loginForm" value="loginData" onReset={(e) => {}} onSubmit={(e) => handleLogIn(e)}>
-          <h3 className="cardTitle">&lt; Ready to connect? &gt;</h3>
+          <h3 className="cardTitle">LogIn</h3>
           <FormField name="email" htmlfor="text-input-id" label="Email">
             <TextInput id="text-input-id" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </FormField>

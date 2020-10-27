@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axiosInstance from "./axios";
+import axiosInstance from "../Helpers/axios";
 import ProjectOverviewCard from "./ProjectOverviewCard";
-import * as settings from "./Settings";
-import ErrorHandler from "./ErrorHandler";
+import * as settings from "../Helpers/Settings";
+import ErrorHandler from "../Helpers/ErrorHandler";
 import SearchBar from "./SearchBar";
 
 const ProjectOverview = () => {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axiosInstance from "./axios";
+import axiosInstance from "../Helpers/axios";
 import VideoUpload from "./VideoUpload";
-import ErrorHandler from "./ErrorHandler";
-import * as settings from "./Settings";
+import ErrorHandler from "../Helpers/ErrorHandler";
+import * as settings from "../Helpers/Settings";
 import ProfileDev from "./ProfileDev";
 import ProfileProject from "./ProfileDev";
 import { Box, Button, Form, FormField, TextInput } from "grommet";

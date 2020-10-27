@@ -7,6 +7,7 @@ const Theme = {
       login: "rgba(255,228,196, 0.3)",
       navLogo: "#008b8b",
       footer: "#000",
+      hoverLight: "#E1B74D",
     },
     font: {
       family: "Roboto",

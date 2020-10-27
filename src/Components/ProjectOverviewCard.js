@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import ProjectDetails from "./ProjectDetails";
+import Authenticated from "./Authenticated";
 import { Box, Button, Card, CardBody, CardFooter, CardHeader } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComments, faShareAlt } from "@fortawesome/free-solid-svg-icons";
-import * as settings from "./Settings";
+import * as settings from "../Helpers/Settings";
 import "../Styles/ProjectOverviewCard.css";
 
 const ProjectOverview = (props) => {
@@ -20,7 +21,7 @@ const ProjectOverview = (props) => {
       <Box height={{ min: "300" }} width="medium" margin="small">
         <Card className="projectCard" height="300" width="medium" background="light-1" elevation="large">
           {showDetails ? (
-            <ProjectDetails projectData={projectData} handleDisplay={showOverview} pending={pending} />
+            Authenticated(<ProjectDetails projectData={projectData} handleDisplay={showOverview} pending={pending} />)
           ) : (
             <div>
               <CardHeader className="cardHeader" pad="small" onClick={() => setShowDetails(true)}>
