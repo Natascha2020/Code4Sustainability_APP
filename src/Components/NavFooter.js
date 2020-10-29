@@ -29,7 +29,7 @@ const NavFooter = () => {
 
         <a className="link" href="http: ">
           <FontAwesomeIcon className="navIcon" icon={faGift} size="lg" />
-          <span>Supporter</span>
+          <span>Credits</span>
         </a>
 
         <br />

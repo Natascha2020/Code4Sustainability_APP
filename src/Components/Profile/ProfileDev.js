@@ -1,14 +1,13 @@
 import React from "react";
 import { FormField, Select, TextArea } from "grommet";
-import "../Styles/ProfileDev.css";
+import "./ProfileDev.css";
 
 const ProfileDev = (props) => {
   const { data } = props;
   return (
     <div>
-      <h4>Nice to know about me:</h4>
-      <div>Question 1: {data.question1}</div>
-      <div>Answer 2: {data.answer1}</div>
+      <h5>Nice to know about me:</h5>
+
       <FormField name="question1" htmlfor="question1">
         <Select id="question1" name="question1" placeholder="Question" options={["Coding...", "Important to me...", "This year...", "..."]}></Select>
       </FormField>
@@ -16,8 +15,6 @@ const ProfileDev = (props) => {
       <FormField name="answer1" htmlfor="answer1">
         <TextArea id="answer1" name="answer1" placeholder="Answer" />
       </FormField>
-      <div>Question 1: {data.question2}</div>
-      <div>Answer 2: {data.answer2}</div>
 
       <FormField name="question2" htmlfor="question2">
         <Select
@@ -30,8 +27,6 @@ const ProfileDev = (props) => {
       <FormField name="answer2" htmlfor="answer2">
         <TextArea id="answer2" name="answer2" placeholder="Answer" />
       </FormField>
-      <div>Question 1: {data.questio31}</div>
-      <div>Answer 2: {data.answer3}</div>
 
       <FormField name="question3" htmlfor="question3">
         <Select

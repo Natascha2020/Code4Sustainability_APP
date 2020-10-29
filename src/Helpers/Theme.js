@@ -8,6 +8,7 @@ const Theme = {
       navLogo: "#008b8b",
       footer: "#000",
       hoverLight: "#E1B74D",
+      hoverDark: "#33A2A2",
     },
     font: {
       family: "Roboto",

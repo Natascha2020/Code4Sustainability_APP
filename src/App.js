@@ -6,29 +6,27 @@ import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
 import About from "./Components/About";
 import Home from "./Components/Home";
-import Chat from "./Components/Chat";
 import GitHub from "./Components/GitHub";
 import HowItWorks from "./Components/HowItWorks";
 import ProjectOverview from "./Components/ProjectOverview";
 import ProjectDetails from "./Components/ProjectDetails";
-import PersonalData from "./Components/PersonalData";
-import ProfileDev from "./Components/ProfileDev";
-import ProfileProject from "./Components/ProfileProject";
+import PersonalData2 from "./Components/Profile/PersonalData2";
+import ProfileDev from "./Components/Profile/ProfileDev";
+import ProfileProject from "./Components/Profile/ProfileProject";
 import MatchesPending from "./Components/MatchesPending";
 import MatchesAccepted from "./Components/MatchesAccepted";
 import Authenticated from "./Components/Authenticated";
+import MainChat from "./Components/Chat/MainChat";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Grommet } from "grommet";
 import Theme from "./Helpers/Theme";
 import "./App.css";
 
-const App = () => {
+const App = (props) => {
   return (
     <Router>
       <Switch>
         <Grommet theme={Theme}>
-          <Route exact path="/">
-            <Home />
-          </Route>
           <Route exact path="/howItWorks">
             <HowItWorks />
           </Route>
@@ -42,7 +40,7 @@ const App = () => {
           </Route>
 
           <Route exact path="/projectDetails">
-            {Authenticated(<ProjectDetails />)}
+            <Authenticated WrappedComponent={ProjectDetails} {...props} />
           </Route>
 
           <Route exact path="/signUp">
@@ -54,7 +52,7 @@ const App = () => {
           </Route>
 
           <Route exact path="/chat">
-            <Chat />
+            <MainChat />
           </Route>
 
           <Route exact path="/logIn">
@@ -62,23 +60,27 @@ const App = () => {
           </Route>
 
           <Route exact path="/personalData">
-            {Authenticated(<PersonalData />)}
+            <Authenticated WrappedComponent={PersonalData2} {...props} />
           </Route>
 
           <Route exact path="/profileDev">
-            {Authenticated(<ProfileDev />)}
+            <Authenticated WrappedComponent={ProfileDev} {...props} />
           </Route>
 
           <Route exact path="/profileProject">
-            {Authenticated(<ProfileProject />)}
+            <Authenticated WrappedComponent={ProfileProject} {...props} />
           </Route>
 
           <Route exact path="/matchesPending">
-            {Authenticated(<MatchesPending />)}
+            {/*  <Authenticated WrappedComponent={MatchesPending} {...props} /> */}
+            <MatchesPending />
           </Route>
 
           <Route exact path="/matchesAccepted">
-            {Authenticated(<MatchesAccepted />)}
+            <Authenticated WrappedComponent={MatchesAccepted} {...props} />
+          </Route>
+          <Route exact path="/">
+            <Home />
           </Route>
           <Navbar />
 

@@ -8,7 +8,7 @@ import * as settings from "../Helpers/Settings";
 import "../Styles/ProjectOverviewCard.css";
 
 const ProjectOverview = (props) => {
-  const { projectData, pending } = props;
+  const { projectData, pending, deletePending } = props;
 
   const [showDetails, setShowDetails] = useState(false);
 
@@ -21,11 +21,11 @@ const ProjectOverview = (props) => {
       <Box height={{ min: "300" }} width="medium" margin="small">
         <Card className="projectCard" height="300" width="medium" background="light-1" elevation="large">
           {showDetails ? (
-            Authenticated(<ProjectDetails projectData={projectData} handleDisplay={showOverview} pending={pending} />)
+            <ProjectDetails projectData={projectData} handleDisplay={showOverview} pending={pending} updateList={deletePending} {...props} />
           ) : (
             <div>
               <CardHeader className="cardHeader" pad="small" onClick={() => setShowDetails(true)}>
-                {projectData.name}{" "}
+                {projectData.name}
               </CardHeader>
               <CardBody pad="medium">
                 <video width="320" height="240" controls>

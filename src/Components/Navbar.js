@@ -8,10 +8,10 @@ import { faHeartbeat, faAnchor, faGlobeAmericas, faRocket } from "@fortawesome/f
 
 import "../Styles/Navbar.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
-      <Nav direction="row" pad="medium">
+      <Nav className="nav" direction="row" pad="medium">
         <ul>
           <li>
             <div className="logoWrapper">
@@ -51,13 +51,12 @@ const Navbar = () => {
                 Projects
               </Link>
             </li>
-
-            <li>
-              <Button primary label="LogIn" href="/logIn" />
-            </li>
-
-            {Authenticated(<NavMenu />)}
           </div>
+          <li>
+            <Button primary label="LogIn" href="/logIn" />
+          </li>
+
+          <Authenticated WrappedComponent={NavMenu} {...props} />
         </ul>
       </Nav>
     </div>

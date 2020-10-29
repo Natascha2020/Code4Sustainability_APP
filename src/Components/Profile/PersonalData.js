@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import axiosInstance from "../Helpers/axios";
-import VideoUpload from "./VideoUpload";
-import ErrorHandler from "../Helpers/ErrorHandler";
-import * as settings from "../Helpers/Settings";
+import axiosInstance from "../../Helpers/axios";
+import VideoUpload from "../VideoUpload";
+import ErrorHandler from "../../Helpers/ErrorHandler";
+import * as settings from "../../Helpers/Settings";
 import ProfileDev from "./ProfileDev";
 import ProfileProject from "./ProfileDev";
 import { Box, Button, Form, FormField, TextInput } from "grommet";
-import "../Styles/ProfileProject.css";
+import "./ProfileProject.css";
 
 const PersonalData = () => {
   const [value, setValue] = useState({

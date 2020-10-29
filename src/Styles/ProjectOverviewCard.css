@@ -15,3 +15,7 @@
 .cardLocation {
   font-weight: bold;
 }
+
+.cardHeader:hover {
+  background-color: #e1b74d;
+}

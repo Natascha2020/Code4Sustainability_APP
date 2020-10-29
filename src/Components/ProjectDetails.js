@@ -7,12 +7,14 @@ import "../Styles/ProjectDetails.css";
 
 const ProjectDetails = (props) => {
   const { projectData, handleDisplay, pending } = props;
+
   const [updateList, setUpdateList] = useState(false);
   const [projectPending, setProjectPending] = useState([]);
   const [error, setError] = useState("");
 
   const handleConnect = async (e) => {
     e.preventDefault();
+    console.log(projectData);
     console.log(settings.urlDeveloper + "/addProject?user_id_p=" + projectData._id);
     try {
       const { data } = await axiosInstance.put(settings.urlDeveloper + "/addProject?user_id_p=" + projectData._id);
@@ -28,11 +30,13 @@ const ProjectDetails = (props) => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
+    console.log("Test delete");
     try {
       const { data } = await axiosInstance.put(settings.urlDeveloper + "/deletePendingProject?user_id_p=" + projectData._id);
       setProjectPending(data);
       setUpdateList(true);
       console.log(data);
+      console.log("in here");
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -57,12 +61,12 @@ const ProjectDetails = (props) => {
 
   return (
     <div>
-      <CardHeader className="cardHeader" pad="small" onClick={handleDisplay} hover="hoverLight">
-        {projectData.name}{" "}
+      <CardHeader className="cardHeader" pad="small" onClick={handleDisplay}>
+        {projectData.name}
       </CardHeader>
       <CardBody pad="medium">
         <Box height="small">
-          <Carousel fill alignSelf="center">
+          <Carousel fill alignSelf="center" className="carousel">
             <div className="carouselInput">
               <div>Webpage: {projectData.webpage}</div>
             </div>
@@ -79,11 +83,12 @@ const ProjectDetails = (props) => {
               <div>{projectData.question3}</div>
               <div>{projectData.answer3}</div>
             </div>
-            <div className="carouselInput">Image: {projectData.image}</div>
+            <div className="carouselInput">
+              <img alt={`${projectData.name}`} src={`${projectData.image}`} />{" "}
+            </div>
           </Carousel>
         </Box>
       </CardBody>
-
       {pending ? (
         <Button
           className="btnCard"
@@ -106,7 +111,8 @@ const ProjectDetails = (props) => {
             handleAcceptance(e);
           }}
         />
-      ) : (
+      ) : null}
+      {!pending && projectData.typeOfUser === "Project" ? (
         <Button
           type="submit"
           margin={{ bottom: "small", horizontal: "small" }}
@@ -116,9 +122,8 @@ const ProjectDetails = (props) => {
             handleConnect(e);
           }}
         />
-      )}
-
-      {error ? <ErrorHandler errorMessage={error} /> : null}
+      ) : null}
+      ;{error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };

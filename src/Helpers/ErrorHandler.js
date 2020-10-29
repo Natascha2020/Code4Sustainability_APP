@@ -9,7 +9,7 @@ const ErrorHandler = (props) => {
   console.log(redirectLogin);
   return (
     <div id="errorWrapper">
-      {errorMessage ? alert("There has been an Error") : null}
+      {errorMessage && errorMessage.length ? alert("There has been an Error") : null}
       {redirectLogin ? <Redirect to="/login" /> : null}
     </div>
   );

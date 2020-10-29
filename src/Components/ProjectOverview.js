@@ -3,7 +3,7 @@ import axiosInstance from "../Helpers/axios";
 import ProjectOverviewCard from "./ProjectOverviewCard";
 import * as settings from "../Helpers/Settings";
 import ErrorHandler from "../Helpers/ErrorHandler";
-import SearchBar from "./SearchBar";
+import "../Styles/ProjectOverview.css";
 
 const ProjectOverview = () => {
   const [allProjects, setAllProjects] = useState([]);

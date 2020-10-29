@@ -1,6 +1,6 @@
 import React from "react";
-import LogIn from "./LogIn";
 import { Button } from "grommet";
+import LogIn from "./LogIn";
 import "../Styles/Home.css";
 
 const Home = () => {
@@ -10,11 +10,9 @@ const Home = () => {
         <h1 className="title">Connecting </h1>
         <h2 className="subTitle">developers with social changemakers</h2>
         <br />
-        <h3>Join for a problem, stay for the people!</h3>
+        <h3 className="slogan">"Join for a problem, stay for the people!"</h3>
       </div>
-      <div className="titleImage"></div>
-
-      <div className="titleSpace"></div>
+      <LogIn />
 
       <div className="sectionIntroWrapper">
         <div className="sectionIntro">

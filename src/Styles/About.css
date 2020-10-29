@@ -5,3 +5,53 @@
 .liAbout {
   display: block;
 }
+
+.aboutMain {
+  margin: 2em;
+}
+
+.targetGroupWrapper {
+  display: flex;
+}
+
+.targetGroup {
+  padding: 2em;
+  margin: 2em;
+  border: 3px solid #006f6f;
+  color: #00090e;
+
+  border-radius: 10%;
+}
+.strengthWrapper {
+  margin: 2em auto;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  text-align: center;
+}
+.techWrapper {
+  background-color: lightgray;
+  margin: 2em auto;
+  padding: 2em auto;
+}
+
+.techWrapperInside {
+  margin: 2em auto;
+}
+
+.strength {
+  width: 30%;
+  font-weight: bold;
+  border-bottom: 3px solid #006f6f;
+}
+
+.aboutTitle {
+  margin-bottom: 2em;
+}
+
+.aboutSubtitle {
+  color: #ae841a;
+  padding-top: 1.5em;
+  font-size: 1.4em;
+}

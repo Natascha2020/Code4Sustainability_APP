@@ -1,0 +1,17 @@
+.profileCard {
+  width: 60%;
+  margin: 0 auto;
+}
+.profileForm {
+  margin-left: 3em;
+}
+
+.profileWrapper {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.videoProfile {
+  width: 100%;
+}
