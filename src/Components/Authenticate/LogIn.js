@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axiosInstance from "../../Helpers/axios";
 import jwt from "jsonwebtoken";
 import ErrorHandler from "../../Helpers/ErrorHandler";
@@ -15,6 +15,7 @@ const LogIn = () => {
   const [error, setError] = useState("");
   const [userId, setUserId] = useState("");
 
+  //post credentials and check for validity, set uderId
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
@@ -29,67 +30,72 @@ const LogIn = () => {
     }
   };
 
+  //on successful authentication redirect to project overview page
   return (
     <div>
-      <form class="text-center border border-light p-5 logInForm" value="loginData" onSubmit={(e) => handleLogIn(e)}>
-        <p class="h4 mb-4">LogIn</p>
+      {userId && userId.length ? (
+        <Redirect to="/projects" />
+      ) : (
+        <form class="text-center border border-light p-5 logInForm" value="loginData" onSubmit={(e) => handleLogIn(e)}>
+          <p class="h4 mb-4">LogIn</p>
 
-        <input
-          type="email"
-          id="defaultLoginFormEmail"
-          class="form-control mb-4"
-          value={email}
-          placeholder="E-mail"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <input
+            type="email"
+            id="defaultLoginFormEmail"
+            class="form-control mb-4"
+            value={email}
+            placeholder="E-mail"
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <input
-          type="password"
-          id="defaultLoginFormPassword"
-          class="form-control mb-4"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <input
+            type="password"
+            id="defaultLoginFormPassword"
+            class="form-control mb-4"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <div class="d-flex justify-content-around">
-          <div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" />
-              <label class="custom-control-label" for="defaultLoginFormRemember">
-                Remember me
-              </label>
+          <div class="d-flex justify-content-around">
+            <div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" />
+                <label class="custom-control-label" for="defaultLoginFormRemember">
+                  Remember me
+                </label>
+              </div>
+            </div>
+            <div>
+              <a href="">Forgot password?</a>
             </div>
           </div>
-          <div>
-            <a href="">Forgot password?</a>
-          </div>
-        </div>
 
-        <button class="btn btn-info btn-block my-4" type="submit">
-          LogIn
-        </button>
+          <button class="btn btn-info btn-block my-4" type="submit">
+            LogIn
+          </button>
 
-        <p>
-          Not part of community?
-          <a href="/signIn">Sign in</a>
-        </p>
+          <p>
+            Not part of community?
+            <a href="/signIn">Sign in</a>
+          </p>
 
-        <p>or sign in with:</p>
+          <p>or sign in with:</p>
 
-        <a href="#" class="mx-2" role="button">
-          <FontAwesomeIcon className="navIcon" icon={faGithub} size="lg" />
-        </a>
-        <a href="#" class="mx-2" role="button">
-          <FontAwesomeIcon className="navIcon" icon={faGoogle} size="lg" />
-        </a>
-        <a href="#" class="mx-2" role="button">
-          <i class="fab fa-linkedin-in light-blue-text"></i>
-        </a>
-        <a href="#" class="mx-2" role="button">
-          <i class="fab fa-github light-blue-text"></i>
-        </a>
-      </form>
+          <a href="#" class="mx-2" role="button">
+            <FontAwesomeIcon className="navIcon" icon={faGithub} size="lg" />
+          </a>
+          <a href="#" class="mx-2" role="button">
+            <FontAwesomeIcon className="navIcon" icon={faGoogle} size="lg" />
+          </a>
+          <a href="#" class="mx-2" role="button">
+            <i class="fab fa-linkedin-in light-blue-text"></i>
+          </a>
+          <a href="#" class="mx-2" role="button">
+            <i class="fab fa-github light-blue-text"></i>
+          </a>
+        </form>
+      )}
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );

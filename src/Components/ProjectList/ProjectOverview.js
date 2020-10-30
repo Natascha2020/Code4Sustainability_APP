@@ -43,6 +43,7 @@ const ProjectOverview = () => {
 
   return (
     <div>
+      <h2 className="titleProject">Sustainable projects</h2>
       {allProjects && allProjects.length ? (
         <div id="searchWrapper">
           <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Find project" autoComplete="off" />

@@ -9,7 +9,7 @@ const NavMenu = () => {
         items={[
           { label: "Personal data", href: "/personalData" },
           { label: "Matches pending", href: "/matchesPending" },
-          { label: "Matches accepted", href: "/matchesPending" },
+          { label: "Matches accepted", href: "/matchesAccepted" },
         ]}
       />
     </div>

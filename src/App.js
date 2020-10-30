@@ -72,8 +72,7 @@ const App = (props) => {
           </Route>
 
           <Route exact path="/matchesPending">
-            {/*  <Authenticated WrappedComponent={MatchesPending} {...props} /> */}
-            <MatchesPending />
+            <Authenticated WrappedComponent={MatchesPending} {...props} />
           </Route>
 
           <Route exact path="/matchesAccepted">

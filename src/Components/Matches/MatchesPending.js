@@ -43,12 +43,31 @@ const MatchesPending = () => {
     handleFetch();
   }, [pendingData]);
 
+  //delete project from dashboard-array(pending) and (on project detailed card)/will not be displayed on MatchesPending
+  const onDeleteInterest = async (e, card, cardIndex) => {
+    e.preventDefault();
+    try {
+      await axiosInstance.put(settings.urlDeveloper + "/deletePendingProject?user_id_p=" + card._id);
+      const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
+      setCardData([...newState]);
+    } catch (error) {
+      let errorMsg = `Error: ${error}`;
+      setError(errorMsg);
+      console.error(error);
+    }
+  };
   console.log(cards);
   return (
     <div>
-      <h1>MatchesPending</h1>
-      {cards && cards.length ? cards.map((card) => <ProjectOverviewCard key={card._id} projectData={card} pending={true} />) : null}
+      <h2 className="titleMatchesPending">Matches pending</h2>
+      {cards && cards.length
+        ? cards.map((card, index) => (
+            <ProjectOverviewCard onDeleteInterest={(e) => onDeleteInterest(e, card, index)} ey={card._id} projectData={card} pending={true} />
+          ))
+        : null}
 
+      {/*HERE TO START: if developer, display developer profile card*/}
+      {/* {cards && cards.length ? cards.map((card) => <ProfileCard key={card._id} personalData={card} pending={true} />) : null} */}
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );

@@ -7,6 +7,7 @@ const Authenticated = (props) => {
   let { WrappedComponent, withRedirect } = props;
   const [authDone, setAuthDone] = useState({});
 
+  //set default redirecting to true and pass as prop
   if (!withRedirect) withRedirect = true;
 
   useEffect(() => {
@@ -29,7 +30,8 @@ const Authenticated = (props) => {
 
     fetchData();
   }, []);
-  console.log("yith", withRedirect);
+
+  //render secure route if user is authenticated, else redirect to login page
   return (
     <div>
       {authDone.isAuth ? (

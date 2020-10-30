@@ -13,7 +13,11 @@
 
 #searchWrapper {
   display: flex;
-  justify-content: center;
+  margin-left: 2em;
+  justify-content: left;
   align-items: center;
-  margin: 2em 0;
+}
+
+.titleProjects {
+  margin-top: 2em;
 }
