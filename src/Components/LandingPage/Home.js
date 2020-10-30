@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "grommet";
-import LogIn from "./LogIn";
-import "../Styles/Home.css";
+import LogIn from "../Authenticate/LogIn";
+import "./Home.css";
 
 const Home = () => {
   return (
@@ -16,7 +16,7 @@ const Home = () => {
 
       <div className="sectionIntroWrapper">
         <div className="sectionIntro">
-          <img className="landingGirl" src={require("../Assets/Landing_girl.jpg")} alt="girl at coding" />
+          <img className="landingGirl" src={require("../../Assets/Landing_girl.jpg")} alt="girl at coding" />
         </div>
 
         <div className="sectionIntro middleSectionIntro">
@@ -39,7 +39,7 @@ const Home = () => {
           </div>
         </div>
         <div className="sectionIntro">
-          <img className="landingtree" src={require("../Assets/Landing_tree.jpg")} alt="tree in hands" />
+          <img className="landingtree" src={require("../../Assets/Landing_tree.jpg")} alt="tree in hands" />
         </div>
       </div>
     </div>

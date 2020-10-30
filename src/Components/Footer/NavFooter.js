@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faUserSecret, faShareAlt, faGift } from "@fortawesome/free-solid-svg-icons";
 
-import "../Styles/NavFooter.css";
+import "./NavFooter.css";
 
 const NavFooter = () => {
   return (

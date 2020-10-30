@@ -4,6 +4,7 @@ import "./ProfileDev.css";
 
 const ProfileDev = (props) => {
   const { data } = props;
+
   return (
     <div>
       <h5>Nice to know about me:</h5>

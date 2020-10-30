@@ -3,7 +3,7 @@ import { FormField, Select, TextArea } from "grommet";
 import "./ProfileProject.css";
 
 const ProfileProject = (props) => {
-  const { data } = props;
+  let { question1Update, answer1Update } = props;
   return (
     <div>
       <h5>Nice to know about the project:</h5>
@@ -17,7 +17,7 @@ const ProfileProject = (props) => {
       </FormField>
 
       <FormField name="answer1" htmlfor="answer1">
-        <TextArea id="answer1" name="answer1" placeholder="Answer" />
+        <TextArea id="answer1" name="answer1" placeholder="Answer"></TextArea>
       </FormField>
 
       <FormField name="question2" htmlfor="question2">

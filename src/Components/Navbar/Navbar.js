@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Authenticated from "./Authenticated";
+import Authenticated from "../Authenticate/Authenticated";
 import NavMenu from "./NavMenu";
 import { Button, Nav, Menu } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartbeat, faAnchor, faGlobeAmericas, faRocket } from "@fortawesome/free-solid-svg-icons";
 
-import "../Styles/Navbar.css";
+import "./Navbar.css";
 
 const Navbar = (props) => {
   return (

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../Helpers/axios";
-import VideoUpload from "../VideoUpload";
+import VideoUpload from "./VideoUpload";
 import ErrorHandler from "../../Helpers/ErrorHandler";
 import * as settings from "../../Helpers/Settings";
 import ProfileDev from "./ProfileDev";
 import ProfileProject from "./ProfileDev";
-import { Box, Button, Form, FormField, TextInput } from "grommet";
-import "./ProfileProject.css";
+import ProfileCard from "./ProfileCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkedAlt, faKey } from "@fortawesome/free-solid-svg-icons";
+import "./PersonalData.css";
 
-const PersonalData = () => {
+const PersonalData = ({ question1Update, answer1Update }) => {
   const [value, setValue] = useState({
     name: "",
     email: "",
@@ -41,10 +43,13 @@ const PersonalData = () => {
     handleFetch();
   }, [updateData]);
 
-  const handleData = async (value) => {
+  const handleData = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const body = {};
+    formData.forEach((value, property) => (body[property] = value));
     try {
       const { data } = await axiosInstance.put(settings.urlUsers, value);
-      console.log(data);
       setUpdateData(true);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
@@ -53,59 +58,136 @@ const PersonalData = () => {
     }
   };
 
+  const updateQA = () => {
+    setValue({ ...value, answer1: answer1Update, question1: question1Update });
+  };
+
   return (
     <div>
-      <Box align="center" pad="large">
-        <h3>Update your data</h3>
-        <Form
-          background
-          method="post"
-          className="profileForm"
-          value={value}
-          onChange={(nextValue) => setValue(nextValue)}
-          onReset={() => setValue({ name: "", email: "", webpage: "", location: "" })}
-          onSubmit={({ value }) => handleData(value)}>
-          <FormField name="name" htmlfor="name" label={personalData.name}>
-            <TextInput id="name" name="name" placeholder="Name" />
-          </FormField>
+      <h2 className="titleProfile">Your profile</h2>
+      <div className="profileWrapper">
+        <div className="profileForm">
+          <form
+            action="#"
+            method="post"
+            /* value={value}
+            onChange={(nextValue) => setValue(nextValue)} */
+            onReset={() => setValue({ name: "", email: "", webpage: "", location: "" })}
+            onSubmit={(e) => handleData(e)}>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="name">
+                  Name
+                </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                aria-label="name"
+                aria-describedby="name"
+                onChange={(e) => setValue({ ...value, name: e.target.value })}
+              />
+            </div>
 
-          <FormField name="email" htmlfor="email" label={personalData.email}>
-            <TextInput id="email" name="email" placeholder="Email" />
-          </FormField>
+            <div class="input-group mb-3">
+              <div class="input-group-append">
+                <span class="input-group-text" id="email">
+                  @
+                </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                aria-label="email"
+                aria-describedby="email"
+                onChange={(e) => {
+                  setValue({ ...value, email: e.target.value });
+                }}
+              />
+            </div>
 
-          <FormField name="password" htmlfor="password" label="*Password*">
-            <TextInput id="password" name="passworde" placeholder="Password" />
-          </FormField>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="password">
+                  <FontAwesomeIcon className="navIcon" icon={faKey} size="lg" />
+                </span>
+              </div>
 
-          <FormField name="location" htmlfor="location" label={personalData.location}>
-            <TextInput id="location" name="location" placeholder="Location" />
-          </FormField>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                aria-label="password"
+                aria-describedby="password"
+                onChange={(e) => {
+                  setValue({ ...value, password: e.target.value });
+                }}
+              />
+              <div class="input-group-append"></div>
+            </div>
 
-          <FormField name="webpage" htmlfor="webpage" label={personalData.webpage}>
-            <TextInput id="webpage" name="webpage" placeholder="Webpage" />
-          </FormField>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="webpage">
+                  https://
+                </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Webpage"
+                aria-describedby="webpage"
+                onChange={(e) => {
+                  setValue({ ...value, webpage: e.target.value });
+                }}
+              />
+            </div>
 
-          {personalData && !personalData.isEmpty ? (
-            personalData.typeOfUser === "Project" ? (
-              <ProfileProject data={personalData} />
-            ) : (
-              <ProfileDev data={personalData} />
-            )
-          ) : null}
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="location">
+                  <FontAwesomeIcon className="navIcon" icon={faMapMarkedAlt} size="lg" />
+                </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Location"
+                aria-label="location"
+                aria-describedby="location"
+                onChange={(e) => {
+                  setValue({ ...value, location: e.target.value });
+                }}
+              />
+            </div>
 
-          <VideoUpload />
+            {personalData && !personalData.isEmpty ? (
+              personalData.typeOfUser === "Project" ? (
+                <ProfileProject data={personalData} />
+              ) : (
+                <ProfileDev data={personalData} />
+              )
+            ) : null}
 
-          <video width="320" height="240" controls>
-            <source src={`${settings.urlVideos}?currentUser=true`} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            <VideoUpload />
 
-          <Box direction="row" gap="medium">
-            <Button type="submit" primary label="Update" />
-            <Button type="reset" label="Reset" />
-          </Box>
-        </Form>
-      </Box>
+            <button type="submit" class="btn btn-primary mb-2">
+              Update
+            </button>
+            <button type="reset" label="Reset" class="btn btn-primary mb-2">
+              Reset
+            </button>
+            {/* <Box direction="row" gap="medium">
+              <Button type="submit" primary label="Update" />
+            </Box> */}
+          </form>
+        </div>
+        <div className="profileCard">
+          <ProfileCard personalData={personalData} />
+        </div>
+      </div>
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axiosInstance from "../Helpers/axios";
-import * as settings from "../Helpers/Settings";
-import ErrorHandler from "../Helpers/ErrorHandler";
+import axiosInstance from "../../Helpers/axios";
+import * as settings from "../../Helpers/Settings";
+import ErrorHandler from "../../Helpers/ErrorHandler";
 import { Box, Button, CardBody, CardHeader, Carousel } from "grommet";
-import "../Styles/ProjectDetails.css";
+import "./ProjectDetails.css";
 
 const ProjectDetails = (props) => {
   const { projectData, handleDisplay, pending } = props;

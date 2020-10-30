@@ -4,7 +4,6 @@ import "./ProfileCard.css";
 
 const ProfileCard = (props) => {
   const { personalData } = props;
-  console.log(personalData);
   return (
     <div className="profileCard">
       <div class="card">

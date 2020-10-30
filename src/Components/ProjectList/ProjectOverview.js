@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axiosInstance from "../Helpers/axios";
+import axiosInstance from "../../Helpers/axios";
 import ProjectOverviewCard from "./ProjectOverviewCard";
-import * as settings from "../Helpers/Settings";
-import ErrorHandler from "../Helpers/ErrorHandler";
-import "../Styles/ProjectOverview.css";
+import * as settings from "../../Helpers/Settings";
+import ErrorHandler from "../../Helpers/ErrorHandler";
+import "./ProjectOverview.css";
 
 const ProjectOverview = () => {
   const [allProjects, setAllProjects] = useState([]);

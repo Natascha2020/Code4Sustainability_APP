@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axiosInstance from "../Helpers/axios";
-import jwt from "jsonwebtoken";
-import ErrorHandler from "../Helpers/ErrorHandler";
-import * as settings from "../Helpers/Settings";
+import axiosInstance from "../../Helpers/axios";
+import ErrorHandler from "../../Helpers/ErrorHandler";
+import * as settings from "../../Helpers/Settings";
 import { Box, Button, Card, Form, FormField, TextInput, RadioButtonGroup } from "grommet";
 
 const SignUp = () => {

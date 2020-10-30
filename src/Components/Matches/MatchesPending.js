@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import axiosInstance from "../Helpers/axios";
-import ProjectOverviewCard from "./ProjectOverviewCard";
-import ErrorHandler from "../Helpers/ErrorHandler";
-import * as settings from "../Helpers/Settings";
+import axiosInstance from "../../Helpers/axios";
+import ProjectOverviewCard from "../ProjectList/ProjectOverviewCard";
+import ErrorHandler from "../../Helpers/ErrorHandler";
+import * as settings from "../../Helpers/Settings";
 
-import "../Styles/MatchesPending.css";
+import "./MatchesPending.css";
 
 const MatchesPending = () => {
   const [pendingData, setPendingData] = useState([]);

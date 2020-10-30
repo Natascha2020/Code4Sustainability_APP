@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axiosInstance from "../Helpers/axios";
+import axiosInstance from "../../Helpers/axios";
 import jwt from "jsonwebtoken";
-import ErrorHandler from "../Helpers/ErrorHandler";
-import * as settings from "../Helpers/Settings";
+import ErrorHandler from "../../Helpers/ErrorHandler";
+import * as settings from "../../Helpers/Settings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
-import "../Styles/LogIn.css";
+import "./LogIn.css";
 
 const LogIn = () => {
   const [password, setPassword] = useState("");
@@ -34,13 +34,21 @@ const LogIn = () => {
       <form class="text-center border border-light p-5 logInForm" value="loginData" onSubmit={(e) => handleLogIn(e)}>
         <p class="h4 mb-4">LogIn</p>
 
-        <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />
+        <input
+          type="email"
+          id="defaultLoginFormEmail"
+          class="form-control mb-4"
+          value={email}
+          placeholder="E-mail"
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
         <input
           type="password"
           id="defaultLoginFormPassword"
           class="form-control mb-4"
           placeholder="Password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 

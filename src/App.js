@@ -1,21 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import NavFooter from "./Components/NavFooter";
-import SignUp from "./Components/SignUp";
-import LogIn from "./Components/LogIn";
-import About from "./Components/About";
-import Home from "./Components/Home";
-import GitHub from "./Components/GitHub";
-import HowItWorks from "./Components/HowItWorks";
-import ProjectOverview from "./Components/ProjectOverview";
-import ProjectDetails from "./Components/ProjectDetails";
-import PersonalData2 from "./Components/Profile/PersonalData2";
+import Navbar from "./Components/Navbar/Navbar";
+import NavFooter from "./Components/Footer/NavFooter";
+import SignUp from "./Components/Authenticate/SignUp";
+import LogIn from "./Components/Authenticate/LogIn";
+import About from "./Components/LandingPage/About";
+import Home from "./Components/LandingPage/Home";
+import GitHub from "./Components/Footer/GitHub";
+import HowItWorks from "./Components/LandingPage/HowItWorks";
+import ProjectOverview from "./Components/ProjectList/ProjectOverview";
+import ProjectDetails from "./Components/ProjectList/ProjectDetails";
+import PersonalData2 from "./Components/Profile/PersonalData";
 import ProfileDev from "./Components/Profile/ProfileDev";
 import ProfileProject from "./Components/Profile/ProfileProject";
-import MatchesPending from "./Components/MatchesPending";
-import MatchesAccepted from "./Components/MatchesAccepted";
-import Authenticated from "./Components/Authenticated";
+import MatchesPending from "./Components/Matches/MatchesPending";
+import MatchesAccepted from "./Components/Matches/MatchesAccepted";
+import Authenticated from "./Components/Authenticate/Authenticated";
 import MainChat from "./Components/Chat/MainChat";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Grommet } from "grommet";
@@ -40,7 +40,7 @@ const App = (props) => {
           </Route>
 
           <Route exact path="/projectDetails">
-            <Authenticated WrappedComponent={ProjectDetails} {...props} />
+            <Authenticated WrappedComponent={ProjectDetails} withRedirect={false} {...props} />
           </Route>
 
           <Route exact path="/signUp">

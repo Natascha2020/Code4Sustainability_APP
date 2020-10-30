@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ProjectDetails from "./ProjectDetails";
-import Authenticated from "./Authenticated";
+import Authenticated from "../Authenticate/Authenticated";
 import { Box, Button, Card, CardBody, CardFooter, CardHeader } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComments, faShareAlt } from "@fortawesome/free-solid-svg-icons";
-import * as settings from "../Helpers/Settings";
-import "../Styles/ProjectOverviewCard.css";
+import * as settings from "../../Helpers/Settings";
+import "./ProjectOverviewCard.css";
 
 const ProjectOverview = (props) => {
   const { projectData, pending, deletePending } = props;
