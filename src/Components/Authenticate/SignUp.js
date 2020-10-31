@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axiosInstance from "../../Helpers/axios";
 import ErrorHandler from "../../Helpers/ErrorHandler";
 import * as settings from "../../Helpers/Settings";
-import { Box, Button, Card, Form, FormField, TextInput, RadioButtonGroup } from "grommet";
 
 const SignUp = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [userId, setUserId] = useState("");
+
   const [typeOfUser, setTypeOfUser] = useState("");
   const [signedIn, setSignedIn] = useState(false);
 
@@ -18,40 +17,75 @@ const SignUp = () => {
     try {
       const response = await axiosInstance.post(settings.urlUsers, { email, password, typeOfUser });
       console.log(response);
-      setSignedIn(true);
+      if (response.status === 200) {
+        setSignedIn(true);
+      }
     } catch (err) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
       console.error(error);
     }
   };
+
   return (
     <div>
-      <Card className="logInCard" height="medium" width="medium" background="light-4">
-        <Form className="loginForm" value="loginData" onReset={(e) => {}} onSubmit={(e) => handleLogIn(e)}>
-          <h3 className="cardTitle">&lt; Ready to connect? &gt;</h3>
-          <FormField name="email" htmlfor="text-input-id" label="Email">
-            <TextInput id="text-input-id" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          </FormField>
-          <FormField name="password" htmlfor="password" label="Password" type="password">
-            <TextInput id="password" name="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          </FormField>
-          <RadioButtonGroup
-            name="doc"
-            options={["Developer", "Project"]}
-            value={typeOfUser}
-            onChange={(event) => setTypeOfUser(event.target.value)}
+      {signedIn ? (
+        <Redirect to="/personalData" />
+      ) : (
+        <form class="text-center border border-light p-5 logInForm" value="loginData" onSubmit={(e) => handleLogIn(e)}>
+          <p class="h4 mb-4">LogIn</p>
+
+          <input
+            type="email"
+            id="defaultLoginFormEmail"
+            class="form-control mb-4"
+            value={email}
+            placeholder="E-mail"
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <Box direction="row" gap="medium">
-            <Button type="submit" primary label="SignUp" />
-          </Box>
-          <Box>
-            <Link className="linkSignUp" to="/logIn">
-              Sign up
-            </Link>
-          </Box>
-        </Form>
-      </Card>
+
+          <input
+            type="password"
+            id="defaultLoginFormPassword"
+            class="form-control mb-4"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="developer" value="Developer" checked />
+            <label class="form-check-label" for="developer">
+              Default radio
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="project" value="Project" />
+            <label class="form-check-label" for="project">
+              Second default radio
+            </label>
+          </div>
+
+          <div class="d-flex justify-content-around">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" />
+              <label class="custom-control-label" for="defaultLoginFormRemember">
+                Remember me
+              </label>
+            </div>
+          </div>
+
+          <button class="btn btn-info btn-block my-4" type="submit">
+            LogIn
+          </button>
+
+          <p>
+            Already part of community?
+            <a href="/logIn">LogIn</a>
+          </p>
+        </form>
+      )}
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
