@@ -4,15 +4,14 @@ import VideoUpload from "./VideoUpload";
 import ErrorHandler from "../../Helpers/ErrorHandler";
 import * as settings from "../../Helpers/Settings";
 import ProfileDev from "./ProfileDev";
-import ProfileProject from "./ProfileProject";
+import ProfileProject from "./ProfileDev";
 import ProfileCard from "./ProfileCard";
-import { Box, Button } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkedAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import "./PersonalData.css";
 
-const PersonalData = () => {
-  const [formValue, setFormValue] = useState({
+const PersonalData = ({ question1Update, answer1Update }) => {
+  const [value, setValue] = useState({
     name: "",
     email: "",
     webpage: "",
@@ -43,12 +42,14 @@ const PersonalData = () => {
     };
     handleFetch();
   }, [updateData]);
-  console.log("formvalue", formValue);
 
   const handleData = async (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const body = {};
+    formData.forEach((value, property) => (body[property] = value));
     try {
-      const { data } = await axiosInstance.put(settings.urlUsers, formValue);
+      const { data } = await axiosInstance.put(settings.urlUsers, value);
       setUpdateData(true);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
@@ -57,33 +58,21 @@ const PersonalData = () => {
     }
   };
 
-  const inputHandler = (e) => {
-    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  const updateQA = () => {
+    setValue({ ...value, answer1: answer1Update, question1: question1Update });
   };
 
   return (
     <div>
-      <h2 className="titleProfile">Personal data</h2>
+      <h2 className="titleProfile">Your profile</h2>
       <div className="profileWrapper">
         <div className="profileForm">
           <form
             action="#"
             method="post"
-            onReset={() =>
-              setFormValue({
-                name: "",
-                email: "",
-                webpage: "",
-                location: "",
-                question1: "",
-                question2: "",
-                question3: "",
-                answer1: "",
-                answer2: "",
-                answer3: "",
-                password: "",
-              })
-            }
+            /* value={value}
+            onChange={(nextValue) => setValue(nextValue)} */
+            onReset={() => setValue({ name: "", email: "", webpage: "", location: "" })}
             onSubmit={(e) => handleData(e)}>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -95,11 +84,9 @@ const PersonalData = () => {
                 type="text"
                 class="form-control"
                 placeholder="Name"
-                name="name"
                 aria-label="name"
                 aria-describedby="name"
-                onChange={inputHandler}
-                value={formValue.name}
+                onChange={(e) => setValue({ ...value, name: e.target.value })}
               />
             </div>
 
@@ -113,11 +100,11 @@ const PersonalData = () => {
                 type="text"
                 class="form-control"
                 placeholder="Email"
-                name="email"
                 aria-label="email"
                 aria-describedby="email"
-                onChange={inputHandler}
-                value={formValue.email}
+                onChange={(e) => {
+                  setValue({ ...value, email: e.target.value });
+                }}
               />
             </div>
 
@@ -132,11 +119,11 @@ const PersonalData = () => {
                 type="password"
                 class="form-control"
                 placeholder="Password"
-                name="password"
                 aria-label="password"
                 aria-describedby="password"
-                onChange={inputHandler}
-                value={formValue.password}
+                onChange={(e) => {
+                  setValue({ ...value, password: e.target.value });
+                }}
               />
               <div class="input-group-append"></div>
             </div>
@@ -151,10 +138,10 @@ const PersonalData = () => {
                 type="text"
                 class="form-control"
                 placeholder="Webpage"
-                name="webpage"
                 aria-describedby="webpage"
-                onChange={inputHandler}
-                value={formValue.webpage}
+                onChange={(e) => {
+                  setValue({ ...value, webpage: e.target.value });
+                }}
               />
             </div>
 
@@ -168,28 +155,33 @@ const PersonalData = () => {
                 type="text"
                 class="form-control"
                 placeholder="Location"
-                name="location"
                 aria-label="location"
                 aria-describedby="location"
-                onChange={inputHandler}
-                value={formValue.location}
+                onChange={(e) => {
+                  setValue({ ...value, location: e.target.value });
+                }}
               />
             </div>
 
-            <VideoUpload setUpdateData={setUpdateData} updateParentData={updateData} />
-
             {personalData && !personalData.isEmpty ? (
               personalData.typeOfUser === "Project" ? (
-                <ProfileProject data={personalData} parentFormValue={formValue} setFormValue={setFormValue} />
+                <ProfileProject data={personalData} />
               ) : (
-                <ProfileDev data={personalData} parentFormValue={formValue} setFormValue={setFormValue} />
+                <ProfileDev data={personalData} />
               )
             ) : null}
 
-            <Box direction="row" gap="medium">
-              <Button margin="medium" type="submit" primary label="Update profile" />
-              <Button margin="medium" type="reset" primary label="Reset form" />
-            </Box>
+            <VideoUpload />
+
+            <button type="submit" class="btn btn-primary mb-2">
+              Update
+            </button>
+            <button type="reset" label="Reset" class="btn btn-primary mb-2">
+              Reset
+            </button>
+            {/* <Box direction="row" gap="medium">
+              <Button type="submit" primary label="Update" />
+            </Box> */}
           </form>
         </div>
         <div className="profileCard">

@@ -6,7 +6,7 @@ import SignUp from "./Components/Authenticate/SignUp";
 import LogIn from "./Components/Authenticate/LogIn";
 import About from "./Components/LandingPage/About";
 import Home from "./Components/LandingPage/Home";
-import GitHub from "./Components/Footer/GitHub";
+/* import GitHub from "./Components/Footer/GitHub"; */
 import HowItWorks from "./Components/LandingPage/HowItWorks";
 import ProjectOverview from "./Components/ProjectList/ProjectOverview";
 import ProjectDetails from "./Components/ProjectList/ProjectDetails";
@@ -47,9 +47,9 @@ const App = (props) => {
             <SignUp />
           </Route>
 
-          <Route exact path="/gitHub">
+          {/* <Route exact path="/gitHub">
             <GitHub />
-          </Route>
+          </Route> */}
 
           <Route exact path="/chat">
             <MainChat />
@@ -72,8 +72,7 @@ const App = (props) => {
           </Route>
 
           <Route exact path="/matchesPending">
-            {/*  <Authenticated WrappedComponent={MatchesPending} {...props} /> */}
-            <MatchesPending />
+            <Authenticated WrappedComponent={MatchesPending} {...props} />
           </Route>
 
           <Route exact path="/matchesAccepted">

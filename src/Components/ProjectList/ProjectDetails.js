@@ -6,21 +6,21 @@ import { Box, Button, CardBody, CardHeader, Carousel } from "grommet";
 import "./ProjectDetails.css";
 
 const ProjectDetails = (props) => {
-  const { projectData, handleDisplay, pending } = props;
+  const { projectData, handleDisplay, pending, matched, onDeleteInterest } = props;
 
   const [updateList, setUpdateList] = useState(false);
   const [projectPending, setProjectPending] = useState([]);
+  const [projectMatched, setProjectMatched] = useState([]);
   const [error, setError] = useState("");
 
+  //add project to dashboard-array and (on project detailed card)/will be displayed on MatchesPending
   const handleConnect = async (e) => {
     e.preventDefault();
-    console.log(projectData);
-    console.log(settings.urlDeveloper + "/addProject?user_id_p=" + projectData._id);
+
     try {
       const { data } = await axiosInstance.put(settings.urlDeveloper + "/addProject?user_id_p=" + projectData._id);
       setProjectPending(data);
       setUpdateList(true);
-      console.log(data);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -28,15 +28,13 @@ const ProjectDetails = (props) => {
     }
   };
 
-  const handleDelete = async (e) => {
+  //delete project from dashboard-array(matched) and (on project detailed card)/will not be displayed on MatchesAccepted
+  const handleDeleteMatched = async (e) => {
     e.preventDefault();
-    console.log("Test delete");
     try {
-      const { data } = await axiosInstance.put(settings.urlDeveloper + "/deletePendingProject?user_id_p=" + projectData._id);
+      const { data } = await axiosInstance.put(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + projectData._id);
       setProjectPending(data);
       setUpdateList(true);
-      console.log(data);
-      console.log("in here");
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -51,7 +49,6 @@ const ProjectDetails = (props) => {
       const { data } = await axiosInstance.put(settings.urlProject + "/acceptDeveloper?user_id_d=" + projectData._id);
       setProjectPending(data);
       setUpdateList(true);
-      console.log(data);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -89,6 +86,7 @@ const ProjectDetails = (props) => {
           </Carousel>
         </Box>
       </CardBody>
+      {/*Check if projectid is part of pendingMatches-array, then interest was sent and delete interest button is displayed*/}
       {pending ? (
         <Button
           className="btnCard"
@@ -96,12 +94,11 @@ const ProjectDetails = (props) => {
           margin={{ bottom: "small", horizontal: "small" }}
           primary
           label="Delete interest"
-          onClick={(e) => {
-            handleDelete(e);
-          }}
+          onClick={onDeleteInterest}
         />
       ) : null}
-      {pending && projectData.typeOfUser === "Developer" ? (
+      {/*Check if projectid is part of pendingMatches-array, and user is a projectowner who can accept developer interest, then accept interest button is displayed*/}
+      {pending && projectData.typeOfUser === "Developer" && !matched ? (
         <Button
           type="submit"
           margin={{ bottom: "small", horizontal: "small" }}
@@ -112,6 +109,7 @@ const ProjectDetails = (props) => {
           }}
         />
       ) : null}
+      {/*Check if projectid is not part of pendingMatches-array, and user is a developer who can send interest to project owner, then send interest button is displayed*/}
       {!pending && projectData.typeOfUser === "Project" ? (
         <Button
           type="submit"
@@ -120,6 +118,18 @@ const ProjectDetails = (props) => {
           label="Send interest"
           onClick={(e) => {
             handleConnect(e);
+          }}
+        />
+      ) : null}
+      {matched ? (
+        <Button
+          className="btnCard"
+          type="submit"
+          margin={{ bottom: "small", horizontal: "small" }}
+          primary
+          label="Delete match"
+          onClick={(e) => {
+            handleDeleteMatched(e);
           }}
         />
       ) : null}
