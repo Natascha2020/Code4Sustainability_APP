@@ -6,9 +6,11 @@ import * as settings from "../../Helpers/Settings";
 const Authenticated = (props) => {
   let { WrappedComponent, withRedirect } = props;
   const [authDone, setAuthDone] = useState({});
+  const [idUser, setIdUser] = useState("");
+  const [typeOfUser, setTypeOfUser] = useState("");
 
   //set default redirecting to true and pass as prop
-  if (!withRedirect) withRedirect = true;
+  if (!withRedirect) withRedirect = false;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,9 +20,12 @@ const Authenticated = (props) => {
         if (checkRefreshToken.status === 401) {
           setAuthDone({ error: true });
         } else {
+          setIdUser(checkRefreshToken.data.idUser);
           setAuthDone({
             isAuth: true,
           });
+          const result = await axiosInstance.get(`${settings.urlUsers}?currentUser=true`);
+          setTypeOfUser(result.data.typeOfUser);
         }
       } catch (error) {
         setAuthDone({ errorMessage: `Error: ${error}` });
@@ -35,7 +40,7 @@ const Authenticated = (props) => {
   return (
     <div>
       {authDone.isAuth ? (
-        <WrappedComponent {...props} />
+        <WrappedComponent idUser={idUser} typeOfUser={typeOfUser} {...props} />
       ) : authDone.errorMessage ? (
         <ErrorHandler errorMessage={authDone.errorMsg} />
       ) : authDone.error ? (

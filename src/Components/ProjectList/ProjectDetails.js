@@ -6,55 +6,13 @@ import { Box, Button, CardBody, CardHeader, Carousel } from "grommet";
 import "./ProjectDetails.css";
 
 const ProjectDetails = (props) => {
-  const { projectData, handleDisplay, pending, matched, onDeleteInterest } = props;
+  const { projectData, onSendInterest, onHandleAcceptance, handleDisplay, onDeleteInterest, onDeleteMatched, idUser, typeOfUser } = props;
 
-  const [updateList, setUpdateList] = useState(false);
-  const [projectPending, setProjectPending] = useState([]);
-  const [projectMatched, setProjectMatched] = useState([]);
+  const [matchPending, setMatchPending] = useState(false);
+  const [matchAccepted, setMatchAccepted] = useState(false);
+  const [projectsPending, setProjectsPending] = useState([]);
+  const [projectsMatched, setProjectsMatched] = useState([]);
   const [error, setError] = useState("");
-
-  //add project to dashboard-array and (on project detailed card)/will be displayed on MatchesPending
-  const handleConnect = async (e) => {
-    e.preventDefault();
-
-    try {
-      const { data } = await axiosInstance.put(settings.urlDeveloper + "/addProject?user_id_p=" + projectData._id);
-      setProjectPending(data);
-      setUpdateList(true);
-    } catch (error) {
-      let errorMsg = `Error: ${error}`;
-      setError(errorMsg);
-      console.error(error);
-    }
-  };
-
-  //delete project from dashboard-array(matched) and (on project detailed card)/will not be displayed on MatchesAccepted
-  const handleDeleteMatched = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axiosInstance.put(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + projectData._id);
-      setProjectPending(data);
-      setUpdateList(true);
-    } catch (error) {
-      let errorMsg = `Error: ${error}`;
-      setError(errorMsg);
-      console.error(error);
-    }
-  };
-
-  const handleAcceptance = async (e) => {
-    e.preventDefault();
-    console.log(settings.urlUsers + "/" + projectData._id);
-    try {
-      const { data } = await axiosInstance.put(settings.urlProject + "/acceptDeveloper?user_id_d=" + projectData._id);
-      setProjectPending(data);
-      setUpdateList(true);
-    } catch (error) {
-      let errorMsg = `Error: ${error}`;
-      setError(errorMsg);
-      console.error(error);
-    }
-  };
 
   return (
     <div>
@@ -86,51 +44,35 @@ const ProjectDetails = (props) => {
           </Carousel>
         </Box>
       </CardBody>
-      {/*Check if projectid is part of pendingMatches-array, then interest was sent and delete interest button is displayed*/}
-      {pending ? (
+      {onDeleteInterest ? (
         <Button
           className="btnCard"
           type="submit"
           margin={{ bottom: "small", horizontal: "small" }}
           primary
           label="Delete interest"
-          onClick={onDeleteInterest}
+          onClick={() => {
+            onDeleteInterest();
+            handleDisplay();
+          }}
         />
       ) : null}
       {/*Check if projectid is part of pendingMatches-array, and user is a projectowner who can accept developer interest, then accept interest button is displayed*/}
-      {pending && projectData.typeOfUser === "Developer" && !matched ? (
-        <Button
-          type="submit"
-          margin={{ bottom: "small", horizontal: "small" }}
-          primary
-          label="Accept interest"
-          onClick={(e) => {
-            handleAcceptance(e);
-          }}
-        />
+      {onHandleAcceptance && typeOfUser === "Project" ? (
+        <Button type="submit" margin={{ bottom: "small", horizontal: "small" }} primary label="Accept interest" onClick={onHandleAcceptance} />
       ) : null}
       {/*Check if projectid is not part of pendingMatches-array, and user is a developer who can send interest to project owner, then send interest button is displayed*/}
-      {!pending && projectData.typeOfUser === "Project" ? (
-        <Button
-          type="submit"
-          margin={{ bottom: "small", horizontal: "small" }}
-          primary
-          label="Send interest"
-          onClick={(e) => {
-            handleConnect(e);
-          }}
-        />
+      {onSendInterest && typeOfUser === "Developer" ? (
+        <Button type="submit" margin={{ bottom: "small", horizontal: "small" }} primary label="Send interest" onClick={onSendInterest} />
       ) : null}
-      {matched ? (
+      {onDeleteMatched ? (
         <Button
           className="btnCard"
           type="submit"
           margin={{ bottom: "small", horizontal: "small" }}
           primary
           label="Delete match"
-          onClick={(e) => {
-            handleDeleteMatched(e);
-          }}
+          onClick={onDeleteMatched}
         />
       ) : null}
       ;{error ? <ErrorHandler errorMessage={error} /> : null}

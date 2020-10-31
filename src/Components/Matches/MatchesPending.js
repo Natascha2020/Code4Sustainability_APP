@@ -6,7 +6,8 @@ import * as settings from "../../Helpers/Settings";
 
 import "./MatchesPending.css";
 
-const MatchesPending = () => {
+const MatchesPending = (props) => {
+  const { idUser, typeOfUser } = props;
   const [pendingData, setPendingData] = useState([]);
   const [cards, setCardData] = useState([]);
   const [error, setError] = useState("");
@@ -31,6 +32,7 @@ const MatchesPending = () => {
             // return <ProjectOverviewCard key={projectId} projectData={data} />;
           });
           const cardData = await Promise.all(arrayOfComponents);
+          console.log("dev", cardData);
           setCardData(cardData);
         }
       } catch (error) {
@@ -43,9 +45,11 @@ const MatchesPending = () => {
     handleFetch();
   }, [pendingData]);
 
+  console.log(idUser);
+  console.log(typeOfUser);
+
   //delete project from dashboard-array(pending) and (on project detailed card)/will not be displayed on MatchesPending
-  const onDeleteInterest = async (e, card, cardIndex) => {
-    e.preventDefault();
+  const onDeleteInterest = async (card, cardIndex) => {
     try {
       await axiosInstance.put(settings.urlDeveloper + "/deletePendingProject?user_id_p=" + card._id);
       const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
@@ -57,12 +61,29 @@ const MatchesPending = () => {
     }
   };
   console.log(cards);
+
+  //add developer to accepted matches list, update data and state for matchAccepted
+  const handleAcceptance = async (projectId) => {
+    try {
+      await axiosInstance.put(settings.urlProject + "/acceptDeveloper?user_id_d=" + projectId);
+    } catch (error) {
+      let errorMsg = `Error: ${error}`;
+      setError(errorMsg);
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <h2 className="titleMatchesPending">Matches pending</h2>
       {cards && cards.length
         ? cards.map((card, index) => (
-            <ProjectOverviewCard onDeleteInterest={(e) => onDeleteInterest(e, card, index)} ey={card._id} projectData={card} pending={true} />
+            <ProjectOverviewCard
+              onDeleteInterest={() => onDeleteInterest(card, index)}
+              onHandleAcceptance={() => handleAcceptance(card._id)}
+              ey={card._id}
+              projectData={card}
+            />
           ))
         : null}
 

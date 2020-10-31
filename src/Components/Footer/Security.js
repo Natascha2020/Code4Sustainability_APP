@@ -3,24 +3,28 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import "./Security.css";
 
-const GitHub = () => {
-  const [show, setShow] = useState(false);
+const GitHub = (props) => {
+  const { showSecurity, handleClose } = props;
 
   return (
     <div>
-      <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
+      <Modal show={showSecurity} onHide={() => handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
         <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">May contain hackers...</Modal.Title>
+          <Modal.Title className="titleModal" id="example-custom-modal-styling-title">
+            May contain hackers...
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <h5>Our platform is designed as a microservice architecture.</h5>
-          <div>What the hell are microservices?</div>
-          <div>
-            "Do one thing and do it well". Approach to build complex applications by breaking it down into components which perform a single function.
-          </div>
-          <div>Main advantages: Robustness, scalability, independency, compatibility </div>
-          <h4>Our platform is designed to give all members of the community most data security.</h4>
-          <h5>No need for sharing any private data like email unless personal decision on chat.</h5>
+        <Modal.Body className="modalBody">
+          <h5 className="highlightModal">Our platform is designed as microservices</h5>
+          <h6 className="boldModal">What the hell are microservices???</h6>
+          <div>"Do one thing and do it well".</div>
+          <br />
+          <div>Approach to build complex applications by breaking down into components to perform single functions.</div>
+          <br />
+          <div>Robust, scalable, independent, compatible! </div>
+          <br />
+          <h5 className="highlightModal">Our platform is designed as security first.</h5>
+          <h6>No need for sharing private data unless personal decision.</h6>
         </Modal.Body>
       </Modal>
     </div>

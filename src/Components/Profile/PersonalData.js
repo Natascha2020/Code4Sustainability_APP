@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkedAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import "./PersonalData.css";
 
-const PersonalData = () => {
+const PersonalData = ({ idUser, typeOfUser }) => {
   const [formValue, setFormValue] = useState({
     name: "",
     email: "",
@@ -43,7 +43,6 @@ const PersonalData = () => {
     };
     handleFetch();
   }, [updateData]);
-  console.log("formvalue", formValue);
 
   const handleData = async (e) => {
     e.preventDefault();
@@ -61,6 +60,7 @@ const PersonalData = () => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
 
+  console.log(idUser, typeOfUser);
   return (
     <div>
       <h2 className="titleProfile">Personal data</h2>

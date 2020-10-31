@@ -43,11 +43,31 @@ const MatchesAccepted = () => {
     handleFetch();
   }, [matchedData]);
 
-  console.log(cards);
+  //delete project from dashboard-array(matched) and (on project detailed card)/will not be displayed on MatchesAccepted
+  const onDeleteMatched = async (card, cardIndex) => {
+    console.log("delete me");
+    console.log(card);
+    console.log(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + card._id);
+    try {
+      const result = await axiosInstance.put(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + card._id);
+      const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
+      console.log("result:", result);
+      setCardData([...newState]);
+    } catch (error) {
+      let errorMsg = `Error: ${error}`;
+      setError(errorMsg);
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <h2 className="titleMatchesAccepted ">Matches accepted</h2>
-      {cards && cards.length ? cards.map((card) => <ProjectOverviewCard key={card._id} projectData={card} matched={true} />) : null}
+      {cards && cards.length
+        ? cards.map((card, index) => (
+            <ProjectOverviewCard onDeleteMatched={(e) => onDeleteMatched(card, index)} ey={card._id} key={card._id} projectData={card} />
+          ))
+        : null}
 
       {/*HERE TO START: if developer, display developer profile card*/}
       {/* {cards && cards.length ? cards.map((card) => <ProfileCard key={card._id} personalData={card} pending={true} />) : null} */}

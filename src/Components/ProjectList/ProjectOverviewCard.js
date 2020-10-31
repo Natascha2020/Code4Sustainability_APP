@@ -8,12 +8,12 @@ import * as settings from "../../Helpers/Settings";
 import "./ProjectOverviewCard.css";
 
 const ProjectOverview = (props) => {
-  const { projectData, pending, matched } = props;
+  const { projectData } = props;
 
   const [showDetails, setShowDetails] = useState(false);
 
   const showOverview = () => {
-    setShowDetails(false);
+    setShowDetails(!showDetails);
   };
 
   return (
@@ -21,10 +21,10 @@ const ProjectOverview = (props) => {
       <Box height={{ min: "300" }} width="medium" margin="small">
         <Card className="projectCard" height="300" width="medium" background="light-1" elevation="large">
           {showDetails ? (
-            <ProjectDetails projectData={projectData} handleDisplay={showOverview} pending={pending} matched={matched} {...props} />
+            <Authenticated WrappedComponent={ProjectDetails} projectData={projectData} handleDisplay={showOverview} {...props} />
           ) : (
             <div>
-              <CardHeader className="cardHeader" pad="small" onClick={() => setShowDetails(true)}>
+              <CardHeader className="cardHeader" pad="small" onClick={showOverview}>
                 {projectData.name}
               </CardHeader>
               <CardBody pad="medium">
