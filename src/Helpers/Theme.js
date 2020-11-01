@@ -1,6 +1,7 @@
 const Theme = {
   global: {
     colors: {
+      focus: "#008b8b",
       brand: "#008b8b",
       nav: "#fff",
       navIcon: "#aaa",
@@ -14,6 +15,11 @@ const Theme = {
       family: "Roboto",
       size: "18px",
       height: "20px",
+    },
+    focus: {
+      border: {
+        color: "#008b8b",
+      },
     },
   },
 };

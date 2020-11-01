@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import axiosInstance from "../../Helpers/axios";
 import jwt from "jsonwebtoken";
+
 import ErrorHandler from "../../Helpers/ErrorHandler";
 import * as settings from "../../Helpers/Settings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import Modal from "react-bootstrap/Modal";
 
 import "./LogIn.css";
 
@@ -14,6 +16,11 @@ const LogIn = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [userId, setUserId] = useState("");
+  const [showLogIn, setShowLogIn] = useState(true);
+
+  const handleClose = () => {
+    setShowLogIn(!showLogIn);
+  };
 
   //post credentials and check for validity, set uderId
   const handleLogIn = async (e) => {
@@ -23,6 +30,7 @@ const LogIn = () => {
       const loggedUser = jwt.decode(response.data);
       const loggedUserId = loggedUser.idUser;
       setUserId(loggedUserId);
+      window.location.href = "/";
     } catch (err) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -36,66 +44,66 @@ const LogIn = () => {
       {userId && userId.length ? (
         <Redirect to="/projects" />
       ) : (
-        <form class="text-center border border-light p-5 logInForm" value="loginData" onSubmit={(e) => handleLogIn(e)}>
-          <p class="h4 mb-4">LogIn</p>
+        <Modal show={showLogIn} onHide={handleClose} dialogClassName="modal-70w" aria-labelledby="example-custom-modal-styling-title" closeButton>
+          <form className="text-center border border-light p-5" onSubmit={(e) => handleLogIn(e)}>
+            <p className="h4 mb-4">LogIn</p>
+            <input
+              type="email"
+              id="defaultLoginFormEmail"
+              className="form-control mb-4 logInForm"
+              value={email}
+              placeholder="E-mail"
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <input
-            type="email"
-            id="defaultLoginFormEmail"
-            class="form-control mb-4"
-            value={email}
-            placeholder="E-mail"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+            <input
+              type="password"
+              id="defaultLoginFormPassword"
+              class="form-control mb-4 logInForm"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <input
-            type="password"
-            id="defaultLoginFormPassword"
-            class="form-control mb-4"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <div class="d-flex justify-content-around">
-            <div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" />
-                <label class="custom-control-label" for="defaultLoginFormRemember">
-                  Remember me
-                </label>
+            <div className="d-flex justify-content-around">
+              <div>
+                <div className="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" />
+                  <label className="custom-control-label" for="defaultLoginFormRemember">
+                    Remember me
+                  </label>
+                </div>
+              </div>
+              <div>
+                <a className="linkLogIn" href="">
+                  Forgot password?
+                </a>
               </div>
             </div>
-            <div>
-              <a href="">Forgot password?</a>
-            </div>
-          </div>
 
-          <button class="btn btn-info btn-block my-4" type="submit">
-            LogIn
-          </button>
+            <button className="btn btn-info btn-block my-4 btnLogin" type="submit">
+              LogIn
+            </button>
 
-          <p>
-            Not part of community?
-            <a href="/signIn">Sign in</a>
-          </p>
+            <p className="notCommunity">
+              Not yet part of community?
+              <a className="linkLogIn" href="/signUp">
+                Sign Up
+              </a>
+            </p>
 
-          <p>or sign in with:</p>
+            <p>or log in in with:</p>
 
-          <a href="#" class="mx-2" role="button">
-            <FontAwesomeIcon className="navIcon" icon={faGithub} size="lg" />
-          </a>
-          <a href="#" class="mx-2" role="button">
-            <FontAwesomeIcon className="navIcon" icon={faGoogle} size="lg" />
-          </a>
-          <a href="#" class="mx-2" role="button">
-            <i class="fab fa-linkedin-in light-blue-text"></i>
-          </a>
-          <a href="#" class="mx-2" role="button">
-            <i class="fab fa-github light-blue-text"></i>
-          </a>
-        </form>
+            <a href="#" class="mx-2" role="button">
+              <FontAwesomeIcon className="navIcon" icon={faGithub} size="2x" />
+            </a>
+            <a href="#" class="mx-2" role="button">
+              <FontAwesomeIcon className="navIcon" icon={faGoogle} size="2x" />
+            </a>
+          </form>
+        </Modal>
       )}
+
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );

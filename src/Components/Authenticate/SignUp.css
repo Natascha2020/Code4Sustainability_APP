@@ -1,0 +1,23 @@
+.inputRadio {
+  width: 20%;
+}
+
+.inputLabel {
+  font-weight: bold;
+}
+
+.choose-user-type {
+  text-align: center;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+.choose-user-type .form-check {
+  display: inline-block;
+  margin: 0 5%;
+  /* margin-right: 20px; */
+}
+
+.legendSignUp {
+  font-size: 18px;
+  color: #daa520;
+}

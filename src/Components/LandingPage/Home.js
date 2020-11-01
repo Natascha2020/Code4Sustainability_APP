@@ -12,7 +12,6 @@ const Home = () => {
         <br />
         <h3 className="slogan">"Join for a problem, stay for the people!"</h3>
       </div>
-      <LogIn />
 
       <div className="sectionIntroWrapper">
         <div className="sectionIntro">

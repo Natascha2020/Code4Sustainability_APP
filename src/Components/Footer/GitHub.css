@@ -12,3 +12,27 @@
   text-decoration: none;
   color: #008b8b;
 }
+
+.gitTitle {
+  color: #008b8b;
+  font-weight: bold;
+  text-align: center;
+}
+
+.gitSubtitle {
+  color: #e1b74d;
+}
+
+.gitSubBlock {
+  width: 40%;
+  margin: 3em auto;
+}
+
+.gitFirstBlock {
+  display: flex;
+}
+
+.gitLastBlock {
+  width: 30%;
+  margin: 0 auto;
+}

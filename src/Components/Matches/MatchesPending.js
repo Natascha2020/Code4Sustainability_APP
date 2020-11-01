@@ -6,12 +6,13 @@ import * as settings from "../../Helpers/Settings";
 
 import "./MatchesPending.css";
 
-const MatchesPending = () => {
-  const [pendingData, setPendingData] = useState([]);
+const MatchesPending = (props) => {
+  const { idUser, typeOfUser } = props;
   const [cards, setCardData] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    //get dashboard of developer (pending and accepted matches) or project (pending and accepted matches)
     const handleFetch = async () => {
       try {
         const { data: pendingData } = await axiosInstance.get(settings.urlUsers + "/getDashboard");
@@ -19,7 +20,6 @@ const MatchesPending = () => {
           const arrayOfComponents = pendingData.developers_pending.map(async (projectId, index) => {
             const { data } = await axiosInstance.get(`${settings.urlUsers}/${projectId}`);
             return data;
-            // return <ProjectOverviewCard key={projectId} projectData={data} />;
           });
           const cardData = await Promise.all(arrayOfComponents);
           setCardData(cardData);
@@ -28,9 +28,9 @@ const MatchesPending = () => {
             const { data } = await axiosInstance.get(`${settings.urlUsers}/${projectId}`);
             console.log(data);
             return data;
-            // return <ProjectOverviewCard key={projectId} projectData={data} />;
           });
           const cardData = await Promise.all(arrayOfComponents);
+          console.log("dev", cardData);
           setCardData(cardData);
         }
       } catch (error) {
@@ -41,13 +41,17 @@ const MatchesPending = () => {
     };
 
     handleFetch();
-  }, [pendingData]);
+  }, []);
 
-  //delete project from dashboard-array(pending) and (on project detailed card)/will not be displayed on MatchesPending
-  const onDeleteInterest = async (e, card, cardIndex) => {
-    e.preventDefault();
+  console.log(idUser);
+  console.log(typeOfUser);
+
+  //delete project from pending-matches and (on project detailed card)/will not be displayed on MatchesPending
+  const onDeleteInterest = async (card, cardIndex) => {
     try {
-      await axiosInstance.put(settings.urlDeveloper + "/deletePendingProject?user_id_p=" + card._id);
+      typeOfUser === "Project"
+        ? await axiosInstance.put(settings.urlProject + "/deletePendingDeveloper?user_id_d=" + card._id)
+        : await axiosInstance.put(settings.urlDeveloper + "/deletePendingProject?user_id_p=" + card._id);
       const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
       setCardData([...newState]);
     } catch (error) {
@@ -57,17 +61,34 @@ const MatchesPending = () => {
     }
   };
   console.log(cards);
+
+  //add developer to accepted matches list and delete view of specific card (deletion of id in ppending-matches is handled serverside)
+  const handleAcceptance = async (card, cardIndex) => {
+    try {
+      await axiosInstance.put(settings.urlProject + "/acceptDeveloper?user_id_d=" + card._id);
+      const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
+      setCardData([...newState]);
+    } catch (error) {
+      let errorMsg = `Error: ${error}`;
+      setError(errorMsg);
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <h2 className="titleMatchesPending">Matches pending</h2>
       {cards && cards.length
         ? cards.map((card, index) => (
-            <ProjectOverviewCard onDeleteInterest={(e) => onDeleteInterest(e, card, index)} ey={card._id} projectData={card} pending={true} />
+            <ProjectOverviewCard
+              onDeleteInterest={() => onDeleteInterest(card, index)}
+              onHandleAcceptance={() => handleAcceptance(card, index)}
+              ey={card._id}
+              projectData={card}
+            />
           ))
         : null}
 
-      {/*HERE TO START: if developer, display developer profile card*/}
-      {/* {cards && cards.length ? cards.map((card) => <ProfileCard key={card._id} personalData={card} pending={true} />) : null} */}
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );

@@ -3,11 +3,11 @@
   top: 0;
   width: 100%;
   font-family: sans-serif;
-  background-color: black;
+  background-color: #00070b;
   color: white;
 }
 
-nav > ul {
+.ulNav {
   list-style-type: none;
   display: flex;
   /*   justify-content: space-around; */
@@ -17,7 +17,7 @@ nav > ul {
   padding: 0;
 }
 
-li {
+.liNav {
   font-size: 1em;
   font-weight: bold;
   margin: 0 2em;
@@ -64,7 +64,7 @@ li {
 
 .logoSep {
   font-size: 1.9em;
-  font-weight: 200;
+  font-weight: 150;
   margin: 0 0.1em 0.2em;
 }
 
@@ -81,4 +81,18 @@ li {
 .link:hover {
   text-decoration: none;
   color: #008b8b;
+}
+
+.linkLogin {
+  font-weight: 200;
+}
+
+.linkLogin:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.linkLogin:hover {
+  color: #fff;
+  text-decoration: none;
 }

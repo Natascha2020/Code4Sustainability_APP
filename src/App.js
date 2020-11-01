@@ -4,13 +4,13 @@ import Navbar from "./Components/Navbar/Navbar";
 import NavFooter from "./Components/Footer/NavFooter";
 import SignUp from "./Components/Authenticate/SignUp";
 import LogIn from "./Components/Authenticate/LogIn";
+
 import About from "./Components/LandingPage/About";
 import Home from "./Components/LandingPage/Home";
-/* import GitHub from "./Components/Footer/GitHub"; */
+import GitHub from "./Components/Footer/GitHub";
 import HowItWorks from "./Components/LandingPage/HowItWorks";
 import ProjectOverview from "./Components/ProjectList/ProjectOverview";
-import ProjectDetails from "./Components/ProjectList/ProjectDetails";
-import PersonalData2 from "./Components/Profile/PersonalData";
+import PersonalData from "./Components/Profile/PersonalData";
 import ProfileDev from "./Components/Profile/ProfileDev";
 import ProfileProject from "./Components/Profile/ProfileProject";
 import MatchesPending from "./Components/Matches/MatchesPending";
@@ -39,17 +39,13 @@ const App = (props) => {
             <ProjectOverview />
           </Route>
 
-          <Route exact path="/projectDetails">
-            <Authenticated WrappedComponent={ProjectDetails} withRedirect={false} {...props} />
-          </Route>
-
           <Route exact path="/signUp">
             <SignUp />
           </Route>
 
-          {/* <Route exact path="/gitHub">
+          <Route exact path="/gitHub">
             <GitHub />
-          </Route> */}
+          </Route>
 
           <Route exact path="/chat">
             <MainChat />
@@ -60,23 +56,23 @@ const App = (props) => {
           </Route>
 
           <Route exact path="/personalData">
-            <Authenticated WrappedComponent={PersonalData2} {...props} />
+            <Authenticated WrappedComponent={PersonalData} withRedirect={true} {...props} />
           </Route>
 
           <Route exact path="/profileDev">
-            <Authenticated WrappedComponent={ProfileDev} {...props} />
+            <Authenticated WrappedComponent={ProfileDev} withRedirect={true} {...props} />
           </Route>
 
           <Route exact path="/profileProject">
-            <Authenticated WrappedComponent={ProfileProject} {...props} />
+            <Authenticated WrappedComponent={ProfileProject} withRedirect={true} {...props} />
           </Route>
 
           <Route exact path="/matchesPending">
-            <Authenticated WrappedComponent={MatchesPending} {...props} />
+            <Authenticated WrappedComponent={MatchesPending} withRedirect={true} {...props} />
           </Route>
 
           <Route exact path="/matchesAccepted">
-            <Authenticated WrappedComponent={MatchesAccepted} {...props} />
+            <Authenticated WrappedComponent={MatchesAccepted} withRedirect={true} {...props} />
           </Route>
           <Route exact path="/">
             <Home />

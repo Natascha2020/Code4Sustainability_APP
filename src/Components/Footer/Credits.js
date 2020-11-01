@@ -1,29 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Modal from "react-bootstrap/Modal";
-import "./Share.css";
+import "./Credits.css";
 
-const Share = () => {
-  const [show, setShow] = useState(false);
+const Share = (props) => {
+  const { handleClose, showCredits } = props;
 
   return (
     <div>
-      <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
+      <Modal show={showCredits} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
         <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">Thanks...</Modal.Title>
+          <Modal.Title className="titleModal" id="example-custom-modal-styling-title">
+            Thanks...
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <h4>Photos and graphics</h4>
-          <a href="http://wwww.Pexels.com">Pexels</a>
-          <a href="http://wwww.Pixabay.com">Pixaby</a>
-          <a href="http://wwww.Freepik.com">Freepik</a>
+        <Modal.Body className="modalBody">
+          <h4 className="highlightModal">Photos and graphics</h4>
+          <ul>
+            <li className="liCredits">
+              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="https://www.pexels.com/de-de/">
+                Pexels
+              </a>
+            </li>
+            <li className="liCredits">
+              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="https://pixabay.com/de/">
+                Pixaby
+              </a>
+            </li>
+            <li className="liCredits">
+              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="https://de.freepik.com/">
+                Freepik
+              </a>
+            </li>
+          </ul>
 
-          <h4>Support</h4>
-          <div>Batch #6 - WBS coding school</div>
-
-          <h4>Special thanks</h4>
-          <div>Jan: Graphic design && bugfixing superhero</div>
-          <div>Aria: Patience, Motivation && bugfixing superhero</div>
+          <h4 className="highlightModal">Support</h4>
+          <div className="boldModal">Batch #6 - WBS coding school</div>
+          <br />
+          <h4 className="highlightModal">Special thanks</h4>
+          <div className="boldModal">Jan: Graphic design && bugfixing superhero</div>
+          <div className="boldModal">Aria: Patience, Motivation && bugfixing superhero</div>
         </Modal.Body>
       </Modal>
     </div>

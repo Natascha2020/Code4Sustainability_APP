@@ -1,32 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ProjectDetails from "./ProjectDetails";
 import Authenticated from "../Authenticate/Authenticated";
 import { Box, Button, Card, CardBody, CardFooter, CardHeader } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComments, faShareAlt } from "@fortawesome/free-solid-svg-icons";
+/* import { Overlay, Tooltip } from "react-bootstrap/Overlay"; */
 import * as settings from "../../Helpers/Settings";
 import "./ProjectOverviewCard.css";
 
 const ProjectOverview = (props) => {
-  const { projectData, pending, matched } = props;
+  const { projectData } = props;
 
   const [showDetails, setShowDetails] = useState(false);
-
+  const [showTooltip, setShowTooltip] = useState(false);
+  const target = useRef(null);
   const showOverview = () => {
-    setShowDetails(false);
+    setShowDetails(!showDetails);
   };
 
   return (
     <div className="projectWrapper">
       <Box height={{ min: "300" }} width="medium" margin="small">
         <Card className="projectCard" height="300" width="medium" background="light-1" elevation="large">
+          <Authenticated
+            WrappedComponent={({ idUser }) => {
+              return (
+                <CardHeader
+                  className="cardHeader"
+                  pad="small"
+                  onClick={() => {
+                    if (idUser && idUser !== "") showOverview();
+                    else alert("Please login to see project details");
+                  }}>
+                  {projectData.name}
+                </CardHeader>
+              );
+            }}
+            noCheck={true}
+            withRedirect={false}
+          />
           {showDetails ? (
-            <ProjectDetails projectData={projectData} handleDisplay={showOverview} pending={pending} matched={matched} {...props} />
+            <Authenticated WrappedComponent={ProjectDetails} projectData={projectData} handleDisplay={showOverview} {...props} />
           ) : (
             <div>
-              <CardHeader className="cardHeader" pad="small" onClick={() => setShowDetails(true)}>
-                {projectData.name}
-              </CardHeader>
               <CardBody pad="medium">
                 <video width="320" height="240" controls>
                   <source src={`${settings.urlVideos}/${projectData._id}`} type="video/mp4" />

@@ -2,17 +2,22 @@
   margin-right: 0.5em;
 }
 
-.link:link {
+.linkFooter {
   text-decoration: none;
   color: #fff;
 }
 
-.link:visited {
+.linkFooter:link {
   text-decoration: none;
   color: #fff;
 }
 
-.link:hover {
+.linkFooter:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+.linkFooter:hover {
   text-decoration: none;
   color: #008b8b;
 }
