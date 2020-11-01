@@ -6,7 +6,8 @@ import * as settings from "../../Helpers/Settings";
 
 import "./MatchesAccepted.css";
 
-const MatchesAccepted = () => {
+const MatchesAccepted = (props) => {
+  const { userId, typeOfUser } = props;
   const [matchedData, setMatchedData] = useState([]);
   const [cards, setCardData] = useState([]);
   const [error, setError] = useState("");
@@ -49,9 +50,12 @@ const MatchesAccepted = () => {
     console.log(card);
     console.log(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + card._id);
     try {
-      const result = await axiosInstance.put(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + card._id);
+      //check if current user is a developer or project to delete on specific route
+      typeOfUser === "Developer"
+        ? await axiosInstance.put(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + card._id)
+        : await axiosInstance.put(settings.urlProject + "/deleteMatchedProject?user_id_d" + card._id);
       const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
-      console.log("result:", result);
+
       setCardData([...newState]);
     } catch (error) {
       let errorMsg = `Error: ${error}`;

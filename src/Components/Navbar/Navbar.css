@@ -7,7 +7,7 @@
   color: white;
 }
 
-nav > ul {
+.ulNav {
   list-style-type: none;
   display: flex;
   /*   justify-content: space-around; */
@@ -17,7 +17,7 @@ nav > ul {
   padding: 0;
 }
 
-li {
+.liNav {
   font-size: 1em;
   font-weight: bold;
   margin: 0 2em;

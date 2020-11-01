@@ -16,9 +16,10 @@ const NavFooter = () => {
   const [showShare, setShowShare] = useState(false);
   const [showCredits, setShowCredits] = useState(false);
 
-  const handleShowSecurity = () => setShowSecurity(true);
-  const handleShowShare = () => setShowShare(true);
-  const handleShowCredits = () => setShowCredits(true);
+  //toggler for showing or not showing modal
+  const handleShowSecurity = () => setShowSecurity(!showSecurity);
+  const handleShowShare = () => setShowShare(!showShare);
+  const handleShowCredits = () => setShowCredits(!showCredits);
   return (
     <div classname="navFooter">
       <hr />
@@ -27,10 +28,10 @@ const NavFooter = () => {
           <FontAwesomeIcon className="navIcon" icon={faUserSecret} size="lg" />
 
           <span>Security</span>
-          <Security showSecurity={showSecurity} handleClose={() => setShowSecurity(false)} />
+          <Security showSecurity={showSecurity} handleClose={() => setShowSecurity(!showSecurity)} />
         </a>
 
-        <a className="linkFooter" href="/src/Components/Footer/GitHubjs">
+        <a className="linkFooter" href="/gitHub">
           <FontAwesomeIcon className="navIcon" icon={faGithub} size="lg" />
           <span>Source code</span>
         </a>
@@ -38,13 +39,13 @@ const NavFooter = () => {
         <a className="linkFooter" onClick={handleShowShare}>
           <FontAwesomeIcon className="navIcon" icon={faShareAlt} size="lg" />
           <span>Share</span>
-          <Share showShare={showShare} handleClose={() => setShowShare(false)} />
+          <Share showShare={showShare} handleClose={() => setShowShare(!showShare)} />
         </a>
 
         <a className="linkFooter" onClick={handleShowCredits}>
           <FontAwesomeIcon className="navIcon" icon={faGift} size="lg" />
           <span>Credits</span>
-          <Credits showCredits={showCredits} handleClose={() => setShowCredits(false)} />
+          <Credits showCredits={showCredits} handleClose={() => setShowCredits(!showCredits)} />
         </a>
 
         <br />

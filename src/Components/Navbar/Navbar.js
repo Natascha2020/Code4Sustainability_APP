@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Authenticated from "../Authenticate/Authenticated";
 import NavMenu from "./NavMenu";
-import { Button, Nav, Menu } from "grommet";
+import { Button, Nav } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartbeat, faAnchor, faGlobeAmericas, faRocket } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,8 +12,8 @@ const Navbar = (props) => {
   return (
     <div>
       <Nav className="nav" direction="row" pad="medium">
-        <ul>
-          <li>
+        <ul className="ulNav">
+          <li className="liNav">
             <div className="logoWrapper">
               <div className="logo">CoSy</div>
               <div className="logoSep">||</div>
@@ -25,27 +25,27 @@ const Navbar = (props) => {
           </li>
 
           <div className="navLinkWrapper">
-            <li>
+            <li className="liNav">
               <Link className="link" to="/">
                 {/* <FontAwesomeIcon className="navIcon" icon={faAnchor} size="lg" /> */}
                 Home
               </Link>
             </li>
-            <li>
+            <li className="liNav">
               <Link className="link" to="/howItWorks">
                 {/* <FontAwesomeIcon className="navIcon" icon={faRocket} size="lg" /> */}
                 How
               </Link>
             </li>
 
-            <li>
+            <li className="liNav">
               <Link className="link" to="/about">
                 {/* <FontAwesomeIcon className="navIcon" icon={faGlobeAmericas} size="lg" /> */}
                 About
               </Link>
             </li>
 
-            <li>
+            <li className="liNav">
               <Link className="link" to="/projects">
                 {/* <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="lg" /> */}
                 Projects

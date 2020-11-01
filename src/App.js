@@ -9,7 +9,6 @@ import Home from "./Components/LandingPage/Home";
 import GitHub from "./Components/Footer/GitHub";
 import HowItWorks from "./Components/LandingPage/HowItWorks";
 import ProjectOverview from "./Components/ProjectList/ProjectOverview";
-import ProjectDetails from "./Components/ProjectList/ProjectDetails";
 import PersonalData from "./Components/Profile/PersonalData";
 import ProfileDev from "./Components/Profile/ProfileDev";
 import ProfileProject from "./Components/Profile/ProfileProject";
@@ -38,10 +37,6 @@ const App = (props) => {
           <Route exact path="/projects">
             <ProjectOverview />
           </Route>
-
-          {/* <Route exact path="/projectDetails">
-            <Authenticated WrappedComponent={ProjectDetails} {...props} />
-          </Route> */}
 
           <Route exact path="/signUp">
             <SignUp />

@@ -1,3 +1,30 @@
 .logInForm {
   margin: 0 auto;
+  border: 2px solid #008b8b !important;
+}
+
+.logInForm:focus {
+  border-color: #daa520 !important;
+}
+
+.navIcon {
+  color: #006f6f;
+}
+
+.btnLogin {
+  background-color: #008b8b !important;
+  font-weight: bold !important;
+  letter-spacing: 0.1em;
+}
+
+.linkLogIn {
+  color: #32b4a4 !important;
+}
+
+.notCommunity {
+  margin-left: 1em;
+}
+
+.titleLogIn {
+  text-align: center !important;
 }

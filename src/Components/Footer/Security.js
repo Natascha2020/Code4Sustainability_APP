@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Modal from "react-bootstrap/Modal";
 import "./Security.css";
@@ -8,7 +8,7 @@ const GitHub = (props) => {
 
   return (
     <div>
-      <Modal show={showSecurity} onHide={() => handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
+      <Modal show={showSecurity} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
         <Modal.Header closeButton>
           <Modal.Title className="titleModal" id="example-custom-modal-styling-title">
             May contain hackers...
