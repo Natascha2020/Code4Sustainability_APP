@@ -8,11 +8,11 @@ import "./MatchesPending.css";
 
 const MatchesPending = (props) => {
   const { idUser, typeOfUser } = props;
-  const [pendingData, setPendingData] = useState([]);
   const [cards, setCardData] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    //get dashboard of developer (pending and accepted matches) or project (pending and accepted matches)
     const handleFetch = async () => {
       try {
         const { data: pendingData } = await axiosInstance.get(settings.urlUsers + "/getDashboard");
@@ -20,7 +20,6 @@ const MatchesPending = (props) => {
           const arrayOfComponents = pendingData.developers_pending.map(async (projectId, index) => {
             const { data } = await axiosInstance.get(`${settings.urlUsers}/${projectId}`);
             return data;
-            // return <ProjectOverviewCard key={projectId} projectData={data} />;
           });
           const cardData = await Promise.all(arrayOfComponents);
           setCardData(cardData);
@@ -29,7 +28,6 @@ const MatchesPending = (props) => {
             const { data } = await axiosInstance.get(`${settings.urlUsers}/${projectId}`);
             console.log(data);
             return data;
-            // return <ProjectOverviewCard key={projectId} projectData={data} />;
           });
           const cardData = await Promise.all(arrayOfComponents);
           console.log("dev", cardData);
@@ -43,12 +41,12 @@ const MatchesPending = (props) => {
     };
 
     handleFetch();
-  }, [pendingData]);
+  }, []);
 
   console.log(idUser);
   console.log(typeOfUser);
 
-  //delete project from dashboard-array(pending) and (on project detailed card)/will not be displayed on MatchesPending
+  //delete project from pending-matches and (on project detailed card)/will not be displayed on MatchesPending
   const onDeleteInterest = async (card, cardIndex) => {
     try {
       typeOfUser === "Project"
@@ -64,10 +62,12 @@ const MatchesPending = (props) => {
   };
   console.log(cards);
 
-  //add developer to accepted matches list, update data and state for matchAccepted
-  const handleAcceptance = async (projectId) => {
+  //add developer to accepted matches list and delete view of specific card (deletion of id in ppending-matches is handled serverside)
+  const handleAcceptance = async (card, cardIndex) => {
     try {
-      await axiosInstance.put(settings.urlProject + "/acceptDeveloper?user_id_d=" + projectId);
+      await axiosInstance.put(settings.urlProject + "/acceptDeveloper?user_id_d=" + card._id);
+      const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
+      setCardData([...newState]);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -82,15 +82,13 @@ const MatchesPending = (props) => {
         ? cards.map((card, index) => (
             <ProjectOverviewCard
               onDeleteInterest={() => onDeleteInterest(card, index)}
-              onHandleAcceptance={() => handleAcceptance(card._id)}
+              onHandleAcceptance={() => handleAcceptance(card, index)}
               ey={card._id}
               projectData={card}
             />
           ))
         : null}
 
-      {/*HERE TO START: if developer, display developer profile card*/}
-      {/* {cards && cards.length ? cards.map((card) => <ProfileCard key={card._id} personalData={card} pending={true} />) : null} */}
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );

@@ -24,7 +24,12 @@ const ProjectOverview = (props) => {
             <Authenticated WrappedComponent={ProjectDetails} projectData={projectData} handleDisplay={showOverview} {...props} />
           ) : (
             <div>
-              <CardHeader className="cardHeader" pad="small" onClick={showOverview}>
+              <CardHeader
+                className="cardHeader"
+                pad="small"
+                onClick={() => {
+                  alert("Please log in to have access to project details!");
+                }}>
                 {projectData.name}
               </CardHeader>
               <CardBody pad="medium">

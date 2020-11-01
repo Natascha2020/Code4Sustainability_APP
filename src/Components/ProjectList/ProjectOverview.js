@@ -11,6 +11,7 @@ const ProjectOverview = () => {
   const [inputValue, setInputValue] = useState("");
   const [currentSearch, setCurrentSearch] = useState([]);
   const [error, setError] = useState("");
+  const [onInterestSent, setOnInterestSent] = useState(false);
 
   useEffect(() => {
     handleFetch();
@@ -46,6 +47,7 @@ const ProjectOverview = () => {
     //add project to pending matches list, update data and state for matchPending
     try {
       await axiosInstance.put(settings.urlDeveloper + "/addProject?user_id_p=" + idProject);
+      setOnInterestSent(true);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -65,7 +67,7 @@ const ProjectOverview = () => {
       {currentSearch && currentSearch.length
         ? allProjects.map((project, index) => {
             let id = project._id;
-            return <ProjectOverviewCard key={id} projectData={project} onSendInterest={() => handleConnect(id)} />;
+            return <ProjectOverviewCard key={id} projectData={project} onSendInterest={() => handleConnect(id)} onInterestSent={onInterestSent} />;
           })
         : null}
 

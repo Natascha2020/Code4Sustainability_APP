@@ -6,10 +6,8 @@ import { Box, Button, CardBody, CardHeader, Carousel } from "grommet";
 import "./ProjectDetails.css";
 
 const ProjectDetails = (props) => {
-  const { projectData, onSendInterest, onHandleAcceptance, handleDisplay, onDeleteInterest, onDeleteMatched, idUser, typeOfUser } = props;
-
-  const [error, setError] = useState("");
-
+  const { projectData, onSendInterest, onHandleAcceptance, handleDisplay, onDeleteInterest, onDeleteMatched, typeOfUser, onInterestSent } = props;
+  console.log(onInterestSent);
   return (
     <div>
       <CardHeader className="cardHeader" pad="small" onClick={handleDisplay}>
@@ -40,6 +38,7 @@ const ProjectDetails = (props) => {
           </Carousel>
         </Box>
       </CardBody>
+      {/*Check if project or developer is in array of pending matches and therefore displayed on pending matches page*/}
       {onDeleteInterest ? (
         <Button
           className="btnCard"
@@ -58,9 +57,12 @@ const ProjectDetails = (props) => {
         <Button type="submit" margin={{ bottom: "small", horizontal: "small" }} primary label="Accept interest" onClick={onHandleAcceptance} />
       ) : null}
       {/*Check if projectid is not part of pendingMatches-array, and user is a developer who can send interest to project owner, then send interest button is displayed*/}
-      {onSendInterest && typeOfUser === "Developer" ? (
+      {onSendInterest && typeOfUser === "Developer" && !onInterestSent ? (
         <Button type="submit" margin={{ bottom: "small", horizontal: "small" }} primary label="Send interest" onClick={onSendInterest} />
       ) : null}
+
+      {onInterestSent && typeOfUser === "Developer" ? <div>Match is pending</div> : null}
+      {/*Check if project or developer is in array of accepted matches and therefore displayed on accepted matches page*/}
       {onDeleteMatched ? (
         <Button
           className="btnCard"
@@ -71,7 +73,6 @@ const ProjectDetails = (props) => {
           onClick={onDeleteMatched}
         />
       ) : null}
-      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };
