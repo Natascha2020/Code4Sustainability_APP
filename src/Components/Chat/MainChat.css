@@ -1,15 +1,16 @@
 #msgBox {
-  width: 500px;
-  height: 400px;
+  width: 400px;
+  height: 300px;
   border-radius: 5px;
   background-color: #222;
-  color: #fff;
+  color: black;
   padding: 10px;
-  overflow: auto;
+}
+
+.wholeChat {
 }
 
 #msgBox div {
-  width: 100%;
   background-color: rgb(206, 202, 202);
   box-sizing: border-box;
   padding: 5px;
@@ -20,13 +21,13 @@
 
 #msgBox div span {
   display: block;
-  width: 100%;
+
   word-break: break-all;
 }
 
 form {
   margin-top: 10px;
-  width: 500px;
+  width: 400px;
 }
 
 form input {
@@ -34,7 +35,7 @@ form input {
   background-color: #222;
   box-sizing: border-box;
   width: 100%;
-  color: #fff;
+  color: white;
   padding: 10px;
   padding-bottom: 30px;
 }

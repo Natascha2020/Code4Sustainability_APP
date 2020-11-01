@@ -51,7 +51,9 @@ const MatchesPending = (props) => {
   //delete project from dashboard-array(pending) and (on project detailed card)/will not be displayed on MatchesPending
   const onDeleteInterest = async (card, cardIndex) => {
     try {
-      await axiosInstance.put(settings.urlDeveloper + "/deletePendingProject?user_id_p=" + card._id);
+      typeOfUser === "Project"
+        ? await axiosInstance.put(settings.urlProject + "/deletePendingDeveloper?user_id_d=" + card._id)
+        : await axiosInstance.put(settings.urlDeveloper + "/deletePendingProject?user_id_p=" + card._id);
       const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
       setCardData([...newState]);
     } catch (error) {

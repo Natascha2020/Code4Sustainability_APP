@@ -3,6 +3,7 @@ import axiosInstance from "../../Helpers/axios";
 import ProjectOverviewCard from "../ProjectList/ProjectOverviewCard";
 import ErrorHandler from "../../Helpers/ErrorHandler";
 import * as settings from "../../Helpers/Settings";
+import Chat from "../Chat/MainChat";
 
 import "./MatchesAccepted.css";
 
@@ -51,9 +52,10 @@ const MatchesAccepted = (props) => {
     console.log(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + card._id);
     try {
       //check if current user is a developer or project to delete on specific route
-      typeOfUser === "Developer"
-        ? await axiosInstance.put(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + card._id)
-        : await axiosInstance.put(settings.urlProject + "/deleteMatchedProject?user_id_d" + card._id);
+      typeOfUser === "Project"
+        ? await axiosInstance.put(settings.urlProject + "/deleteMatchedDeveloper?user_id_d=" + card._id)
+        : await axiosInstance.put(settings.urlDeveloper + "/deleteMatchedProject?user_id_p=" + card._id);
+
       const newState = cards.filter((element, secondIndex) => secondIndex !== cardIndex);
 
       setCardData([...newState]);
@@ -69,7 +71,10 @@ const MatchesAccepted = (props) => {
       <h2 className="titleMatchesAccepted ">Matches accepted</h2>
       {cards && cards.length
         ? cards.map((card, index) => (
-            <ProjectOverviewCard onDeleteMatched={(e) => onDeleteMatched(card, index)} ey={card._id} key={card._id} projectData={card} />
+            <div className="chatWrapper">
+              <ProjectOverviewCard onDeleteMatched={(e) => onDeleteMatched(card, index)} ey={card._id} key={card._id} projectData={card} />
+              <Chat userId={userId} projectData={card} typeOfUser={typeOfUser} />
+            </div>
           ))
         : null}
 

@@ -5,13 +5,16 @@ const Message = (props) => {
   const { msg } = props;
   console.log(msg);
 
-  let dataMsg = msg[0].message[0];
+  let dataMsg = "";
+  msg.isArray ? (dataMsg = msg[0]) : (dataMsg = msg);
+  console.log(dataMsg);
 
   return (
     <div className="msg">
       {/*   {msg && msg.length ? msg.map(element) : null} */}
-      <span> {new Date(dataMsg.date).toLocaleDateString()} </span>
-      <span> {dataMsg.content} </span>
+      {/* <span> {new Date(dataMsg.date).toLocaleDateString()} </span>
+      <span> {dataMsg.content} </span> */}
+      <span> {dataMsg} </span>
     </div>
   );
 };

@@ -8,10 +8,6 @@ import "./ProjectDetails.css";
 const ProjectDetails = (props) => {
   const { projectData, onSendInterest, onHandleAcceptance, handleDisplay, onDeleteInterest, onDeleteMatched, idUser, typeOfUser } = props;
 
-  const [matchPending, setMatchPending] = useState(false);
-  const [matchAccepted, setMatchAccepted] = useState(false);
-  const [projectsPending, setProjectsPending] = useState([]);
-  const [projectsMatched, setProjectsMatched] = useState([]);
   const [error, setError] = useState("");
 
   return (
@@ -39,7 +35,7 @@ const ProjectDetails = (props) => {
               <div>{projectData.answer3}</div>
             </div>
             <div className="carouselInput">
-              <img alt={`${projectData.name}`} src={`${projectData.image}`} />{" "}
+              <img alt={`${projectData.name}`} src={`${projectData.image}`} />
             </div>
           </Carousel>
         </Box>
@@ -75,7 +71,7 @@ const ProjectDetails = (props) => {
           onClick={onDeleteMatched}
         />
       ) : null}
-      ;{error ? <ErrorHandler errorMessage={error} /> : null}
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };

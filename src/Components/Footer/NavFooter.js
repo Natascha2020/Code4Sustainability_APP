@@ -47,9 +47,6 @@ const NavFooter = () => {
           <span>Credits</span>
           <Credits showCredits={showCredits} handleClose={() => setShowCredits(!showCredits)} />
         </a>
-
-        <br />
-        <Text> &lt;/ Ready to impact! &gt;</Text>
       </Footer>
     </div>
   );
