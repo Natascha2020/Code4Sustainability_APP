@@ -10,7 +10,6 @@ import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import Modal from "react-bootstrap/Modal";
 
 import "./LogIn.css";
-import { ModalBody } from "react-bootstrap";
 
 const LogIn = () => {
   const [password, setPassword] = useState("");
@@ -18,7 +17,10 @@ const LogIn = () => {
   const [error, setError] = useState("");
   const [userId, setUserId] = useState("");
   const [showLogIn, setShowLogIn] = useState(true);
-  const handleClose = () => setShowLogIn(!showLogIn);
+
+  const handleClose = () => {
+    setShowLogIn(!showLogIn);
+  };
 
   //post credentials and check for validity, set uderId
   const handleLogIn = async (e) => {
@@ -28,6 +30,7 @@ const LogIn = () => {
       const loggedUser = jwt.decode(response.data);
       const loggedUserId = loggedUser.idUser;
       setUserId(loggedUserId);
+      window.location.href = "/";
     } catch (err) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -41,13 +44,13 @@ const LogIn = () => {
       {userId && userId.length ? (
         <Redirect to="/projects" />
       ) : (
-        <Modal show={showLogIn} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title" closeButton>
-          <form class="text-center border border-light p-5" onSubmit={(e) => handleLogIn(e)}>
-            <p class="h4 mb-4">Log In</p>
+        <Modal show={showLogIn} onHide={handleClose} dialogClassName="modal-70w" aria-labelledby="example-custom-modal-styling-title" closeButton>
+          <form className="text-center border border-light p-5" onSubmit={(e) => handleLogIn(e)}>
+            <p className="h4 mb-4">LogIn</p>
             <input
               type="email"
               id="defaultLoginFormEmail"
-              class="form-control mb-4 logInForm"
+              className="form-control mb-4 logInForm"
               value={email}
               placeholder="E-mail"
               onChange={(e) => setEmail(e.target.value)}
@@ -62,11 +65,11 @@ const LogIn = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <div class="d-flex justify-content-around">
+            <div className="d-flex justify-content-around">
               <div>
-                <div class="custom-control custom-checkbox">
+                <div className="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" />
-                  <label class="custom-control-label" for="defaultLoginFormRemember">
+                  <label className="custom-control-label" for="defaultLoginFormRemember">
                     Remember me
                   </label>
                 </div>
@@ -78,8 +81,8 @@ const LogIn = () => {
               </div>
             </div>
 
-            <button class="btn btn-info btn-block my-4 btnLogin" type="submit">
-              Log In
+            <button className="btn btn-info btn-block my-4 btnLogin" type="submit">
+              LogIn
             </button>
 
             <p className="notCommunity">
@@ -100,6 +103,7 @@ const LogIn = () => {
           </form>
         </Modal>
       )}
+
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );

@@ -5,14 +5,15 @@ import ErrorHandler from "../../Helpers/ErrorHandler";
 import * as settings from "../../Helpers/Settings";
 import Modal from "react-bootstrap/Modal";
 import "./LogIn.css";
+import "./SignUp.css";
 
 const SignUp = () => {
   /* const [password, setPassword] = useState("");
   const [email, setEmail] = useState(""); */
   const [error, setError] = useState("");
   const [formValue, setFormValue] = useState({
-    name: "",
     email: "",
+    password: "",
     typeOfUser: "",
   });
 
@@ -23,8 +24,9 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+    console.log(formValue);
     try {
-      const response = await axiosInstance.post(settings.urlUsers, { formValue });
+      const response = await axiosInstance.post(settings.urlUsers, formValue);
       console.log(response);
       if (response.status === 200) {
         setSignedIn(true);
@@ -46,8 +48,8 @@ const SignUp = () => {
         <Redirect to="/personalData" />
       ) : (
         <Modal show={showModal} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
-          <form class="text-center border border-light p-5 logInForm" value="Data" onSubmit={(e) => handleSignUp(e)}>
-            <p class="h4 mb-4">Sign Up</p>
+          <form className="text-center border border-light p-5 logInForm" value="Data" onSubmit={(e) => handleSignUp(e)}>
+            <p className="h4 mb-4">SignUp</p>
 
             <input
               type="email"
@@ -57,6 +59,7 @@ const SignUp = () => {
               value={formValue.email}
               placeholder="E-mail"
               onChange={inputHandler}
+              required
             />
 
             <input
@@ -67,29 +70,50 @@ const SignUp = () => {
               name="password"
               value={formValue.password}
               onChange={inputHandler}
+              required
             />
+            <fieldset className="choose-user-type form-group">
+              <legend className="legendSignUp">Choose your user type:</legend>
+              <div className="form-check">
+                <input
+                  className="form-check-input inputRadio"
+                  type="radio"
+                  name="typeOfUser"
+                  id="developer"
+                  value="Developer"
+                  onChange={inputHandler}
+                  checked={formValue.typeOfUser === "Developer"}
+                  required
+                />
+                <label className="form-check-label inputLabel" for="developer">
+                  Developer
+                </label>
+              </div>
 
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="typeOfUser" id="developer" value="Developer" checked />
-              <label class="form-check-label" for="developer">
-                Developer
-              </label>
-            </div>
+              <div className="form-check">
+                <input
+                  className="form-check-input inputRadio"
+                  type="radio"
+                  name="typeOfUser"
+                  id="project"
+                  value="Project"
+                  onChange={inputHandler}
+                  checked={formValue.typeOfUser === "Project"}
+                  required
+                />
+                <label className="form-check-label inputLabel" for="project">
+                  Project
+                </label>
+              </div>
+            </fieldset>
 
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="typeOfUser" id="project" value="Project" />
-              <label class="form-check-label" for="project">
-                Project
-              </label>
-            </div>
-
-            <button class="btn btn-info btn-block my-4 btnLogin" type="submit">
-              Sign Up
+            <button className="btn btn-info btn-block my-4 btnLogin" type="submit">
+              SignUp
             </button>
 
             <p clyssName="notCommunity">
               Already part of community?
-              <a href="/logIn">Log In</a>
+              <a href="/logIn">LogIn</a>
             </p>
           </form>
         </Modal>

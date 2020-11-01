@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import NavFooter from "./Components/Footer/NavFooter";
 import SignUp from "./Components/Authenticate/SignUp";
 import LogIn from "./Components/Authenticate/LogIn";
+
 import About from "./Components/LandingPage/About";
 import Home from "./Components/LandingPage/Home";
 import GitHub from "./Components/Footer/GitHub";

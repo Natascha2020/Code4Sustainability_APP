@@ -22,8 +22,7 @@ const NavFooter = () => {
   const handleShowCredits = () => setShowCredits(!showCredits);
   return (
     <div classname="navFooter">
-      <hr />
-      <Footer pad="medium" background="footer">
+      <Footer pad="medium" background="footer" align="center" justify="around">
         <a className="linkFooter" onClick={handleShowSecurity}>
           <FontAwesomeIcon className="navIcon" icon={faUserSecret} size="lg" />
 

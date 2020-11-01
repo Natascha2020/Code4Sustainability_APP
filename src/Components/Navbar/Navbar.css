@@ -64,7 +64,7 @@
 
 .logoSep {
   font-size: 1.9em;
-  font-weight: 200;
+  font-weight: 150;
   margin: 0 0.1em 0.2em;
 }
 
@@ -81,4 +81,18 @@
 .link:hover {
   text-decoration: none;
   color: #008b8b;
+}
+
+.linkLogin {
+  font-weight: 200;
+}
+
+.linkLogin:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.linkLogin:hover {
+  color: #fff;
+  text-decoration: none;
 }

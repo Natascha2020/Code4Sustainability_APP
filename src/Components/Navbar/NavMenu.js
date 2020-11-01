@@ -5,12 +5,14 @@ const NavMenu = () => {
   return (
     <div>
       <Menu
-        label="My Profile"
+        label="Profile"
         items={[
           { label: "Personal data", href: "/personalData" },
           { label: "Matches pending", href: "/matchesPending" },
           { label: "Matches accepted", href: "/matchesAccepted" },
         ]}
+        margin="large"
+        weight="bold"
       />
     </div>
   );

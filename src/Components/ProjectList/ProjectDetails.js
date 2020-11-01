@@ -10,9 +10,6 @@ const ProjectDetails = (props) => {
   console.log(onInterestSent);
   return (
     <div>
-      <CardHeader className="cardHeader" pad="small" onClick={handleDisplay}>
-        {projectData.name}
-      </CardHeader>
       <CardBody pad="medium">
         <Box height="small">
           <Carousel fill alignSelf="center" className="carousel">

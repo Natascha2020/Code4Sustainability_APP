@@ -4,7 +4,7 @@ import ErrorHandler from "../../Helpers/ErrorHandler";
 import * as settings from "../../Helpers/Settings";
 
 const Authenticated = (props) => {
-  let { WrappedComponent, withRedirect } = props;
+  let { WrappedComponent, withRedirect, noCheck } = props;
   const [authDone, setAuthDone] = useState({});
   const [idUser, setIdUser] = useState("");
   const [typeOfUser, setTypeOfUser] = useState("");
@@ -39,7 +39,9 @@ const Authenticated = (props) => {
   //render secure route if user is authenticated, else redirect to login page
   return (
     <div>
-      {authDone.isAuth ? (
+      {noCheck === true ? (
+        <WrappedComponent idUser={idUser} typeOfUser={typeOfUser} {...props} />
+      ) : authDone.isAuth ? (
         <WrappedComponent idUser={idUser} typeOfUser={typeOfUser} {...props} />
       ) : authDone.errorMessage ? (
         <ErrorHandler errorMessage={authDone.errorMsg} />

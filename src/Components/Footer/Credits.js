@@ -18,17 +18,17 @@ const Share = (props) => {
           <h4 className="highlightModal">Photos and graphics</h4>
           <ul>
             <li className="liCredits">
-              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="http://wwww.Pexels.com">
+              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="https://www.pexels.com/de-de/">
                 Pexels
               </a>
             </li>
             <li className="liCredits">
-              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="http://wwww.Pixabay.com">
+              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="https://pixabay.com/de/">
                 Pixaby
               </a>
             </li>
             <li className="liCredits">
-              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="http://wwww.Freepik.com">
+              <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="https://de.freepik.com/">
                 Freepik
               </a>
             </li>
