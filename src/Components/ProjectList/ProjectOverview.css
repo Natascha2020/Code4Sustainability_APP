@@ -11,13 +11,20 @@
   font-size: 20px;
 }
 
+/* #searchInput::placeholder {
+  color: #daa520;
+} */
+
 #searchWrapper {
   display: flex;
-  margin-left: 2em;
-  justify-content: left;
+  margin: 2em;
+  justify-content: center;
   align-items: center;
 }
 
-.titleProjects {
-  margin-top: 2em;
+.titleProject {
+  margin-bottom: 2em;
+  font-size: 2em;
+  text-align: center;
+  color: #008b8b;
 }

@@ -1,10 +1,15 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faUserSecret, faShareAlt, faGift } from "@fortawesome/free-solid-svg-icons";
 import "./About.css";
 
 const About = () => {
   return (
     <div className="aboutMain">
-      <h2 className="aboutTitle">IT-community meets social-impact-community</h2>
+      <h2 className="aboutTitle">
+        IT-community <span className="aboutTitleMeets">meets</span> social-impact-community
+      </h2>
 
       <div className="techWrapper">
         <div className="techWrapperInside">
@@ -37,8 +42,8 @@ const About = () => {
           <h3 className="aboutSubtitle">What we love about the social-impact-community?</h3>
           <ul className="strengthWrapper">
             <li className="strength">Great ideas</li>
-            <li className="strength">Society and environment first</li>
-            <li className="strength">Change makers and action takers</li>
+            <li className="strength">Society & environment first</li>
+            <li className="strength">Change makers</li>
           </ul>
 
           <div className="targetGroupWrapper">

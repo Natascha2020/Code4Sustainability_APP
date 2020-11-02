@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "grommet";
-import LogIn from "../Authenticate/LogIn";
+import HowItWorks from "./HowItWorks";
+import About from "./About";
 import "./Home.css";
 
 const Home = () => {
@@ -25,22 +26,23 @@ const Home = () => {
             <br />
             <div className="nice">Awesome! </div>
             <br />
-            <Button primary label="We need you" />
+            <Button className="linkLogin" primary label="We need you" href="/about" />
           </div>
 
           <div className="introWrapperProject">
-            <h3 className="typeOfUser">You are a project </h3>
+            <h3 className="typeOfUser">You are a project (owner) </h3>
             <div>and you have a tech problem? </div>
             <br />
             <div className="nice">No worries! </div>
             <br />
-            <Button primary label="We help you" />
+            <Button className="linkLogin" primary label="We help you" href="/about" />
           </div>
         </div>
         <div className="sectionIntro">
           <img className="landingtree" src={require("../../Assets/Landing_tree.jpg")} alt="tree in hands" />
         </div>
       </div>
+      <HowItWorks />
     </div>
   );
 };

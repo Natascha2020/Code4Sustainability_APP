@@ -187,8 +187,8 @@ const PersonalData = ({ idUser, typeOfUser }) => {
             ) : null}
 
             <Box direction="row" gap="medium">
-              <Button margin="medium" type="submit" primary label="Update profile" />
-              <Button margin="medium" type="reset" primary label="Reset form" />
+              <Button margin="medium" type="submit" primary label="Update" />
+              <Button margin="medium" type="reset" primary label="Reset" />
             </Box>
           </form>
         </div>

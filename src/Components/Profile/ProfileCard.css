@@ -1,17 +1,39 @@
 .profileCard {
-  width: 60%;
-  margin: 0 auto;
+  width: 440px;
 }
-.profileForm {
-  margin-left: 3em;
+
+.card-body {
+  background-color: rgb(249, 254, 254) !important;
+  border-radius: 10px !important;
 }
 
 .profileWrapper {
   display: flex;
   justify-content: center;
-  justify-content: space-around;
 }
 
 .videoProfile {
   width: 100%;
+}
+
+.profileCardBody {
+  text-align: center;
+}
+
+.profileCardTitle {
+  color: #008b8b;
+}
+
+.profileCardQuestions {
+  color: #daa520;
+}
+
+@media screen and (max-width: 1300px) {
+  .profileWrapper {
+    display: block;
+    margin: 2em auto;
+  }
+  .profileCard {
+    margin: 2em auto;
+  }
 }
