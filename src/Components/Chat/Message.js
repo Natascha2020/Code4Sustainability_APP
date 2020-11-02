@@ -1,20 +1,30 @@
 import React from "react";
+import "./Message.css";
 // returns date and formatted content of message
 const Message = (props) => {
-  console.log("p", props);
-  const { msg } = props;
-  console.log(msg);
-
-  let dataMsg = "";
-  msg.isArray ? (dataMsg = msg[0]) : (dataMsg = msg);
-  console.log(dataMsg);
+  const { msg, chatPartnerData } = props;
+  console.log("msg", msg);
+  console.log("partner", chatPartnerData);
 
   return (
-    <div className="msg">
-      {/*   {msg && msg.length ? msg.map(element) : null} */}
-      {/* <span> {new Date(dataMsg.date).toLocaleDateString()} </span>
-      <span> {dataMsg.content} </span> */}
-      <span> {dataMsg} </span>
+    <div>
+      {chatPartnerData._id === msg.id_user ? (
+        <div className="msg chatPartner">
+          <div className="msgWrapper">
+            <div className="msgDatePartner"> {new Date(msg.date).toLocaleDateString()} </div>
+            <div className="msgPersonPartner">{chatPartnerData.name}</div>
+          </div>
+          <div className="msgContent">{msg.content}</div>
+        </div>
+      ) : (
+        <div className="msg chatMe">
+          <div className="msgWrapper">
+            <div className="msgPersonMe">Me</div>
+            <div className="msgDateMe"> {new Date(msg.date).toLocaleDateString()} </div>
+          </div>
+          <div className="msgContent">{msg.content}</div>
+        </div>
+      )}
     </div>
   );
 };

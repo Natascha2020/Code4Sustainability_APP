@@ -44,13 +44,19 @@ const LogIn = () => {
       {userId && userId.length ? (
         <Redirect to="/projects" />
       ) : (
-        <Modal show={showLogIn} onHide={handleClose} dialogClassName="modal-70w" aria-labelledby="example-custom-modal-styling-title" closeButton>
-          <form className="text-center border border-light p-5" onSubmit={(e) => handleLogIn(e)}>
+        <Modal
+          className="form-horizontal text-center"
+          show={showLogIn}
+          onHide={handleClose}
+          dialogClassName="modal-90w "
+          aria-labelledby="example-custom-modal-styling-title"
+          centered>
+          <form className="text-center border border-light p-5 logInForm" onSubmit={(e) => handleLogIn(e)}>
             <p className="h4 mb-4">LogIn</p>
             <input
               type="email"
               id="defaultLoginFormEmail"
-              className="form-control mb-4 logInForm"
+              className="form-control mb-4 logInInput"
               value={email}
               placeholder="E-mail"
               onChange={(e) => setEmail(e.target.value)}
@@ -59,7 +65,7 @@ const LogIn = () => {
             <input
               type="password"
               id="defaultLoginFormPassword"
-              class="form-control mb-4 logInForm"
+              class="form-control mb-4 logInInput"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

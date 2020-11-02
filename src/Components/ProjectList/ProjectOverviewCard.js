@@ -43,7 +43,7 @@ const ProjectOverview = (props) => {
             <Authenticated WrappedComponent={ProjectDetails} projectData={projectData} handleDisplay={showOverview} {...props} />
           ) : (
             <div>
-              <CardBody pad="medium">
+              <CardBody pad="medium" className="cardBodyVideo">
                 <video width="320" height="240" controls>
                   <source src={`${settings.urlVideos}/${projectData._id}`} type="video/mp4" />
                   Your browser does not support the video tag.

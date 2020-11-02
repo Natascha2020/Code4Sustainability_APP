@@ -1,0 +1,43 @@
+.msg {
+  border-radius: 5px;
+  margin: 0.2em 0;
+  width: 360px;
+  color: white;
+  padding: 10px;
+}
+
+.chatPartner {
+  background-color: rgb(70, 74, 77);
+  width: 360px;
+}
+
+.chatMe {
+  background-color: #222;
+  width: 360px;
+}
+
+.msgPersonMe {
+  font-weight: bold;
+  color: #008b8b;
+}
+
+.msgPersonPartner {
+  font-weight: bold;
+  color: #32b4a4;
+  text-align: right;
+  width: 325px;
+}
+
+.msgDateMe {
+  text-align: right;
+  width: 325px;
+}
+
+.msgWrapper {
+  display: flex;
+}
+
+.msgContent {
+  margin-top: 0.8em;
+  color: #daa520;
+}

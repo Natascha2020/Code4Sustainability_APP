@@ -40,8 +40,9 @@ const VideoUpload = (props) => {
       <div>
         <h5 className="titleVideoUpload">Upload your video pitch (max. 100s):</h5>
         <input className="videoUpload" type="file" name="sampleFile" onChange={onChangeHandler} />
-
-        <Button color="#e1b74d" margin="medium" type="submit" onClick={onClickHandler} primary label="Upload video" />
+        <span className="buttonVideo">
+          <Button color="#e1b74d" margin="medium" type="submit" onClick={onClickHandler} primary label="Upload" />
+        </span>
       </div>
 
       {error ? <ErrorHandler errorMessage={error} /> : null}

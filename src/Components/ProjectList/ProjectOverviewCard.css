@@ -19,3 +19,7 @@
 .cardHeader:hover {
   background-color: #e1b74d;
 }
+
+.cardBodyVideo {
+  margin-left: 0.4em !important;
+}

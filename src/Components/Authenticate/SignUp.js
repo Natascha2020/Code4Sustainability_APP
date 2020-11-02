@@ -4,7 +4,6 @@ import axiosInstance from "../../Helpers/axios";
 import ErrorHandler from "../../Helpers/ErrorHandler";
 import * as settings from "../../Helpers/Settings";
 import Modal from "react-bootstrap/Modal";
-import "./LogIn.css";
 import "./SignUp.css";
 
 const SignUp = () => {
@@ -47,14 +46,14 @@ const SignUp = () => {
       {signedIn ? (
         <Redirect to="/personalData" />
       ) : (
-        <Modal show={showModal} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
+        <Modal show={showModal} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title" centered>
           <form className="text-center border border-light p-5 logInForm" value="Data" onSubmit={(e) => handleSignUp(e)}>
             <p className="h4 mb-4">SignUp</p>
 
             <input
               type="email"
               id="defaultLoginFormEmail"
-              class="form-control mb-4"
+              className="form-control mb-4 signUpInput"
               name="email"
               value={formValue.email}
               placeholder="E-mail"
@@ -65,7 +64,7 @@ const SignUp = () => {
             <input
               type="password"
               id="defaultLoginFormPassword"
-              class="form-control mb-4"
+              className="form-control mb-4 signUpInput"
               placeholder="Password"
               name="password"
               value={formValue.password}

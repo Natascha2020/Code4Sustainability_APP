@@ -7,36 +7,50 @@ import "./MainChat.css";
 const socket = socketIoClient("http://localhost:4004", { autoConnect: false });
 
 const Chat = (props) => {
-  const { userId, typeOfUser, card } = props;
+  const { idUser, typeOfUser, projectData } = props;
   const [messages, setMessages] = useState([]);
+  const [latestMessages, setLatestMessages] = useState([]);
+  const [value, setValue] = useState("");
+
+  const chatPartnerId = projectData._id;
+  const chatPartnerName = projectData.name;
+  console.log("chatPartnerName", chatPartnerName);
+  console.log("projectData", projectData);
 
   useEffect(() => {
-    console.log("use effect is called again");
     socket.connect();
-    socket.on("message", (newMessage) => {
-      console.log(newMessage);
-      messages.push(newMessage);
+    socket.emit("connection", { idUser: idUser, chatPartnerId: chatPartnerId, typeOfUser: typeOfUser });
+    socket.on("latestMessages", (latestMessages) => {
+      setLatestMessages(latestMessages.textMessages);
+    });
+
+    socket.on("addedMessage", (addedMessage) => {
+      messages.push(addedMessage);
       setMessages([...messages]);
     });
   }, []);
 
-  console.log("combined outside useEffect", messages);
-
   const postMessage = (e, value) => {
     e.preventDefault();
-    console.log("in post Message");
-    console.log(value);
 
     if (!value) return;
-
-    socket.emit("newMessage", value);
-    /*  setValue(""); */
+    socket.emit("newMessage", { content: value, idUser: idUser, chatPartnerId: chatPartnerId, typeOfUser: typeOfUser });
+    setValue("");
   };
 
   return (
-    <div className="wholeChat">
-      <div id="msgBox">{messages && messages.length ? messages.map((message, index) => <Message key={`mess-${index}`} msg={message} />) : null}</div>
-      <MessageBox postMessage={postMessage} />
+    <div className="chat">
+      <div className="chatBackground">
+        <div className="scrollField">
+          {latestMessages && latestMessages.length
+            ? latestMessages.map((message, index) => <Message key={`mess-${index}`} msg={message} chatPartnerData={projectData} />)
+            : null}
+          {messages && messages.length
+            ? messages.map((message, index) => <Message key={`mess-${index}`} msg={message} chatPartnerData={projectData} />)
+            : null}
+        </div>
+        <MessageBox postMessage={postMessage} value={value} setValue={setValue} />
+      </div>
     </div>
   );
 };

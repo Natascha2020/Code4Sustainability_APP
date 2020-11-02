@@ -1,5 +1,6 @@
 .worksWrapper {
-  margin-top: 10em;
+  margin-top: 6em;
+  margin-bottom: 6em;
 }
 
 .howWrapper {
@@ -10,4 +11,44 @@
 .howMatch {
   text-align: center;
   margin-top: 3em;
+}
+
+.titleHowItWorks {
+  margin-bottom: 2em;
+  font-size: 2em;
+  text-align: center;
+  color: #008b8b;
+}
+
+.carouselHIW {
+  height: 400px;
+}
+
+.imgHIW {
+  width: 300px !important;
+}
+
+.imgWrapperHIW {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stepHIW {
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.howMatch {
+  color: #daa520;
+  font-size: 3em;
+  font-family: "ONEDAY";
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.subTitleHIW {
+  text-align: center;
 }

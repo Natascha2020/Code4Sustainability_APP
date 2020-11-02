@@ -1,14 +1,16 @@
-span {
-  width: 70px;
-  text-align: center;
-}
-
 .profileForm {
   width: 30%;
-  margin: 0 auto;
 }
 
 .titleProfile {
-  margin: 1em;
+  margin: 1em 0em 2em;
   font-size: 2em;
+  text-align: center;
+  color: #008b8b;
+}
+
+@media screen and (max-width: 1300px) {
+  .profileForm {
+    margin: 2em auto;
+  }
 }

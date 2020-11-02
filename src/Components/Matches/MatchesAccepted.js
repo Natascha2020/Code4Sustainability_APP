@@ -8,7 +8,7 @@ import Chat from "../Chat/MainChat";
 import "./MatchesAccepted.css";
 
 const MatchesAccepted = (props) => {
-  const { userId, typeOfUser } = props;
+  const { idUser, typeOfUser } = props;
   const [matchedData, setMatchedData] = useState([]);
   const [cards, setCardData] = useState([]);
   const [error, setError] = useState("");
@@ -68,7 +68,7 @@ const MatchesAccepted = (props) => {
         ? cards.map((card, index) => (
             <div className="chatWrapper">
               <ProjectOverviewCard onDeleteMatched={(e) => onDeleteMatched(card, index)} ey={card._id} key={card._id} projectData={card} />
-              <Chat userId={userId} projectData={card} typeOfUser={typeOfUser} />
+              <Chat idUser={idUser} projectData={card} typeOfUser={typeOfUser} />
             </div>
           ))
         : null}
