@@ -23,6 +23,7 @@ import Theme from "./Helpers/Theme";
 import "./App.css";
 
 const App = (props) => {
+  const { userId } = props;
   return (
     <Router>
       <Switch>
@@ -77,7 +78,7 @@ const App = (props) => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Navbar />
+          <Navbar userId={userId} />
 
           <NavFooter />
         </Grommet>

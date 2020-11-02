@@ -1,41 +1,42 @@
-#msgBox {
-  width: 400px;
-  height: 300px;
-  border-radius: 5px;
-  background-color: #222;
-  color: black;
-  padding: 10px;
-}
-
-.wholeChat {
-}
-
-#msgBox div {
-  background-color: rgb(206, 202, 202);
-  box-sizing: border-box;
-  padding: 5px;
-  padding-bottom: 20px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #aaa;
-}
-
-#msgBox div span {
-  display: block;
-
-  word-break: break-all;
-}
-
 form {
   margin-top: 10px;
-  width: 400px;
+  width: 380px;
 }
 
 form input {
   border-radius: 5px;
   background-color: #222;
   box-sizing: border-box;
-  width: 100%;
+  width: 95%;
   color: white;
   padding: 10px;
   padding-bottom: 30px;
+}
+
+.inputChat:focus {
+  outline-color: #008b8b !important;
+}
+
+.inputChat::placeholder {
+  color: #daa520 !important;
+}
+
+.chat {
+  margin: 1.6em 2em;
+}
+
+.inputChat {
+  color: #daa520 !important;
+}
+
+.scrollField {
+  overflow-y: scroll !important;
+  height: 280px !important;
+}
+
+.chatBackground {
+  background-color: lightgrey;
+  border-radius: 10px;
+  width: 400px;
+  padding: 1.1em;
 }

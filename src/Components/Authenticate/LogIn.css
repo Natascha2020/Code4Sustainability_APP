@@ -1,10 +1,14 @@
-.logInForm {
-  margin: 0 auto;
-  border: 2px solid #008b8b !important;
+.logInInput {
+  border: 1px solid #008b8b !important;
 }
 
-.logInForm:focus {
+.logInForm {
+  margin: 0 auto;
+}
+
+.logInInput:focus {
   border-color: #daa520 !important;
+  outline-color: #daa520 !important;
 }
 
 .navIcon {

@@ -10,18 +10,18 @@ const HowItWorks = () => {
         <div className="howDeveloper">
           <h3>I'm a Developer</h3>
           <div>Sign up</div>
-          <div>Find project</div>
-          <div>Send interest</div>
+          <div>Search projects and get inspired</div>
+          <div>Send your interest for working on solutions</div>
         </div>
         <div className="howProject">
-          <h3>I'm a Project</h3>
+          <h3>I'm a Project(owner)</h3>
           <div>Sign up</div>
-          <div>Pitch project</div>
-          <div>Accept interest</div>
+          <div>Pitch your problem and get people excited</div>
+          <div>Accept interest for joining your team</div>
         </div>
       </div>
 
-      <div className="howMatch">Match</div>
+      <div className="howMatch">Match.Code.Impact;</div>
     </div>
   );
 };

@@ -8,7 +8,7 @@ const Share = (props) => {
 
   return (
     <div>
-      <Modal show={showShare} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
+      <Modal show={showShare} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title" centered>
         <Modal.Header closeButton>
           <Modal.Title className="titleModal" id="example-custom-modal-styling-title">
             Spread the word...
