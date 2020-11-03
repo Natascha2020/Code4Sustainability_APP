@@ -81,6 +81,7 @@ const MatchesPending = (props) => {
       {cards && cards.length
         ? cards.map((card, index) => (
             <ProjectOverviewCard
+              {...props}
               onDeleteInterest={() => onDeleteInterest(card, index)}
               onHandleAcceptance={() => handleAcceptance(card, index)}
               ey={card._id}

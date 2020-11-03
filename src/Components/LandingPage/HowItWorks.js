@@ -15,21 +15,25 @@ const HowItWorks = () => {
         <div className="howDeveloper">
           <h3 className="subTitleHIW">I'm a Developer</h3>
           <div className="stepHIW">Sign up</div>
-          <div className="stepHIW">Search projects and get inspired</div>
+          <img className="imgHIW" src={require("../../Assets/Landing_login.jpg")} alt="Search for a project" />
+          <div className="stepHIW">Search projects, get inspired and introduce yourself and your motivation</div>
           <div className="imgWrapperHIW">
             <img className="imgHIW" src={require("../../Assets/Landing_search.jpg")} alt="Search for a project" />
           </div>
-          <div className="stepHIW">Send your interest for working on solutions</div>
+          <div className="stepHIW">Send your interest for joining a project team and work together on digital solutions</div>
+          <img className="imgHIW" src={require("../../Assets/Landing_profile.jpg")} alt="Search for a project" />
         </div>
 
         <div className="howProject">
-          <h3 className="subTitleHIW">I'm a Project(owner)</h3>
+          <h3 className="subTitleHIW">I'm a Project</h3>
           <div className="stepHIW">Sign up</div>
-          <div className="stepHIW">Pitch your problem and get people excited</div>
+          <img className="imgHIW" src={require("../../Assets/Landing_problem.png")} alt="Search for a project" />
+          <div className="stepHIW">Pitch your problem in a 100s video and get developers excited about your project</div>
           <div className="imgWrapperHIW">
             <img className="imgHIW" src={require("../../Assets/Landing_problem.png")} alt="Search for a project" />
           </div>
-          <div className="stepHIW">Accept interest for joining your team</div>
+          <div className="stepHIW">Accept interest and enrich your team through joining of awesome new people</div>
+          <img className="imgHIW" src={require("../../Assets/Landing_group.jpg")} alt="Search for a project" />
         </div>
       </div>
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faUserSecret, faShareAlt, faGift } from "@fortawesome/free-solid-svg-icons";
+import { faAnchor, faRocket, faHeartbeat, faGlobeAmericas, faLightbulb, faDove } from "@fortawesome/free-solid-svg-icons";
 import "./About.css";
 
 const About = () => {
@@ -17,9 +16,16 @@ const About = () => {
 
           <div className="backgroundStrength">
             <ul className="strengthWrapper">
-              <li className="strength">Sharing is caring</li>
-              <li className="strength">Continuous support</li>
-              <li className="strength">Problem solvers</li>
+              <li className="strength">
+                Sharing is caring <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="lg" />
+              </li>
+              <li className="strength">
+                Continuous support <FontAwesomeIcon className="navIcon" icon={faAnchor} size="lg" />
+              </li>
+
+              <li className="strength">
+                Problem solvers <FontAwesomeIcon className="navIcon" icon={faLightbulb} size="lg" />
+              </li>
             </ul>
           </div>
           <div className="targetGroupWrapper">
@@ -41,9 +47,17 @@ const About = () => {
         <div className="techWrapperInside">
           <h3 className="aboutSubtitle">What we love about the social-impact-community?</h3>
           <ul className="strengthWrapper">
-            <li className="strength">Great ideas</li>
-            <li className="strength">Society & environment first</li>
-            <li className="strength">Change makers</li>
+            <li className="strength">
+              Great ideas <FontAwesomeIcon className="navIcon" icon={faRocket} size="lg" />{" "}
+            </li>
+
+            <li className="strength">
+              Society first <FontAwesomeIcon className="navIcon" icon={faGlobeAmericas} size="lg" />{" "}
+            </li>
+
+            <li className="strength">
+              Change makers <FontAwesomeIcon className="navIcon" icon={faDove} size="lg" />
+            </li>
           </ul>
 
           <div className="targetGroupWrapper">
@@ -53,13 +67,22 @@ const About = () => {
           </div>
         </div>
       </div>
-      <h4>The core values of this plattform:</h4>
-      <ul className="ulAbout">
-        <li className="liAbout">it’s all about the problem, not (yet) the solution!</li>
-        <li className="liAbout">it’s all about the people and their motivation, not about tools and skills!</li>
-        <li className="liAbout">it’s all about teams and not cheap workforce!</li>
-        <li className="liAbout">it’s all about communication, appreciation, gaining experience and relationships!</li>
-      </ul>
+      <h4 className="aboutSubtitle">The core values of this plattform:</h4>
+      <div className="valueWrapper">
+        <div className="liAbout">
+          It’s all about the <span className="spanValues">problem</span>, not (yet) the solution!
+        </div>
+        <div className="liAbout">
+          It’s all about the people and their <span className="spanValues">motivation</span>, not about tools and skills!
+        </div>
+        <div className="liAbout">
+          It’s all about <span className="spanValues">teams</span> and not cheap workforce!
+        </div>
+        <div className="liAbout">
+          It’s all about <span className="spanValues">communication</span>, <span className="spanValues">appreciation</span>, gaining{" "}
+          <span className="spanValues">experience</span> and <span className="spanValues">relationships!</span>
+        </div>
+      </div>
     </div>
   );
 };

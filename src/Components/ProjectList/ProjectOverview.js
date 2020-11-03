@@ -5,14 +5,13 @@ import * as settings from "../../Helpers/Settings";
 import ErrorHandler from "../../Helpers/ErrorHandler";
 import "./ProjectOverview.css";
 
-const ProjectOverview = () => {
+const ProjectOverview = (props) => {
   const [allProjects, setAllProjects] = useState([]);
   const [updateProjects, setUpdateProjects] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [currentSearch, setCurrentSearch] = useState([]);
   const [error, setError] = useState("");
   const [onInterestSent, setOnInterestSent] = useState(false);
-
   useEffect(() => {
     handleFetch();
   }, [updateProjects]);
@@ -22,7 +21,6 @@ const ProjectOverview = () => {
       const { data } = await axiosInstance.get(settings.urlUsers + "/projects");
       setAllProjects(data);
       setUpdateProjects(false);
-      console.log(data);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -33,7 +31,6 @@ const ProjectOverview = () => {
   // Search bar functionality I: Grabbing input value of search field
   const handleSearch = (e) => {
     setInputValue(e.target.value);
-    console.log(e.target.value);
   };
 
   // Search bar functionality II: Filtering in terms of input value and storing in currentSearch
@@ -43,7 +40,6 @@ const ProjectOverview = () => {
   }, [allProjects, inputValue]);
 
   const handleConnect = async (idProject) => {
-    console.log(idProject);
     //add project to pending matches list, update data and state for matchPending
     try {
       await axiosInstance.put(settings.urlDeveloper + "/addProject?user_id_p=" + idProject);
@@ -67,7 +63,15 @@ const ProjectOverview = () => {
       {currentSearch && currentSearch.length
         ? allProjects.map((project, index) => {
             let id = project._id;
-            return <ProjectOverviewCard key={id} projectData={project} onSendInterest={() => handleConnect(id)} onInterestSent={onInterestSent} />;
+            return (
+              <ProjectOverviewCard
+                {...props}
+                key={id}
+                projectData={project}
+                onSendInterest={() => handleConnect(id)}
+                onInterestSent={onInterestSent}
+              />
+            );
           })
         : null}
 

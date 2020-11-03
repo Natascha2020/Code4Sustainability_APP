@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axiosInstance from "../../Helpers/axios";
-import * as settings from "../../Helpers/Settings";
-import ErrorHandler from "../../Helpers/ErrorHandler";
-import { Box, Button, CardBody, CardHeader, Carousel } from "grommet";
+import React from "react";
+import { Box, Button, CardBody, Carousel } from "grommet";
 import "./ProjectDetails.css";
 
 const ProjectDetails = (props) => {
   const { projectData, onSendInterest, onHandleAcceptance, handleDisplay, onDeleteInterest, onDeleteMatched, typeOfUser, onInterestSent } = props;
-  console.log(onInterestSent);
   return (
     <div>
       <CardBody pad="medium">
