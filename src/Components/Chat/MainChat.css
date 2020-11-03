@@ -15,6 +15,8 @@ form input {
 
 .inputChat:focus {
   outline-color: #008b8b !important;
+  border-color: #008b8b !important;
+  /* outline: none !important; */
 }
 
 .inputChat::placeholder {

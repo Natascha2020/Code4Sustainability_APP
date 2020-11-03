@@ -3,8 +3,6 @@ import "./Message.css";
 // returns date and formatted content of message
 const Message = (props) => {
   const { msg, chatPartnerData } = props;
-  console.log("msg", msg);
-  console.log("partner", chatPartnerData);
 
   return (
     <div>

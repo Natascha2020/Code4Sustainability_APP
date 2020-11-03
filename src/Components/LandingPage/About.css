@@ -19,7 +19,6 @@
   margin: 2em;
   border: 3px solid #006f6f;
   color: #00090e;
-
   border-radius: 10%;
 }
 .strengthWrapper {
@@ -40,9 +39,11 @@
 }
 
 .strength {
-  width: 30%;
+  width: 40%;
   color: #daa520;
   font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 1em;
 }
 
 .aboutTitle {
@@ -58,6 +59,24 @@
 
 .aboutSubtitle {
   padding-top: 1.5em;
-  font-size: 1.4em;
+  font-size: 1.6em;
   text-align: center;
+}
+
+.valueWrapper {
+  display: flex;
+  margin-top: 2em;
+}
+
+.liAbout {
+  padding: 2em;
+  margin: 1em;
+  border: 3px solid #daa520;
+  color: #00090e;
+  border-radius: 10%;
+}
+
+.spanValues {
+  color: #daa520;
+  font-weight: bold;
 }

@@ -52,3 +52,11 @@
 .subTitleHIW {
   text-align: center;
 }
+
+.howProject {
+  max-width: 400px;
+}
+
+.howDeveloper {
+  max-width: 400px;
+}

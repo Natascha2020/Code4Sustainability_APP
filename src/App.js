@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import NavFooter from "./Components/Footer/NavFooter";
@@ -13,6 +13,7 @@ import ProjectOverview from "./Components/ProjectList/ProjectOverview";
 import PersonalData from "./Components/Profile/PersonalData";
 import ProfileDev from "./Components/Profile/ProfileDev";
 import ProfileProject from "./Components/Profile/ProfileProject";
+
 import MatchesPending from "./Components/Matches/MatchesPending";
 import MatchesAccepted from "./Components/Matches/MatchesAccepted";
 import Authenticated from "./Components/Authenticate/Authenticated";
@@ -23,7 +24,7 @@ import Theme from "./Helpers/Theme";
 import "./App.css";
 
 const App = (props) => {
-  const { userId } = props;
+  const [displayModal, setDisplayModal] = useState(false);
   return (
     <Router>
       <Switch>
@@ -37,7 +38,7 @@ const App = (props) => {
           </Route>
 
           <Route exact path="/projects">
-            <ProjectOverview />
+            <Authenticated WrappedComponent={ProjectOverview} withRedirect={false} noCheck={true} />
           </Route>
 
           <Route exact path="/signUp">
@@ -51,10 +52,10 @@ const App = (props) => {
           <Route exact path="/chat">
             <MainChat />
           </Route>
-
+          {/* 
           <Route exact path="/logIn">
             <LogIn />
-          </Route>
+          </Route> */}
 
           <Route exact path="/personalData">
             <Authenticated WrappedComponent={PersonalData} withRedirect={true} {...props} />
@@ -78,11 +79,18 @@ const App = (props) => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Navbar userId={userId} />
+
+          <Navbar
+            onLoginPress={() => {
+              console.log("clicked");
+              setDisplayModal(true);
+            }}
+          />
 
           <NavFooter />
         </Grommet>
       </Switch>
+      {displayModal ? <LogIn /> : null}
     </Router>
   );
 };

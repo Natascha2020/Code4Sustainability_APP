@@ -13,9 +13,6 @@ const Chat = (props) => {
   const [value, setValue] = useState("");
 
   const chatPartnerId = projectData._id;
-  const chatPartnerName = projectData.name;
-  console.log("chatPartnerName", chatPartnerName);
-  console.log("projectData", projectData);
 
   useEffect(() => {
     socket.connect();
@@ -25,6 +22,7 @@ const Chat = (props) => {
     });
 
     socket.on("addedMessage", (addedMessage) => {
+      console.log("new message incoming");
       messages.push(addedMessage);
       setMessages([...messages]);
     });

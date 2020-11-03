@@ -83,6 +83,11 @@
   color: #008b8b;
 }
 
+.link:active {
+  text-decoration: none;
+  color: #008b8b;
+}
+
 .linkLogin {
   font-weight: 200;
   margin: 0 0.5em !important;

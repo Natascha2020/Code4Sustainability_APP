@@ -22,25 +22,17 @@ const ProjectOverview = (props) => {
     <div className="projectWrapper">
       <Box height={{ min: "300" }} width="medium" margin="small">
         <Card className="projectCard" height="300" width="medium" background="light-1" elevation="large">
-          <Authenticated
-            WrappedComponent={({ idUser }) => {
-              return (
-                <CardHeader
-                  className="cardHeader"
-                  pad="small"
-                  onClick={() => {
-                    if (idUser && idUser !== "") showOverview();
-                    else alert("Please login to see project details");
-                  }}>
-                  {projectData.name}
-                </CardHeader>
-              );
-            }}
-            noCheck={true}
-            withRedirect={false}
-          />
+          <CardHeader
+            className="cardHeader"
+            pad="small"
+            onClick={() => {
+              if (props.idUser && props.idUser !== "") showOverview();
+              else alert("Please login to see project details");
+            }}>
+            {projectData.name}
+          </CardHeader>
           {showDetails ? (
-            <Authenticated WrappedComponent={ProjectDetails} projectData={projectData} handleDisplay={showOverview} {...props} />
+            <ProjectDetails projectData={projectData} handleDisplay={showOverview} {...props} />
           ) : (
             <div>
               <CardBody pad="medium" className="cardBodyVideo">

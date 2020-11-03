@@ -67,7 +67,7 @@ const MatchesAccepted = (props) => {
       {cards && cards.length
         ? cards.map((card, index) => (
             <div className="chatWrapper">
-              <ProjectOverviewCard onDeleteMatched={(e) => onDeleteMatched(card, index)} ey={card._id} key={card._id} projectData={card} />
+              <ProjectOverviewCard onDeleteMatched={(e) => onDeleteMatched(card, index)} ey={card._id} key={card._id} projectData={card} {...props} />
               <Chat idUser={idUser} projectData={card} typeOfUser={typeOfUser} />
             </div>
           ))

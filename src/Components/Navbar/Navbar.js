@@ -11,11 +11,11 @@ import "./Navbar.css";
 
 const Navbar = (props) => {
   const [error, setError] = useState("");
+
   const handleLogOut = async (e) => {
-    e.preventDefault();
     try {
-      const response = await axiosInstance.get(settings.urlAuth + "/deleteAuth");
-      console.log(response);
+      await axiosInstance.get(settings.urlAuth + "/deleteAuth");
+
       window.location.href = "/";
     } catch (error) {
       let errorMsg = `Error: ${error}`;
@@ -23,6 +23,23 @@ const Navbar = (props) => {
       console.error(error);
     }
   };
+
+  return (
+    <Authenticated
+      {...props}
+      withRedirect={false}
+      noCheck={true}
+      WrappedComponent={(secondProps) => {
+        return <NavBarComponent {...secondProps} handleLogOut={handleLogOut} error={error} />;
+      }}
+    />
+  );
+};
+
+export default Navbar;
+
+const NavBarComponent = (props) => {
+  const { idUser, onLoginPress } = props;
   return (
     <div>
       <Nav className="nav" direction="row" pad="medium">
@@ -37,48 +54,44 @@ const Navbar = (props) => {
               </div>
             </div>
           </li>
-
           <div className="navLinkWrapper">
             <li className="liNav">
               <Link className="link" to="/">
-                {/* <FontAwesomeIcon className="navIcon" icon={faAnchor} size="lg" /> */}
                 Home
               </Link>
             </li>
             <li className="liNav">
               <Link className="link" to="/howItWorks">
-                {/* <FontAwesomeIcon className="navIcon" icon={faRocket} size="lg" /> */}
                 How
               </Link>
             </li>
-
             <li className="liNav">
               <Link className="link" to="/about">
-                {/* <FontAwesomeIcon className="navIcon" icon={faGlobeAmericas} size="lg" /> */}
                 About
               </Link>
             </li>
-
             <li className="liNav">
               <Link className="link" to="/projects">
-                {/* <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="lg" /> */}
                 Projects
               </Link>
             </li>
           </div>
-          <li>
-            <Button className="linkLogin" primary label="LogIn" href="/logIn" />
-          </li>
-          <li>
-            <Button className="linkLogin" primary label="LogOut" onClick={handleLogOut} />
-          </li>
-
-          <Authenticated WrappedComponent={NavMenu} {...props} />
+          {idUser ? (
+            <>
+              <li>
+                <Button className="linkLogin" primary label="LogOut" onClick={props.handleLogOut} />
+              </li>
+              <NavMenu {...props} />
+            </>
+          ) : (
+            <li>
+              {/* <Button className="linkLogin" primary label="LogIn" href="/logIn" /> */}
+              <Button className="linkLogin" primary label="LogIn" onClick={onLoginPress} />
+            </li>
+          )}
         </ul>
       </Nav>
-      {error ? <ErrorHandler errorMessage={error} /> : null}
+      {props.error ? <ErrorHandler errorMessage={props.error} /> : null}
     </div>
   );
 };
-
-export default Navbar;
