@@ -76,7 +76,7 @@ const MatchesPending = (props) => {
   };
 
   return (
-    <div>
+    <div className="matchesPending">
       <h2 className="titleMatchesPending">Matches pending</h2>
       {cards && cards.length
         ? cards.map((card, index) => (

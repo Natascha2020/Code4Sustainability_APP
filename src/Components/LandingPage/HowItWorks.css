@@ -1,44 +1,8 @@
 .worksWrapper {
-  margin-top: 6em;
+  margin-top: 8em;
   margin-bottom: 6em;
-}
-
-.howWrapper {
-  display: flex;
-  justify-content: space-around;
-}
-
-.howMatch {
-  text-align: center;
-  margin-top: 3em;
-}
-
-.titleHowItWorks {
-  margin-bottom: 2em;
-  font-size: 2em;
-  text-align: center;
-  color: #008b8b;
-}
-
-.carouselHIW {
-  height: 400px;
-}
-
-.imgHIW {
-  width: 300px !important;
-}
-
-.imgWrapperHIW {
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.stepHIW {
-  font-size: 1.1em;
-  text-align: center;
+  background-color: #0d0e0e !important;
+  color: white;
 }
 
 .howMatch {
@@ -47,16 +11,65 @@
   font-family: "ONEDAY";
   letter-spacing: 2px;
   font-weight: bold;
+  text-align: center;
+  margin-top: 3em;
+}
+
+.titleHowItWorks {
+  font-size: 2em;
+  text-align: center;
+  color: #008b8b;
+}
+
+.imgHIW {
+  width: 200px !important;
+  border-radius: 10px !important;
+}
+
+.imgTextWrapperHIW {
+  padding: 1em;
+}
+
+.imgWrapperHIW {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 200px;
+}
+
+.stepHIW {
+  font-size: 1.1em;
+  text-align: center;
+  max-width: 250px;
+}
+
+.HIWDev {
+  margin-top: 2em;
 }
 
 .subTitleHIW {
   text-align: center;
-}
-
-.howProject {
-  max-width: 400px;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 .howDeveloper {
-  max-width: 400px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.howProject {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 600px) {
+  .howDeveloper {
+    display: block;
+  }
+  .howProject {
+    display: block;
+  }
 }

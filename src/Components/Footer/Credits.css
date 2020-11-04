@@ -1,5 +1,6 @@
 .linkCredits {
   color: black;
+  font-weight: bold;
 }
 
 .linkCredits:link {
@@ -13,4 +14,23 @@
 .linkCredits:hover {
   text-decoration: none;
   color: #008b8b;
+}
+
+.modalBodyCredits {
+  background-image: url("https://co4sy.org/cosy-images/gallery/pexels-cottonbro-4877848.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  opacity: 0.8;
+}
+
+.highlightModalCredits {
+  color: #e1b74d;
+  font-weight: bold;
+  margin-top: 0.3em;
+}
+
+.boldModalCredits {
+  font-weight: bold;
+  color: black;
 }

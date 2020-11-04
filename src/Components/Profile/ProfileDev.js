@@ -6,7 +6,7 @@ const ProfileDev = ({ parentFormValue, setFormValue }) => {
   const [subformValue, setSubformValue] = useState({});
 
   return (
-    <div>
+    <div className="formProfileDev">
       <h5 className="titleProfileDev">Nice to know about me:</h5>
       <Form
         value={subformValue}

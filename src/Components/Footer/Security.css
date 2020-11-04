@@ -3,10 +3,20 @@
   font-weight: bold;
 }
 
-.highlightModal {
+.highlightModalSecurity {
   color: #e1b74d;
+  margin-top: 2.4em;
+  font-weight: bold;
 }
 
 .boldModal {
   font-weight: bold;
+}
+
+.modalBodySecurity {
+  background-image: url("https://co4sy.org/cosy-images/gallery/pexels-tima-miroshnichenko-5380674.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  opacity: 0.8;
 }

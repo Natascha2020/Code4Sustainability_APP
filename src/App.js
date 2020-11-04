@@ -4,11 +4,11 @@ import Navbar from "./Components/Navbar/Navbar";
 import NavFooter from "./Components/Footer/NavFooter";
 import SignUp from "./Components/Authenticate/SignUp";
 import LogIn from "./Components/Authenticate/LogIn";
-
 import About from "./Components/LandingPage/About";
 import Home from "./Components/LandingPage/Home";
 import GitHub from "./Components/Footer/GitHub";
 import HowItWorks from "./Components/LandingPage/HowItWorks";
+import LandingPage from "./Components/LandingPage/LandingPage";
 import ProjectOverview from "./Components/ProjectList/ProjectOverview";
 import PersonalData from "./Components/Profile/PersonalData";
 import ProfileDev from "./Components/Profile/ProfileDev";
@@ -29,10 +29,6 @@ const App = (props) => {
     <Router>
       <Switch>
         <Grommet theme={Theme}>
-          <Route exact path="/howItWorks">
-            <HowItWorks />
-          </Route>
-
           <Route exact path="/about">
             <About />
           </Route>
@@ -52,10 +48,10 @@ const App = (props) => {
           <Route exact path="/chat">
             <MainChat />
           </Route>
-          {/* 
-          <Route exact path="/logIn">
-            <LogIn />
-          </Route> */}
+
+          <Route exact path="/howitWorks">
+            <HowItWorks />
+          </Route>
 
           <Route exact path="/personalData">
             <Authenticated WrappedComponent={PersonalData} withRedirect={true} {...props} />
@@ -76,13 +72,13 @@ const App = (props) => {
           <Route exact path="/matchesAccepted">
             <Authenticated WrappedComponent={MatchesAccepted} withRedirect={true} {...props} />
           </Route>
+
           <Route exact path="/">
-            <Home />
+            <LandingPage />
           </Route>
 
           <Navbar
             onLoginPress={() => {
-              console.log("clicked");
               setDisplayModal(true);
             }}
           />

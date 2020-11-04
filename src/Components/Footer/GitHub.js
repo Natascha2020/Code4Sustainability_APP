@@ -7,27 +7,30 @@ import "./GitHub.css";
 const GitHub = () => {
   return (
     <div className="gitPage">
-      <h3 className="gitTitle">It's not a bug, it's a feature !</h3>
-
-      <h3 className="gitTitle">It's not a feature, it's a bug!</h3>
-      <div className="gitFirstBlock ">
+      <h3 className="gitTitle">It's not a bug, it's a feature - it's not a feature, it's a bug!</h3>
+      <div className="gitFirstBlock">
         <div className="gitSubBlock">
           <h5 className="gitSubtitle">Evolutions under coding:</h5>
           <ul>
-            <li>OAuth 2.0 Authentication with Google and GitHub</li>
+            <li>OAuth 2.0 authentication with Google and GitHub</li>
             <li>Lazy loading and endless scrolling for project list</li>
             <li>Possibility to have multiple projects as project owner or developer</li>
+            <li>Possibility to have chat rooms with multiple people</li>
+            <li>Landing page: photo wall right and left sided</li>
+            <li>Image upload for profile page and avatar display</li>
           </ul>
         </div>
         <div className="gitSubBlock">
           <h5 className="gitSubtitle">Evolutions planned:</h5>
           <ul>
-            <li>Live recording of pitch-videos directly on homepage</li>
-            <li>Possibility to send live recorded video or voicemail when sending or accepting interest</li>
-            <li>Ability to send projects via What's App etc. to friends</li>
-            <li>Filtering through projects on different topics, kind of problems</li>
-            <li>Video-Chat possibility on match</li>
+            <li>Live recording of pitch videos directly on homepage</li>
+            <li>Possibility to send live recorded video or voicemail</li>
+            <li>Ability to send projects via what's app etc. to friends</li>
+            <li>Filtering through projects on different topics, kind of challenges</li>
+            <li>Video chat possibility on match</li>
             <li>Password reset</li>
+            <li>Email forgotten password</li>
+            <li>World map with projects</li>
             <li>Different languages: english and german</li>
           </ul>
         </div>
@@ -43,7 +46,7 @@ const GitHub = () => {
         <div>
           <a className="linkGit" target="_blank" rel="noopener noreferrer" href="https://github.com/Natascha2020/Code4Sustainability_API.git">
             <FontAwesomeIcon className="navIcon" icon={faGithub} size="lg" />
-            <span>Ressource server - API</span>
+            <span>Ressources server</span>
           </a>
         </div>
         <div>

@@ -85,15 +85,15 @@ const PersonalData = ({ idUser, typeOfUser }) => {
               })
             }
             onSubmit={(e) => handleData(e)}>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="name">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text spanProfile" id="name">
                   Name
                 </span>
               </div>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Name"
                 name="name"
                 aria-label="name"
@@ -103,15 +103,15 @@ const PersonalData = ({ idUser, typeOfUser }) => {
               />
             </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-append">
-                <span class="input-group-text" id="email">
+            <div className="input-group mb-3">
+              <div className="input-group-append">
+                <span className="input-group-text spanProfile" id="email">
                   @
                 </span>
               </div>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Email"
                 name="email"
                 aria-label="email"
@@ -121,16 +121,16 @@ const PersonalData = ({ idUser, typeOfUser }) => {
               />
             </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="password">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text spanProfile" id="password">
                   <FontAwesomeIcon className="navIcon" icon={faKey} size="lg" />
                 </span>
               </div>
 
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 placeholder="Password"
                 name="password"
                 aria-label="password"
@@ -138,18 +138,18 @@ const PersonalData = ({ idUser, typeOfUser }) => {
                 onChange={inputHandler}
                 value={formValue.password}
               />
-              <div class="input-group-append"></div>
+              <div className="input-group-append"></div>
             </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="webpage">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text spanProfile" id="webpage">
                   https://
                 </span>
               </div>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Webpage"
                 name="webpage"
                 aria-describedby="webpage"
@@ -158,15 +158,15 @@ const PersonalData = ({ idUser, typeOfUser }) => {
               />
             </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="location">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text spanProfile" id="location">
                   <FontAwesomeIcon className="navIcon" icon={faMapMarkedAlt} size="lg" />
                 </span>
               </div>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Location"
                 name="location"
                 aria-label="location"
