@@ -9,6 +9,10 @@
   color: #008b8b;
 }
 
+.spanProfile {
+  width: 70px;
+}
+
 @media screen and (max-width: 1300px) {
   .profileForm {
     margin: 2em auto;

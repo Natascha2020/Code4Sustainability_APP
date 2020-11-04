@@ -1,8 +1,15 @@
 .titleMatchesAccepted {
-  margin: 1em;
+  margin-bottom: 2em;
   font-size: 2em;
+  text-align: center;
+  color: #008b8b;
+  margin-top: 4em;
 }
 
 .chatWrapper {
   display: flex;
+}
+
+.matchesAccepted {
+  margin-bottom: 6em;
 }

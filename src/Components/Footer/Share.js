@@ -14,9 +14,9 @@ const Share = (props) => {
             Spread the word...
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="modalBody">
+        <Modal.Body className="modalBodyShare">
           <h5>You know awesome people?</h5>
-          <h5 className="highlightModal">Share!</h5>
+          <h5 className="highlightModalShare">Share!</h5>
         </Modal.Body>
       </Modal>
     </div>

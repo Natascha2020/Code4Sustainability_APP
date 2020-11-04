@@ -14,8 +14,8 @@ const Share = (props) => {
             Thanks...
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="modalBody">
-          <h4 className="highlightModal">Photos and graphics</h4>
+        <Modal.Body className="modalBodyCredits">
+          <h4 className="highlightModalCredits">Photos and graphics</h4>
           <ul>
             <li className="liCredits">
               <a className="linkCredits" target="_blank" rel="noopener noreferrer" href="https://www.pexels.com/de-de/">
@@ -34,12 +34,12 @@ const Share = (props) => {
             </li>
           </ul>
 
-          <h4 className="highlightModal">Support</h4>
-          <div className="boldModal">Batch #6 - WBS coding school</div>
+          <h4 className="highlightModalCredits">Support</h4>
+          <div className="boldModalCredits">Batch #6 - WBS coding school</div>
           <br />
-          <h4 className="highlightModal">Special thanks</h4>
-          <div className="boldModal">Jan: Graphic design && bugfixing superhero</div>
-          <div className="boldModal">Aria: Patience, Motivation && bugfixing superhero</div>
+          <h4 className="highlightModalCredits">Special thanks</h4>
+          <div className="boldModalCredits">Jan: Graphic design && bugfixing superhero</div>
+          <div className="boldModalCredits">Aria: Patience, Motivation && bugfixing superhero</div>
         </Modal.Body>
       </Modal>
     </div>

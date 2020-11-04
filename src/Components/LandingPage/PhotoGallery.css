@@ -1,0 +1,10 @@
+.react-images__footer {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
+}
+
+.react-images__footer__count {
+  color: green;
+}

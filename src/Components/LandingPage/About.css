@@ -7,7 +7,7 @@
 }
 
 .aboutMain {
-  margin: 2em;
+  margin-top: 8em;
 }
 
 .targetGroupWrapper {
@@ -18,7 +18,7 @@
   padding: 2em;
   margin: 2em;
   border: 3px solid #006f6f;
-  color: #00090e;
+
   border-radius: 10%;
 }
 .strengthWrapper {
@@ -72,7 +72,7 @@
   padding: 2em;
   margin: 1em;
   border: 3px solid #daa520;
-  color: #00090e;
+
   border-radius: 10%;
 }
 

@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+
+.landing-page {
+  background: black;
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+  width: 100vw;
+  min-width: 320px;
+}
+.landing-page .content-wrapper {
+  text-align: center;
+  display: block;
+  position: relative;
+  padding: 30px;
+  left: 0;
+  right: 0;
+  background: rgba(40, 40, 40, 0.5);
+  color: white;
+
+  margin: 0 auto;
+  max-width: 800px;
+  min-height: 100vh;
+  z-index: 20;
+  opacity: 0.95;
+}
+.landing-page .content-limit {
+  display: block;
+  background: transparent;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  max-width: 800px;
+  margin: 0 auto;
+  /* determines content flowing in bg */
+  height: 55vw;
+  /* determines extra space */
+  margin-bottom: 12vw;
+  z-index: 20;
+}
+.landing-page .bg-wrapper {
+  position: relative;
+  display: block;
+  background: transparent;
+}
+.landing-page .backdrop-back,
+.landing-page .backdrop-front {
+  display: block;
+  position: relative;
+
+  width: 100vw;
+  height: 74vw;
+  width: 100%;
+}
+
+.landing-page .backdrop-back {
+  z-index: 10;
+  bottom: 0;
+  margin-top: -74vw;
+}
+.landing-page .backdrop-front {
+  z-index: 30;
+  bottom: 0;
+  margin-top: -74vw;
+}
+
+.landing-page .backdrop-front img,
+.landing-page .backdrop-back img {
+  width: 100vw;
+}
+.landing-page .footer {
+  display: block;
+  position: relative;
+  background: yellow;
+  z-index: 50;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}

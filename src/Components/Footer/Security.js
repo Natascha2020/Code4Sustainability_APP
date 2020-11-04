@@ -14,8 +14,8 @@ const GitHub = (props) => {
             May contain hackers...
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="modalBody">
-          <h5 className="highlightModal">Our platform is designed as microservices</h5>
+        <Modal.Body className="modalBodySecurity">
+          <h5 className="highlightModalSecurity">Our platform is designed as microservices</h5>
           <h6 className="boldModal">What the hell are microservices???</h6>
           <div>"Do one thing and do it well".</div>
           <br />

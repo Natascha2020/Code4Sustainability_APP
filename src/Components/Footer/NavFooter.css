@@ -5,11 +5,13 @@
 .linkFooter {
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
 }
 
 .linkFooter:link {
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
 }
 
 .linkFooter:visited {
@@ -20,4 +22,5 @@
 .linkFooter:hover {
   text-decoration: none;
   color: #008b8b;
+  cursor: pointer;
 }
