@@ -11,7 +11,6 @@ import "./Navbar.css";
 
 const Navbar = (props) => {
   const [error, setError] = useState("");
-  console.log("props", props);
 
   const handleLogOut = async (e) => {
     try {
@@ -31,7 +30,6 @@ const Navbar = (props) => {
       withRedirect={false}
       noCheck={true}
       WrappedComponent={(secondProps) => {
-        console.log("test", secondProps, props);
         return <NavBarComponent {...secondProps} handleLogOut={handleLogOut} error={error} />;
       }}
     />
@@ -42,7 +40,6 @@ export default Navbar;
 
 const NavBarComponent = (props) => {
   const { idUser, onLoginPress } = props;
-  console.log("idUser", idUser);
   return (
     <div>
       <Nav className="nav" direction="row" pad="medium">

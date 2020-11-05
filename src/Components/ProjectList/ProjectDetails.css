@@ -1,7 +1,17 @@
 .carouselInput {
-  margin: 2.5em auto;
+  margin: 2.5em 1.5em;
 }
 
 .cardHeader {
   font-weight: bold;
+}
+
+.subtitleCarouselInput {
+  color: #daa520;
+  font-weight: bold;
+  margin-top: -2em;
+}
+
+.detailsBox {
+  height: 288px;
 }

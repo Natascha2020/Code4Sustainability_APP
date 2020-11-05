@@ -12,10 +12,10 @@ const Home = () => {
           developers <br /> with <br />
           social changemakers
         </h2>
+
         <br />
         <h3 className="slogan">"Join for the challenge, stay for the people!"</h3>
       </div>
-
       <div className="sectionIntroWrapper">
         <div className="sectionIntro middleSectionIntro">
           <div className="introWrapperCode">

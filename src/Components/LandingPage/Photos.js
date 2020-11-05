@@ -50,26 +50,26 @@ export const photos = [
     width: 2,
     height: 3,
   },
-  /*  {
+  {
     src: baseDir + "pexels-cottonbro-5329529.jpg",
     width: 2,
     height: 3,
-  }, */
-  /* {
+  },
+  {
     src: baseDir + "pexels-darlene-alderson-4385444.jpg",
+    width: 3,
+    height: 2,
+  },
+  /*  {
+    src: baseDir + "pexels-helena-lopes-1015568.jpg",
     width: 3,
     height: 2,
   }, */
   {
-    src: baseDir + "pexels-helena-lopes-1015568.jpg",
-    width: 3,
-    height: 2,
-  },
-  /* {
     src: baseDir + "pexels-ivan-samkov-5428764.jpg",
     width: 2,
     height: 3,
-  }, */
+  },
   {
     src: baseDir + "pexels-ivan-samkov-5428994.jpg",
     width: 3,
@@ -85,7 +85,7 @@ export const photos = [
     width: 714,
     height: 1000,
   },
-  /*  {
+  /* {
     src: baseDir + "pexels-tima-miroshnichenko-5380674.jpg",
     width: 2,
     height: 3,

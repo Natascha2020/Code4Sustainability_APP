@@ -10,7 +10,7 @@ import Modal from "react-bootstrap/Modal";
 
 import "./LogIn.css";
 
-const LogIn = () => {
+const LogIn = ({ displayModal, setDisplayModal }) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -18,8 +18,9 @@ const LogIn = () => {
   const [redirect, setRedirect] = useState(false);
 
   const handleClose = () => {
-    setShowLogIn(!showLogIn);
-    setRedirect(true);
+    // setShowLogIn(!showLogIn);
+    // setRedirect(true);
+    setDisplayModal(false);
   };
 
   //post credentials and check for validity, set uderId
@@ -27,6 +28,7 @@ const LogIn = () => {
     e.preventDefault();
     try {
       await axiosInstance.post(settings.urlAuth + "/generateAuth", { email, password });
+      setShowLogIn(false);
       window.location.href = "/";
     } catch (err) {
       let errorMsg = `Error: ${error}`;
@@ -40,7 +42,7 @@ const LogIn = () => {
     <div>
       <Modal
         className="form-horizontal text-center"
-        show={showLogIn}
+        show={displayModal}
         onHide={handleClose}
         dialogClassName="modal-90w "
         aria-labelledby="example-custom-modal-styling-title"

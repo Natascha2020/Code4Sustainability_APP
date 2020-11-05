@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnchor, faRocket, faHeartbeat, faGlobeAmericas, faLightbulb, faDove } from "@fortawesome/free-solid-svg-icons";
+import { faAnchor, faRocket, faHeartbeat, faGlobeAmericas, faLightbulb, faDove, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
 import "./About.css";
 
 const About = () => {
@@ -17,7 +17,7 @@ const About = () => {
           <div className="backgroundStrength">
             <ul className="strengthWrapper">
               <li className="strength">
-                Sharing is caring <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="lg" />
+                Sharing is caring <FontAwesomeIcon className="navIcon" icon={faHandsHelping} size="lg" />
               </li>
               <li className="strength">
                 Continuous support <FontAwesomeIcon className="navIcon" icon={faAnchor} size="lg" />
@@ -33,8 +33,8 @@ const About = () => {
               You are a young developer and you want to gain tech experiences while working in a creative, non-job-related environment?
             </div>
             <div className="targetGroup">
-              You are a senior developer and you want to share your tech experiences and consult and supporort sustainable ideas getting started and
-              transformed into life
+              You are a senior developer and you want to share your tech experiences and consult and support sustainable ideas getting started and
+              transformed into life?
             </div>
             <div className="targetGroup">
               You love to code in your free time and you want to meet new people and collaborate on social and environmental problems?
@@ -62,25 +62,29 @@ const About = () => {
 
           <div className="targetGroupWrapper">
             <div className="targetGroup">You are seeking for motivated poeple with tech skills to enrich your voluntary team?</div>
-            <div className="targetGroup">You have a great idea, but you don't know exaclty how to transform that in the best tech way?</div>
+            <div className="targetGroup">You have a great idea, but you don't know exaclty how to transform it techwise in the best way?</div>
             <div className="targetGroup">You have a need for digitalization and better web presence to reach more people with your initiative? </div>
           </div>
         </div>
       </div>
       <h4 className="aboutSubtitle">The core values of this plattform:</h4>
       <div className="valueWrapper">
-        <div className="liAbout">
-          It’s all about the <span className="spanValues">problem</span>, not (yet) the solution!
+        <div className="valuePart">
+          <div className="liAbout">
+            It’s all about the <span className="spanValues">challenge</span>, not the solution!
+          </div>
+          <div className="liAbout">
+            It’s all about the people and their <span className="spanValues">motivation</span>, not about tools and skills!
+          </div>
         </div>
-        <div className="liAbout">
-          It’s all about the people and their <span className="spanValues">motivation</span>, not about tools and skills!
-        </div>
-        <div className="liAbout">
-          It’s all about <span className="spanValues">teams</span> and not cheap workforce!
-        </div>
-        <div className="liAbout">
-          It’s all about <span className="spanValues">communication</span>, <span className="spanValues">appreciation</span>, gaining{" "}
-          <span className="spanValues">experience</span> and <span className="spanValues">relationships!</span>
+        <div className="valuePart">
+          <div className="liAbout">
+            It’s all about <span className="spanValues">teams</span> and not cheap workforce!
+          </div>
+          <div className="liAbout">
+            It’s all about <span className="spanValues">communication</span>, <span className="spanValues">appreciation, </span>
+            <span className="spanValues">experience</span> and <span className="spanValues">relationships!</span>
+          </div>
         </div>
       </div>
     </div>

@@ -17,7 +17,17 @@
 }
 
 .cardHeader:hover {
-  background-color: #e1b74d;
+  background-color: #e1b74d !important;
+  border-color: none !important;
+  outline-color: none !important;
+  border: none !important;
+}
+
+.cardHeader:active {
+  background-color: #e1b74d !important;
+  border-color: none !important;
+  outline-color: none !important;
+  border: none !important;
 }
 
 .cardBodyVideo {

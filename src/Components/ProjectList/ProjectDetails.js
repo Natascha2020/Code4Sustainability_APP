@@ -5,28 +5,30 @@ import "./ProjectDetails.css";
 const ProjectDetails = (props) => {
   const { projectData, onSendInterest, onHandleAcceptance, handleDisplay, onDeleteInterest, onDeleteMatched, typeOfUser, onInterestSent } = props;
   return (
-    <div>
+    <div className="detailsBox">
       <CardBody pad="medium">
         <Box height="small">
-          <Carousel fill alignSelf="center" className="carousel">
+          <Carousel fill alignSelf="center" className="carousel" margin="small">
             <div className="carouselInput">
-              <div>Webpage: {projectData.webpage}</div>
+              <div className="subtitleCarouselInput">Webpage:</div>
+              <br />
+              <div>{projectData.webpage}</div>
             </div>
 
             <div className="carouselInput">
-              <div>{projectData.question1}</div>
+              <div className="subtitleCarouselInput">{projectData.question1}</div>
+              <br />
               <div>{projectData.answer1}</div>
             </div>
             <div className="carouselInput">
-              <div>{projectData.question2}</div>
+              <div className="subtitleCarouselInput">{projectData.question2}</div>
+              <br />
               <div>{projectData.answer2}</div>
             </div>
             <div className="carouselInput">
-              <div>{projectData.question3}</div>
+              <div className="subtitleCarouselInput">{projectData.question3}</div>
+              <br />
               <div>{projectData.answer3}</div>
-            </div>
-            <div className="carouselInput">
-              <img alt={`${projectData.name}`} src={`${projectData.image}`} />
             </div>
           </Carousel>
         </Box>
@@ -54,7 +56,6 @@ const ProjectDetails = (props) => {
         <Button type="submit" margin={{ bottom: "small", horizontal: "small" }} primary label="Send interest" onClick={onSendInterest} />
       ) : null}
 
-      {onInterestSent && typeOfUser === "Developer" ? <div>Match is pending</div> : null}
       {/*Check if project or developer is in array of accepted matches and therefore displayed on accepted matches page*/}
       {onDeleteMatched ? (
         <Button

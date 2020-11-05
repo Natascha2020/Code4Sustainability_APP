@@ -2,7 +2,6 @@ import React from "react";
 import { Menu } from "grommet";
 
 const NavMenu = (props) => {
-  console.log("props", props);
   return (
     <div>
       <Menu
@@ -16,6 +15,7 @@ const NavMenu = (props) => {
         size="medium"
         margin={{ left: "1em" }}
         dropBackground={{ color: "#333A3E" }}
+        textDecoration="none"
       />
     </div>
   );

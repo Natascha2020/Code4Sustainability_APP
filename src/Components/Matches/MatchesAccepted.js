@@ -27,7 +27,6 @@ const MatchesAccepted = (props) => {
         } else {
           const arrayOfComponents = matchedData.projects_matched.map(async (projectId, index) => {
             const { data } = await axiosInstance.get(`${settings.urlUsers}/${projectId}`);
-            console.log(data);
             return data;
           });
           const cardData = await Promise.all(arrayOfComponents);
@@ -64,14 +63,16 @@ const MatchesAccepted = (props) => {
   return (
     <div className="matchesAccepted">
       <h2 className="titleMatchesAccepted ">Matches accepted</h2>
-      {cards && cards.length
-        ? cards.map((card, index) => (
-            <div className="chatWrapper">
-              <ProjectOverviewCard onDeleteMatched={(e) => onDeleteMatched(card, index)} ey={card._id} key={card._id} projectData={card} {...props} />
-              <Chat idUser={idUser} projectData={card} typeOfUser={typeOfUser} />
-            </div>
-          ))
-        : null}
+      {cards && cards.length ? (
+        cards.map((card, index) => (
+          <div className="chatWrapper">
+            <ProjectOverviewCard onDeleteMatched={(e) => onDeleteMatched(card, index)} ey={card._id} key={card._id} projectData={card} {...props} />
+            <Chat idUser={idUser} projectData={card} typeOfUser={typeOfUser} />
+          </div>
+        ))
+      ) : (
+        <div className="noAcceptedMatches"></div>
+      )}
 
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>

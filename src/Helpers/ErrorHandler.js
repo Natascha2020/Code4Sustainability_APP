@@ -5,8 +5,7 @@ import "./ErrorHandler.css";
 // Centralized Error Handling, displaying error and console.log error message
 const ErrorHandler = (props) => {
   const { errorMessage, redirectLogin } = props;
-  console.log(errorMessage);
-  console.log(redirectLogin);
+  console.error(errorMessage);
   return (
     <div id="errorWrapper">
       {errorMessage && errorMessage.length ? alert("There has been an Error") : null}

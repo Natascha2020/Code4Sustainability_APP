@@ -8,6 +8,7 @@
 
 .chatWrapper {
   display: flex;
+  justify-content: center;
 }
 
 .matchesAccepted {
