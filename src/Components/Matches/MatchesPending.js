@@ -26,11 +26,9 @@ const MatchesPending = (props) => {
         } else {
           const arrayOfComponents = pendingData.projects_pending.map(async (projectId, index) => {
             const { data } = await axiosInstance.get(`${settings.urlUsers}/${projectId}`);
-            console.log(data);
             return data;
           });
           const cardData = await Promise.all(arrayOfComponents);
-          console.log("dev", cardData);
           setCardData(cardData);
         }
       } catch (error) {
@@ -42,9 +40,6 @@ const MatchesPending = (props) => {
 
     handleFetch();
   }, []);
-
-  console.log(idUser);
-  console.log(typeOfUser);
 
   //delete project from pending-matches and (on project detailed card)/will not be displayed on MatchesPending
   const onDeleteInterest = async (card, cardIndex) => {
@@ -60,7 +55,6 @@ const MatchesPending = (props) => {
       console.error(error);
     }
   };
-  console.log(cards);
 
   //add developer to accepted matches list and delete view of specific card (deletion of id in ppending-matches is handled serverside)
   const handleAcceptance = async (card, cardIndex) => {
@@ -76,10 +70,11 @@ const MatchesPending = (props) => {
   };
 
   return (
-    <div className="matchesPending">
+    <div>
       <h2 className="titleMatchesPending">Matches pending</h2>
-      {cards && cards.length
-        ? cards.map((card, index) => (
+      <div className="matchesPending">
+        {cards && cards.length ? (
+          cards.map((card, index) => (
             <ProjectOverviewCard
               {...props}
               onDeleteInterest={() => onDeleteInterest(card, index)}
@@ -88,8 +83,10 @@ const MatchesPending = (props) => {
               projectData={card}
             />
           ))
-        : null}
-
+        ) : (
+          <div className="noPendingMatches"></div>
+        )}
+      </div>
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );

@@ -27,6 +27,7 @@
 
 .profileCardQuestions {
   color: #daa520;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1300px) {

@@ -4,7 +4,7 @@ import LoremIpsum from "./LoremIpsum";
 import Home from "./Home";
 import "./LandingPage.css";
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   return (
     <>
       <div className="landing-page">
@@ -12,7 +12,7 @@ const LandingPage = () => {
           {/*  <LoremIpsum /> */}
           {/*  <PhotoGallery /> */}
           {/* <LoremIpsum /> */}
-          <Home />
+          <Home {...props} />
           <div className="content-limit"></div>
         </div>
         <div className="bg-wrapper">

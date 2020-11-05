@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, FormField, Select, TextArea } from "grommet";
 import "./ProfileProject.css";
 
-const ProfileProject = ({ parentFormValue, setFormValue }) => {
+const ProfileProject = ({ parentFormValue, setFormValue, didReset, setReset }) => {
   const [subformValue, setSubformValue] = useState({});
+
+  useEffect(() => {
+    console.log(didReset);
+    if (didReset) {
+      setSubformValue({});
+      document.getElementById("projectFormReset").reset();
+      setReset(false);
+    }
+  }, [didReset]);
 
   return (
     <div className="formProfileProject">
       <h5 className="titleProfileProject">Nice to know about the project:</h5>
       <Form
-        value={subformValue}
+        id={"projectFormReset"}
+        value={() => {
+          return subformValue;
+        }}
         onChange={(nextValue) => {
-          console.log("child state onChange", nextValue);
           setFormValue({ ...parentFormValue, ...nextValue });
           return setSubformValue(nextValue);
         }}>
@@ -28,7 +39,11 @@ const ProfileProject = ({ parentFormValue, setFormValue }) => {
           <TextArea id="answer1" name="answer1" placeholder="Answer"></TextArea>
         </FormField>
         <FormField name="question2" htmlfor="question2">
-          <Select id="question2" name="question2" placeholder="Question" options={["Our team..", "Important to us...", "We need...", "..."]}></Select>
+          <Select
+            id="question2"
+            name="question2"
+            placeholder="Question"
+            options={["Our team...", "Important to us...", "We need...", "..."]}></Select>
         </FormField>
         <FormField name="answer2" htmlfor="answer2">
           <TextArea id="answer2" name="answer2" placeholder="Answer" />

@@ -29,3 +29,11 @@
   color: #008b8b;
   margin-top: 4em;
 }
+
+.noProject {
+  text-align: center;
+  margin-top: 3em;
+  font-size: 1.2em;
+  margin-bottom: 22em;
+  color: red;
+}

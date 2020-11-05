@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, FormField, Select, TextArea } from "grommet";
 import "./ProfileDev.css";
 
-const ProfileDev = ({ parentFormValue, setFormValue }) => {
+const ProfileDev = ({ parentFormValue, setFormValue, didReset, setReset }) => {
   const [subformValue, setSubformValue] = useState({});
+
+  useEffect(() => {
+    console.log(didReset);
+    if (didReset) {
+      setSubformValue({});
+      document.getElementById("devFormReset").reset();
+      setReset(false);
+    }
+  }, [didReset]);
 
   return (
     <div className="formProfileDev">
       <h5 className="titleProfileDev">Nice to know about me:</h5>
       <Form
-        value={subformValue}
+        id={"devFormReset"}
+        value={() => {
+          return subformValue;
+        }}
         onChange={(nextValue) => {
-          console.log("child state onChange", nextValue);
           setFormValue({ ...parentFormValue, ...nextValue });
           return setSubformValue(nextValue);
         }}>
@@ -32,7 +43,7 @@ const ProfileDev = ({ parentFormValue, setFormValue }) => {
             id="question2"
             name="question2"
             placeholder="Question"
-            options={["Sustainability..", "I always wanted...", "About me...", "..."]}></Select>
+            options={["Sustainability...", "I always wanted...", "About me...", "..."]}></Select>
         </FormField>
 
         <FormField name="answer2" htmlfor="answer2">

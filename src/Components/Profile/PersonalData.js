@@ -25,6 +25,7 @@ const PersonalData = ({ idUser, typeOfUser }) => {
     answer3: "",
     password: "",
   });
+  const [didReset, setDidReset] = useState(false);
   const [personalData, setPersonalData] = useState({});
   const [updateData, setUpdateData] = useState(false);
   const [error, setError] = useState("");
@@ -47,7 +48,7 @@ const PersonalData = ({ idUser, typeOfUser }) => {
   const handleData = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axiosInstance.put(settings.urlUsers, formValue);
+      await axiosInstance.put(settings.urlUsers, formValue);
       setUpdateData(true);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
@@ -60,7 +61,6 @@ const PersonalData = ({ idUser, typeOfUser }) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
 
-  console.log(idUser, typeOfUser);
   return (
     <div>
       <h2 className="titleProfile">Personal data</h2>
@@ -69,7 +69,7 @@ const PersonalData = ({ idUser, typeOfUser }) => {
           <form
             action="#"
             method="post"
-            onReset={() =>
+            onReset={() => {
               setFormValue({
                 name: "",
                 email: "",
@@ -82,8 +82,9 @@ const PersonalData = ({ idUser, typeOfUser }) => {
                 answer2: "",
                 answer3: "",
                 password: "",
-              })
-            }
+              });
+              setDidReset(true);
+            }}
             onSubmit={(e) => handleData(e)}>
             <div className="input-group mb-3">
               <div className="input-group-prepend">
@@ -176,13 +177,19 @@ const PersonalData = ({ idUser, typeOfUser }) => {
               />
             </div>
 
-            <VideoUpload setUpdateData={setUpdateData} updateParentData={updateData} />
+            <VideoUpload />
 
             {personalData && !personalData.isEmpty ? (
               personalData.typeOfUser === "Project" ? (
-                <ProfileProject data={personalData} parentFormValue={formValue} setFormValue={setFormValue} />
+                <ProfileProject
+                  didReset={didReset}
+                  setReset={setDidReset}
+                  data={personalData}
+                  parentFormValue={formValue}
+                  setFormValue={setFormValue}
+                />
               ) : (
-                <ProfileDev data={personalData} parentFormValue={formValue} setFormValue={setFormValue} />
+                <ProfileDev didReset={didReset} setReset={setDidReset} data={personalData} parentFormValue={formValue} setFormValue={setFormValue} />
               )
             ) : null}
 
@@ -193,7 +200,7 @@ const PersonalData = ({ idUser, typeOfUser }) => {
           </form>
         </div>
         <div className="profileCard">
-          <ProfileCard personalData={personalData} />
+          <ProfileCard personalData={personalData} videoSrc={`${settings.urlVideos}?currentUser=true&${new Date()}`} />
         </div>
       </div>
       {error ? <ErrorHandler errorMessage={error} /> : null}

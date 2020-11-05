@@ -22,6 +22,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Grommet } from "grommet";
 import Theme from "./Helpers/Theme";
 import "./App.css";
+import { Login } from "grommet-icons";
 
 const App = (props) => {
   const [displayModal, setDisplayModal] = useState(false);
@@ -38,7 +39,7 @@ const App = (props) => {
           </Route>
 
           <Route exact path="/signUp">
-            <SignUp />
+            <SignUp showLoginModal={setDisplayModal} />
           </Route>
 
           <Route exact path="/gitHub">
@@ -79,6 +80,7 @@ const App = (props) => {
 
           <Navbar
             onLoginPress={() => {
+              console.log("clicked");
               setDisplayModal(true);
             }}
           />
@@ -86,7 +88,8 @@ const App = (props) => {
           <NavFooter />
         </Grommet>
       </Switch>
-      {displayModal ? <LogIn /> : null}
+      {/* {displayModal ? <LogIn /> : null} */}
+      <LogIn displayModal={displayModal} setDisplayModal={setDisplayModal} />
     </Router>
   );
 };

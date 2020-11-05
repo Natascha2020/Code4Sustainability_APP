@@ -1,9 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import ProjectDetails from "./ProjectDetails";
-import Authenticated from "../Authenticate/Authenticated";
 import { Box, Button, Card, CardBody, CardFooter, CardHeader } from "grommet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComments, faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { faHeartbeat, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 /* import { Overlay, Tooltip } from "react-bootstrap/Overlay"; */
 import * as settings from "../../Helpers/Settings";
 import "./ProjectOverviewCard.css";
@@ -12,8 +11,6 @@ const ProjectOverview = (props) => {
   const { projectData } = props;
 
   const [showDetails, setShowDetails] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
-  const target = useRef(null);
   const showOverview = () => {
     setShowDetails(!showDetails);
   };
@@ -45,7 +42,7 @@ const ProjectOverview = (props) => {
           )}
           <CardFooter pad={{ horizontal: "small", vertical: "small" }} background="light-2">
             <Button hoverIndicator>
-              <FontAwesomeIcon className="navIcon" icon={faComments} size="2x" />
+              <FontAwesomeIcon className="navIcon" icon={faHeartbeat} size="2x" />
             </Button>
             <div className="cardLocation">{projectData.location}</div>
             <Button hoverIndicator>

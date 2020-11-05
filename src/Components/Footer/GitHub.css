@@ -21,23 +21,47 @@
   color: #008b8b;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
 
 .gitSubtitle {
   color: #e1b74d;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.gitTitleNext {
+  color: #e1b74d;
+  text-align: center;
+}
+
+.gitSubBlock ul li {
+  margin: 0.5em 0;
 }
 
 .gitSubBlock {
-  width: 40%;
-  margin: 3em auto;
+  margin-top: 3em;
 }
 
 .gitFirstBlock {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .gitLastBlock {
   width: 30%;
-  margin: 0 auto;
+  margin: 2em auto;
+}
+
+.gitRepo {
+  margin-top: 0.5em;
+}
+
+@media screen and (max-width: 1300px) {
+  .gitFirstBlock {
+    display: block;
+  }
+  .gitSubBlock ul li {
+    margin: 0.5 auto;
+  }
 }

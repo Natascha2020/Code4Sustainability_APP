@@ -7,11 +7,14 @@ import "./ProjectOverview.css";
 
 const ProjectOverview = (props) => {
   const [allProjects, setAllProjects] = useState([]);
+  const [allProjectsMemo, setAllProjectsMemo] = useState([]);
   const [updateProjects, setUpdateProjects] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [currentSearch, setCurrentSearch] = useState([]);
   const [error, setError] = useState("");
   const [onInterestSent, setOnInterestSent] = useState(false);
+  const [projectsLoaded, setProjectsLoaded] = useState(false);
+
   useEffect(() => {
     handleFetch();
   }, [updateProjects]);
@@ -20,7 +23,9 @@ const ProjectOverview = (props) => {
     try {
       const { data } = await axiosInstance.get(settings.urlUsers + "/projects");
       setAllProjects(data);
+      setAllProjectsMemo(data);
       setUpdateProjects(false);
+      setProjectsLoaded(true);
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -31,19 +36,23 @@ const ProjectOverview = (props) => {
   // Search bar functionality I: Grabbing input value of search field
   const handleSearch = (e) => {
     setInputValue(e.target.value);
+
+    if (inputValue.length && e.target.value === "") setAllProjects(allProjectsMemo);
+    else {
+      const results = allProjects.filter((item) => item.name.toLowerCase().includes(e.target.value.toLowerCase()));
+      setAllProjects(results);
+    }
   };
 
-  // Search bar functionality II: Filtering in terms of input value and storing in currentSearch
-  useEffect(() => {
-    const results = allProjects.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
-    setCurrentSearch(results);
-  }, [allProjects, inputValue]);
-
-  const handleConnect = async (idProject) => {
+  const handleConnect = async (idProject, projectIndex) => {
     //add project to pending matches list, update data and state for matchPending
     try {
       await axiosInstance.put(settings.urlDeveloper + "/addProject?user_id_p=" + idProject);
-      setOnInterestSent(true);
+      // setOnInterestSent(true);
+      let modifiedProject = allProjects[projectIndex];
+      modifiedProject.sentInterest = true;
+      setAllProjects([...allProjects, modifiedProject]);
+      alert("Interest sent, your match is pending!");
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
@@ -54,26 +63,26 @@ const ProjectOverview = (props) => {
   return (
     <div>
       <h2 className="titleProject">Sustainable projects</h2>
-      {allProjects && allProjects.length ? (
-        <div id="searchWrapper">
-          <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Find project" autoComplete="off" />
-        </div>
-      ) : null}
+      <div id="searchWrapper">
+        <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Find project" autoComplete="off" />
+      </div>
 
-      {currentSearch && currentSearch.length
-        ? allProjects.map((project, index) => {
-            let id = project._id;
-            return (
-              <ProjectOverviewCard
-                {...props}
-                key={id}
-                projectData={project}
-                onSendInterest={() => handleConnect(id)}
-                onInterestSent={onInterestSent}
-              />
-            );
-          })
-        : null}
+      {allProjects.length ? (
+        allProjects.map((project, index) => {
+          let id = project._id;
+          return (
+            <ProjectOverviewCard
+              {...props}
+              key={id}
+              projectData={project}
+              onSendInterest={() => handleConnect(id, index)}
+              onInterestSent={project.sentInterest}
+            />
+          );
+        })
+      ) : projectsLoaded ? (
+        <div className="noProject">No projects available for this search</div>
+      ) : null}
 
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>

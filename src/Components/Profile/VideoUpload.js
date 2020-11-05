@@ -6,12 +6,10 @@ import * as settings from "../../Helpers/Settings";
 import "./VideoUpload.css";
 
 const VideoUpload = (props) => {
-  const { updateParentData, setUpdateData } = props;
   const [video, setVideo] = useState();
   const [error, setError] = useState(false);
 
   const onChangeHandler = (event) => {
-    console.log(event.target.files[0]);
     setVideo(event.target.files[0]);
   };
 
@@ -21,12 +19,9 @@ const VideoUpload = (props) => {
     data.append("videoUpload", video);
 
     try {
-      const response = await axiosInstance.post(settings.urlVideos + "/videoUpload", data, {
+      await axiosInstance.post(settings.urlVideos + "/videoUpload", data, {
         // receive two parameter endpoint url ,form data (TO DO: Dynamical ID)
       });
-      console.log(response);
-      // then print response status
-      console.log(response.statusText);
 
       alert("Video successfully uploaded!");
     } catch (error) {

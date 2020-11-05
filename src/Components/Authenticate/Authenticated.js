@@ -36,7 +36,6 @@ const Authenticated = (props) => {
     fetchData();
   }, []);
 
-  console.log("in auth ", idUser);
   //render secure route if user is authenticated, else redirect to login page
   return (
     <div>

@@ -6,7 +6,7 @@ import * as settings from "../../Helpers/Settings";
 import Modal from "react-bootstrap/Modal";
 import "./SignUp.css";
 
-const SignUp = () => {
+const SignUp = ({ showLoginModal }) => {
   /* const [password, setPassword] = useState("");
   const [email, setEmail] = useState(""); */
   const [error, setError] = useState("");
@@ -23,12 +23,11 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log(formValue);
     try {
       const response = await axiosInstance.post(settings.urlUsers, formValue);
-      console.log(response);
       if (response.status === 200) {
         setSignedIn(true);
+        showLoginModal(true);
       }
     } catch (err) {
       let errorMsg = `Error: ${error}`;
@@ -44,7 +43,7 @@ const SignUp = () => {
   return (
     <div>
       {signedIn ? (
-        <Redirect to="/personalData" />
+        <Redirect to="/LogIn" />
       ) : (
         <Modal show={showModal} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title" centered>
           <form className="text-center border border-light p-5 logInForm" value="Data" onSubmit={(e) => handleSignUp(e)}>

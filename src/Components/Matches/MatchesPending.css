@@ -5,3 +5,12 @@
   color: #008b8b;
   margin-top: 4em;
 }
+
+.matchesAccepted {
+  margin-bottom: 6em;
+}
+
+.matchesPending {
+  display: flex;
+  justify-content: center;
+}

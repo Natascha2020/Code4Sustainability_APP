@@ -2,24 +2,25 @@
   display: block;
 }
 
-.liAbout {
-  display: block;
-}
-
 .aboutMain {
   margin-top: 8em;
 }
 
 .targetGroupWrapper {
   display: flex;
+  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
 }
 
 .targetGroup {
   padding: 2em;
   margin: 2em;
   border: 3px solid #006f6f;
-
+  width: 420px;
+  height: 130px;
   border-radius: 10%;
+  text-align: center;
 }
 .strengthWrapper {
   margin: 2em auto;
@@ -66,14 +67,19 @@
 .valueWrapper {
   display: flex;
   margin-top: 2em;
+  justify-content: center;
+  align-items: center;
 }
 
 .liAbout {
   padding: 2em;
   margin: 1em;
   border: 3px solid #daa520;
-
+  display: block;
+  width: 440px;
+  height: 120px;
   border-radius: 10%;
+  text-align: center;
 }
 
 .spanValues {
