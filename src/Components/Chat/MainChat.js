@@ -4,7 +4,7 @@ import Message from "./Message";
 import MessageBox from "./MessageBox";
 import "./MainChat.css";
 
-const socket = socketIoClient("http://localhost:4004", { autoConnect: false });
+const socket = socketIoClient(process.env.REACT_APP_CHAT_URL, { autoConnect: false });
 
 const Chat = (props) => {
   const { idUser, typeOfUser, projectData } = props;
