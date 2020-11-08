@@ -5,7 +5,6 @@ import NavFooter from "./Components/Footer/NavFooter";
 import SignUp from "./Components/Authenticate/SignUp";
 import LogIn from "./Components/Authenticate/LogIn";
 import About from "./Components/LandingPage/About";
-import Home from "./Components/LandingPage/Home";
 import GitHub from "./Components/Footer/GitHub";
 import HowItWorks from "./Components/LandingPage/HowItWorks";
 import LandingPage from "./Components/LandingPage/LandingPage";
@@ -22,7 +21,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Grommet } from "grommet";
 import Theme from "./Helpers/Theme";
 import "./App.css";
-import { Login } from "grommet-icons";
 
 const App = (props) => {
   const [displayModal, setDisplayModal] = useState(false);
