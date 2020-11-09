@@ -1,6 +1,8 @@
 # Code4Sustainability_APP
 Frontend with React.js
 
+Platform for connecting developers with sustainable projects, initiatives and startUps.
+
 # Stack
 * [Node.js](https://nodejs.org/)
 * [REACT.JS](https://reactjs.org/) (User Interface) using functional components 
@@ -23,7 +25,7 @@ Frontend with React.js
 
 # Backend
 
-[Code4Sustainability resources server](https://github.com/Natascha2020/Code4Sustainability_API.git)
-[Code4Sustainability authentication server](https://github.com/Natascha2020/Code4Sustainability_Auth.git)
-[Code4Sustainability videoStreaming server](https://github.com/Natascha2020/Code4Sustainability_VideoStreaming.git)
-[Code4Sustainability chat server](https://github.com/Natascha2020/Code4Sustainability_Chat.git)
+* [Code4Sustainability resources server](https://github.com/Natascha2020/Code4Sustainability_API.git)
+* [Code4Sustainability authentication server](https://github.com/Natascha2020/Code4Sustainability_Auth.git)
+* [Code4Sustainability videoStreaming server](https://github.com/Natascha2020/Code4Sustainability_VideoStreaming.git)
+* [Code4Sustainability chat server](https://github.com/Natascha2020/Code4Sustainability_Chat.git)
