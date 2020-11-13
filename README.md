@@ -5,9 +5,9 @@
 
 # About/Key values
 
-You want to spend your free time with great people while doing what you love? Awesome, subscribe and find the right project to code for good!
-You want to enhance this open-source project with your ideas and skills? Awesome, join the team or just fork and commit using feature branch!
-You know great developers and sustainable projects? Awesome, share the platform and help making this world a little better place!
+* You want to spend your free time with great people while doing what you love? Awesome, subscribe and find the right project to code for good!
+* You want to enhance this open-source project with your ideas and skills? Awesome, join the team or just fork and commit using feature branch!
+* You know great developers and sustainable projects? Awesome, share the platform and help making this world a little better place!
 
 # Stack
 
@@ -68,3 +68,9 @@ You know great developers and sustainable projects? Awesome, share the platform 
 * email forgotten password
 * world map with projects
 * different languages: english and german etc.
+
+# Credits
+
+[Pexels](https://www.pexels.com/de-de/) (Free photos and graphics)
+[Pixabay](https://pixabay.com/de/) (Free photos and graphics)
+[Freepik](https://de.freepik.com/) (Free photos and graphics)
