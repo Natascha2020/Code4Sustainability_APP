@@ -6,7 +6,7 @@
 # About/Key values
 
 * You want to spend your free time with great people while doing what you love? Awesome, subscribe and code for good!
-* You want to enhance this open-source project with your ideas & skills? Awesome, join the team or just fork & commit using feature branch!
+* You want to enhance this open-source project with ideas & skills? Awesome, join the team or just fork & commit using feature branch!
 * You know great developers and sustainable projects? Awesome, share the platform and help making this world a little better place!
 
 # Stack
