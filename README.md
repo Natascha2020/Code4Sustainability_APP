@@ -1,15 +1,15 @@
 # Code4Sustainability_APP
 
-## Platform for connecting developers with sustainable projects, initiatives and startUps.
+### Connecting developers with sustainable projects, initiatives and startUps.
 **"Join for the challenge, stay for the people!"**
 
-# About/Key values
+## About/Key values
 
 * You want to spend your free time with great people while doing what you love? Awesome, subscribe and code for good!
 * You want to enhance this open-source project with ideas & skills? Awesome, join the team or just fork & commit using feature branch!
 * You know great developers and sustainable projects? Awesome, share the platform and help making this world a little better place!
 
-# Stack
+## Stack
 
 * [Node.js](https://nodejs.org/)
 * [REACT.JS](https://reactjs.org/) (User Interface) using functional components 
@@ -20,7 +20,7 @@
 * [Trello](https://trello.com/) (project management)
 * GIT/GITHUB (code management)
 
-# How to run locally
+## How to run locally
 
 - System requirements: [Node.js](https://nodejs.org/)
 - Fork the repository
@@ -28,26 +28,26 @@
 - Run "npm start" to run local server
 - See .env.sample for environment variables
 
-# Structure
+## Structure
 
 <img src="./src/Assets/readMe/Cosy_GraphikApp.png" title="Structre of app component hierarchy" alt="Structre of app component hierarchy" width="800">
 
-# Important to know
+## Important to know
 * this project is set up as microservice architecture - "do one thing and do it well"
 * all main features are seperated using different servers (see related projects)
 * advantages: robust, scalable, compatible, independant
 * ...and security first!
 
-# Related projects
+## Related projects
 
 * [Code4Sustainability resources server](https://github.com/Natascha2020/Code4Sustainability_API.git)
 * [Code4Sustainability authentication server](https://github.com/Natascha2020/Code4Sustainability_Auth.git)
 * [Code4Sustainability videoStreaming server](https://github.com/Natascha2020/Code4Sustainability_VideoStreaming.git)
 * [Code4Sustainability chat server](https://github.com/Natascha2020/Code4Sustainability_Chat.git)
 
-# It's not a feature, it's a bug!
+## It's not a feature, it's a bug!
 
-## Evolutions....
+### Evolutions....
 
 **...under coding:**
 * OAuth 2.0 authentication with Google and GitHub
@@ -69,7 +69,7 @@
 * world map with projects
 * different languages: english and german etc.
 
-# Credits
+## Credits
 
 * [Pexels](https://www.pexels.com/de-de/) (Free photos and graphics)
 * [Pixabay](https://pixabay.com/de/) (Free photos and graphics)
