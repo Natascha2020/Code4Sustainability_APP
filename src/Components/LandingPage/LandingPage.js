@@ -1,6 +1,4 @@
 import React from "react";
-import PhotoGallery from "./PhotoGallery";
-import LoremIpsum from "./LoremIpsum";
 import Home from "./Home";
 import "./LandingPage.css";
 
@@ -9,9 +7,6 @@ const LandingPage = (props) => {
     <>
       <div className="landing-page">
         <div className="content-wrapper">
-          {/*  <LoremIpsum /> */}
-          {/*  <PhotoGallery /> */}
-          {/* <LoremIpsum /> */}
           <Home {...props} />
           <div className="content-limit"></div>
         </div>

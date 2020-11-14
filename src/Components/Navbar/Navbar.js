@@ -5,11 +5,10 @@ import axiosInstance from "../../Helpers/axios";
 import ErrorHandler from "../../Helpers/ErrorHandler";
 import NavMenu from "./NavMenu";
 import * as settings from "../../Helpers/Settings";
-import { Button, Nav } from "grommet";
-
+import { Button } from "grommet";
 import "./Navbar.css";
 
-const Navbar = (props) => {
+const NavBar = (props) => {
   const [error, setError] = useState("");
 
   const handleLogOut = async (e) => {
@@ -25,73 +24,68 @@ const Navbar = (props) => {
   };
 
   return (
-    <Authenticated
-      {...props}
-      withRedirect={false}
-      noCheck={true}
-      WrappedComponent={(secondProps) => {
-        return <NavBarComponent {...secondProps} handleLogOut={handleLogOut} error={error} />;
-      }}
-    />
+    <div>
+      <Authenticated
+        {...props}
+        withRedirect={false}
+        noCheck={true}
+        WrappedComponent={(secondProps) => {
+          return <NavBarComponent {...secondProps} handleLogOut={handleLogOut} error={error} />;
+        }}
+      />
+    </div>
   );
 };
 
-export default Navbar;
+export default NavBar;
 
 const NavBarComponent = (props) => {
   const { idUser, onLoginPress } = props;
   return (
-    <div>
-      <Nav className="nav" direction="row" pad="medium">
-        <ul className="ulNav">
-          <li className="liNav">
-            <div className="logoWrapper">
-              <div className="logo">CoSy</div>
-              <div className="logoSep">||</div>
-              <div classname="textWrapper">
-                <div className="logoText">Code 4</div>
-                <div className="logoText">Sustainability</div>
-              </div>
-            </div>
-          </li>
-          <div className="navLinkWrapper">
-            <li className="liNav">
-              <Link className="link" to="/">
-                Home
-              </Link>
-            </li>
-            <li className="liNav">
-              <Link className="link" to="/howItWorks">
-                How
-              </Link>
-            </li>
-            <li className="liNav">
-              <Link className="link" to="/about">
-                About
-              </Link>
-            </li>
-            <li className="liNav">
-              <Link className="link" to="/projects">
-                Projects
-              </Link>
-            </li>
-          </div>
-          {idUser ? (
-            <>
-              <li>
-                <Button className="linkLogin" primary label="LogOut" onClick={props.handleLogOut} />
-              </li>
-              <NavMenu {...props} />
-            </>
-          ) : (
+    <header class="cosy-header">
+      <div className="cosy-logo">
+        <img src={require("../../Assets/logoCosy/logoCosy.svg")} alt="logo cosy" />
+      </div>
+      <input type="checkbox" id="btn-menu" />
+      <label className="icon-menu" for="btn-menu">
+        <span className="navicon"></span>
+      </label>
+      <ul className="menu">
+        <li>
+          <Link className="link" to="/">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link className="link" to="/howItWorks">
+            How
+          </Link>
+        </li>
+        <li>
+          <Link className="link" to="/about">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link className="link" to="/projects">
+            Projects
+          </Link>
+        </li>
+
+        {idUser ? (
+          <div>
             <li>
-              {/* <Button className="linkLogin" primary label="LogIn" href="/logIn" /> */}
-              <Button className="linkLogin" primary label="LogIn" onClick={onLoginPress} />
+              <Button className="linkLogin" primary label="LogOut" onClick={props.handleLogOut} />
             </li>
-          )}
-        </ul>
-      </Nav>
+            <NavMenu {...props} />
+          </div>
+        ) : (
+          <li>
+            <Button className="linkLogin" primary label="LogIn" onClick={onLoginPress} />
+          </li>
+        )}
+      </ul>
       {props.error ? <ErrorHandler errorMessage={props.error} /> : null}
-    </div>
+    </header>
   );
 };

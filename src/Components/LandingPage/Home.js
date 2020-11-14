@@ -45,7 +45,6 @@ const Home = () => {
               <div className="nice">No worries </div>
               <br />
               <div className="nice">We help you! </div>
-              {/*  <Button className="linkLogin" primary label="We help you" href="/about" /> */}
             </div>
           </div>
         </div>

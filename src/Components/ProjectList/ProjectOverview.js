@@ -10,9 +10,7 @@ const ProjectOverview = (props) => {
   const [allProjectsMemo, setAllProjectsMemo] = useState([]);
   const [updateProjects, setUpdateProjects] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [currentSearch, setCurrentSearch] = useState([]);
   const [error, setError] = useState("");
-  const [onInterestSent, setOnInterestSent] = useState(false);
   const [projectsLoaded, setProjectsLoaded] = useState(false);
 
   useEffect(() => {
@@ -61,7 +59,8 @@ const ProjectOverview = (props) => {
   };
 
   return (
-    <div>
+    <div className="projectPageWrapper">
+      <div className="projectBlocker"></div>
       <h2 className="titleProject">Sustainable projects</h2>
       <div id="searchWrapper">
         <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Find project" autoComplete="off" />

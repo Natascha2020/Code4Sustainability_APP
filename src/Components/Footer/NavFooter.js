@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import GitHub from "./GitHub";
 import Security from "./Security";
 import Share from "./Share";
 import Credits from "./Credits";
-import { Footer, Text } from "grommet";
+import { Footer } from "grommet";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -23,7 +22,7 @@ const NavFooter = () => {
   return (
     <div classname="navFooter">
       <Footer pad="medium" background="footer" align="center" justify="around">
-        <a className="linkFooter" onClick={handleShowSecurity}>
+        <a className="linkFooter" onClick={handleShowSecurity} href>
           <FontAwesomeIcon className="navIcon" icon={faUserSecret} size="lg" />
 
           <span>Security</span>
@@ -35,13 +34,13 @@ const NavFooter = () => {
           <span>Source code</span>
         </a>
 
-        <a className="linkFooter" onClick={handleShowShare}>
+        <a className="linkFooter" onClick={handleShowShare} href>
           <FontAwesomeIcon className="navIcon" icon={faShareAlt} size="lg" />
           <span>Share</span>
           <Share showShare={showShare} handleClose={() => setShowShare(!showShare)} />
         </a>
 
-        <a className="linkFooter" onClick={handleShowCredits}>
+        <a className="linkFooter" onClick={handleShowCredits} href>
           <FontAwesomeIcon className="navIcon" icon={faGift} size="lg" />
           <span>Credits</span>
           <Credits showCredits={showCredits} handleClose={() => setShowCredits(!showCredits)} />
