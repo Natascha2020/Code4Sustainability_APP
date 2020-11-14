@@ -1,9 +1,13 @@
+.personalDataBlocker {
+  height: 8em;
+}
+
 .profileForm {
   width: 30%;
 }
 
 .titleProfile {
-  margin: 1em 0em 2em;
+  margin-bottom: 2em;
   font-size: 2em;
   text-align: center;
   color: #008b8b;

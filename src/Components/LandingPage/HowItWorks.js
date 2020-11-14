@@ -4,6 +4,7 @@ import "./HowItWorks.css";
 const HowItWorks = () => {
   return (
     <div className="worksWrapper">
+      <div className="howItWorksBlocker"></div>
       <h2 className="titleHowItWorks">How it works</h2>
       <div className="howWrapper">
         <h3 className="subTitleHIW">I'm a Developer</h3>

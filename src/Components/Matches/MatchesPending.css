@@ -1,9 +1,12 @@
+.matchesPendingBlocker {
+  height: 8em;
+}
+
 .titleMatchesPending {
   margin-bottom: 2em;
   font-size: 2em;
   text-align: center;
   color: #008b8b;
-  margin-top: 4em;
 }
 
 .matchesAccepted {
