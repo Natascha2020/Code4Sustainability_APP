@@ -1,9 +1,9 @@
 .cosy-logo img {
-  width: 80%;
+  width: 100%;
 }
 
 .cosy-header .cosy-logo {
-  width: 400px;
+  width: 350px;
   float: left;
   padding: 20px;
   margin-left: 2em;
@@ -37,6 +37,7 @@
 .cosy-header ul {
   margin: 0;
   padding: 0;
+  width: 100%;
   list-style: none;
   overflow: hidden;
 }
@@ -47,7 +48,7 @@
   margin: 0.2em 1em;
   text-decoration: none;
   color: #fff;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .cosy-header li a:hover,
@@ -129,7 +130,7 @@
   color: #008b8b;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1350px) {
   .cosy-header li {
     float: left;
   }
@@ -141,7 +142,7 @@
     clear: none;
     float: right;
     max-height: none;
-    width: 68%;
+    width: 60%;
   }
   .cosy-header .icon-menu {
     display: none;

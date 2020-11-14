@@ -1,3 +1,7 @@
+.howItWorksBlocker {
+  height: 8em;
+}
+
 .worksWrapper {
   /*  margin-top: 8em; */
   margin-bottom: 6em;
@@ -18,7 +22,6 @@
   font-size: 2em;
   text-align: center;
   color: #008b8b;
-  margin-top: 4em;
 }
 
 .imgHIW {

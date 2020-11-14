@@ -62,6 +62,7 @@ const MatchesAccepted = (props) => {
 
   return (
     <div className="matchesAccepted">
+      <div className="matchesAcceptedBlocker"></div>
       <h2 className="titleMatchesAccepted ">Matches accepted</h2>
       {cards && cards.length ? (
         cards.map((card, index) => (

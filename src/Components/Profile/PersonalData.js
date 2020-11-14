@@ -63,6 +63,7 @@ const PersonalData = ({ idUser, typeOfUser }) => {
 
   return (
     <div>
+      <div className="personalDataBlocker"></div>
       <h2 className="titleProfile">Personal data</h2>
       <div className="profileWrapper">
         <div className="profileForm">

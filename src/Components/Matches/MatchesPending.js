@@ -71,6 +71,7 @@ const MatchesPending = (props) => {
 
   return (
     <div>
+      <div className="matchesPendingBlocker"></div>
       <h2 className="titleMatchesPending">Matches pending</h2>
       <div className="matchesPending">
         {cards && cards.length ? (

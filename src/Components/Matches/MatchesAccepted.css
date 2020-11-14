@@ -1,9 +1,12 @@
+.matchesAcceptedBlocker {
+  height: 8em;
+}
+
 .titleMatchesAccepted {
   margin-bottom: 2em;
   font-size: 2em;
   text-align: center;
   color: #008b8b;
-  margin-top: 4em;
 }
 
 .chatWrapper {
