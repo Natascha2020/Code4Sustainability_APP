@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./MainChat.css";
 
 //state is the current message that is typed into the box

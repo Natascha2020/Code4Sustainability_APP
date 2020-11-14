@@ -12,7 +12,6 @@ import ProjectOverview from "./Components/ProjectList/ProjectOverview";
 import PersonalData from "./Components/Profile/PersonalData";
 import ProfileDev from "./Components/Profile/ProfileDev";
 import ProfileProject from "./Components/Profile/ProfileProject";
-
 import MatchesPending from "./Components/Matches/MatchesPending";
 import MatchesAccepted from "./Components/Matches/MatchesAccepted";
 import Authenticated from "./Components/Authenticate/Authenticated";
@@ -28,6 +27,12 @@ const App = (props) => {
     <Router>
       <Switch>
         <Grommet theme={Theme}>
+          <Navbar
+            onLoginPress={() => {
+              console.log("clicked");
+              setDisplayModal(true);
+            }}
+          />
           <Route exact path="/about">
             <About />
           </Route>
@@ -75,14 +80,6 @@ const App = (props) => {
           <Route exact path="/">
             <LandingPage />
           </Route>
-
-          <Navbar
-            onLoginPress={() => {
-              console.log("clicked");
-              setDisplayModal(true);
-            }}
-          />
-
           <NavFooter />
         </Grommet>
       </Switch>

@@ -2,10 +2,6 @@
   display: block;
 }
 
-.aboutMain {
-  margin-top: 8em;
-}
-
 .targetGroupWrapper {
   display: flex;
   justify-content: space-evenly;
@@ -17,8 +13,8 @@
   padding: 2em;
   margin: 2em;
   border: 3px solid #006f6f;
-  width: 420px;
-  height: 130px;
+  min-width: 420px;
+  min-height: 130px;
   border-radius: 10%;
   text-align: center;
 }

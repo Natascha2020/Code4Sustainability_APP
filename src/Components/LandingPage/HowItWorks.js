@@ -1,13 +1,7 @@
-import React, { useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
+import React from "react";
 import "./HowItWorks.css";
 
 const HowItWorks = () => {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
   return (
     <div className="worksWrapper">
       <h2 className="titleHowItWorks">How it works</h2>
@@ -43,19 +37,19 @@ const HowItWorks = () => {
             <div className="imgWrapperHIW">
               <img className="imgHIW" src={require("../../Assets/Landing_problem.png")} alt="Search for a project" />
             </div>
-            <div className="stepHIW">Sign up and introduce your challenge</div>
+            <div className="stepHIW HIWPro">Sign up and introduce your challenge</div>
           </div>
           <div className="imgTextWrapperHIW">
             <div className="imgWrapperHIW">
               <img className="imgHIW" src={require("../../Assets/Landing_videorecord.jpg")} alt="Search for a project" />
             </div>
-            <div className="stepHIW">Pitch a 100s video and get developers excited</div>
+            <div className="stepHIW HIWPro">Pitch a 100s video and get developers excited</div>
           </div>
           <div className="imgTextWrapperHIW">
             <div className="imgWrapperHIW">
               <img className="imgHIW" src={require("../../Assets/Landing_group.jpg")} alt="Search for a project" />
             </div>
-            <div className="stepHIW">Accept interest and empower your team</div>
+            <div className="stepHIW HIWPro">Accept interest and empower your team</div>
           </div>
         </div>
       </div>

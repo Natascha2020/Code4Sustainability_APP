@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnchor, faRocket, faHeartbeat, faGlobeAmericas, faLightbulb, faDove, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
+import { faAnchor, faRocket, faGlobeAmericas, faLightbulb, faDove, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
 import "./About.css";
 
 const About = () => {

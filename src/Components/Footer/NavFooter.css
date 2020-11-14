@@ -24,3 +24,17 @@
   color: #008b8b;
   cursor: pointer;
 }
+
+@media screen and (max-width: 400px) {
+  .linkFooter {
+    font-size: 0.5em;
+  }
+
+  .linkFooter span {
+    display: none;
+  }
+
+  .navIcon {
+    font-size: 2em;
+  }
+}

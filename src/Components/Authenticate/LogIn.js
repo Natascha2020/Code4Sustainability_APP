@@ -18,8 +18,6 @@ const LogIn = ({ displayModal, setDisplayModal }) => {
   const [redirect, setRedirect] = useState(false);
 
   const handleClose = () => {
-    // setShowLogIn(!showLogIn);
-    // setRedirect(true);
     setDisplayModal(false);
   };
 
@@ -77,7 +75,7 @@ const LogIn = ({ displayModal, setDisplayModal }) => {
               </div>
             </div>
             <div>
-              <a className="linkLogIn" href="">
+              <a className="linkLogIn" href>
                 Forgot password?
               </a>
             </div>
@@ -96,10 +94,10 @@ const LogIn = ({ displayModal, setDisplayModal }) => {
 
           <p>or log in in with:</p>
 
-          <a href="#" class="mx-2" role="button">
+          <a href class="mx-2" role="button">
             <FontAwesomeIcon className="navIcon" icon={faGithub} size="2x" />
           </a>
-          <a href="#" class="mx-2" role="button">
+          <a href class="mx-2" role="button">
             <FontAwesomeIcon className="navIcon" icon={faGoogle} size="2x" />
           </a>
         </form>

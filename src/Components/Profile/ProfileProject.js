@@ -31,7 +31,6 @@ const ProfileProject = ({ parentFormValue, setFormValue, didReset, setReset }) =
             id="question1"
             name="question1"
             placeholder="Question"
-            dropBackground={{ color: "#333A3E" }}
             options={["Sustainability...", "The future...", "This year...", "..."]}></Select>
         </FormField>
 
