@@ -1,3 +1,8 @@
+.test {
+  visibility: hidden;
+  height: 5em;
+}
+
 .linkGit:link {
   text-decoration: none;
   color: white;
@@ -11,10 +16,6 @@
 .linkGit:hover {
   text-decoration: none;
   color: #008b8b;
-}
-
-.gitPage {
-  margin: 8em 0;
 }
 
 .gitTitle {

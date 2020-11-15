@@ -12,6 +12,8 @@ const NavBar = (props) => {
   const [error, setError] = useState("");
 
   const handleLogOut = async (e) => {
+    console.log("inlogou");
+    e.preventDefault();
     try {
       await axiosInstance.get(settings.urlAuth + "/deleteAuth");
 
