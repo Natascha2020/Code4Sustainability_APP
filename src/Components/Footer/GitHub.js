@@ -6,7 +6,10 @@ import "./GitHub.css";
 
 const GitHub = () => {
   return (
-    <div className="gitPage">
+    <div>
+      <div className="gitBlocker"></div>
+
+      <h3 className="test">It's not a bug, it's a feature - it's not a feature, it's a bug!</h3>
       <h3 className="gitTitle">It's not a bug, it's a feature - it's not a feature, it's a bug!</h3>
       <h3 className="gitTitleNext">Evolutions</h3>
       <div className="gitFirstBlock">

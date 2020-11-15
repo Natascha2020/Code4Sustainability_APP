@@ -17,7 +17,7 @@ const NavMenu = (props) => {
         weight="bold"
         size="medium"
         dropAlign={{ top: "bottom", left: "left" }}
-        margin={{ left: "1em", top: "1em" }}
+        margin={{ left: "1em", top: "1em", right: "13em" }}
         dropBackground={{ color: "#333A3E" }}
         textDecoration="none"
       />

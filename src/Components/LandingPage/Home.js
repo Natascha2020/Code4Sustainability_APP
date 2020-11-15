@@ -6,6 +6,7 @@ import "./Home.css";
 const Home = () => {
   return (
     <div>
+      <div className="homeBlocker"></div>
       <div className="titleWrapper">
         <h1 className="title">Connecting </h1>
         <h2 className="subTitle">

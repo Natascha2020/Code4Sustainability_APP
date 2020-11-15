@@ -36,6 +36,7 @@
 
 .cosy-header ul {
   margin: 0;
+  margin-right: 8em;
   padding: 0;
   width: 100%;
   list-style: none;
