@@ -1,4 +1,5 @@
 import React from "react";
+import { SplitButton, Dropdown } from "react-bootstrap";
 import { Menu } from "grommet";
 import "./NavMenu.css";
 
@@ -15,7 +16,8 @@ const NavMenu = (props) => {
         ]}
         weight="bold"
         size="medium"
-        margin={{ left: "1em", top: "0.7em" }}
+        dropAlign={{ top: "bottom", left: "left" }}
+        margin={{ left: "1em", top: "1em" }}
         dropBackground={{ color: "#333A3E" }}
         textDecoration="none"
       />
