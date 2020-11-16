@@ -17,7 +17,7 @@
 ## Stack
 
 * [Node.js](https://nodejs.org/)
-* [REACT.JS](https://reactjs.org/) (User Interface) using functional components 
+* [React.js](https://reactjs.org/) (user interface) using functional components 
 * [MongoDB](https://www.mongodb.com/de) (NoSQL-data management)
 * [socket.io](https://socket.io/) (chat implementation)
 * [Bootstrap](https://react-bootstrap.github.io/) (modified styling)
