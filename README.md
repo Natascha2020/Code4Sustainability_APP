@@ -71,3 +71,9 @@
 * email forgotten password
 * world map with projects
 * different languages: english and german etc.
+
+## Credits
+
+* [Pexels](https://www.pexels.com/de-de/) (Free photos and graphics)
+* [Pixabay](https://pixabay.com/de/) (Free photos and graphics)
+* [Freepik](https://de.freepik.com/) (Free photos and graphics)
