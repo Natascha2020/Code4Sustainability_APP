@@ -1,0 +1,16 @@
+.linkCredits {
+  color: black;
+}
+
+.linkCredits:link {
+  text-decoration: none;
+}
+
+.linkCredits:visited {
+  text-decoration: none;
+}
+
+.linkCredits:hover {
+  text-decoration: none;
+  color: #008b8b;
+}
