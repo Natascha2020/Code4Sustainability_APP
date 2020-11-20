@@ -1,0 +1,14 @@
+.videoUpload {
+  width: 65%;
+  height: 50px;
+  background-color: darkgray;
+  display: inline-block;
+}
+
+.titleVideoUpload {
+  margin-top: 2em;
+}
+
+.buttonVideo {
+  display: inline-block;
+}

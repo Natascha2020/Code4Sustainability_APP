@@ -24,6 +24,8 @@ const ProjectOverview = (props) => {
       setAllProjectsMemo(data);
       setUpdateProjects(false);
       setProjectsLoaded(true);
+      console.log(data);
+      console.log("data-test");
     } catch (error) {
       let errorMsg = `Error: ${error}`;
       setError(errorMsg);
